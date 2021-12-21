@@ -68,7 +68,7 @@
 //   return `Hey there ${name}`;
 // })('Bob');
 
-// Method - A function that lives in an object
+// Methods - A function that lives in an object
 
 const mark = {
   firstName: 'Mark',
@@ -83,3 +83,8 @@ const mark = {
     return 'HI MARK!!!';
   },
 };
+
+// Callback function
+// Click Callback
+const button = document.querySelector('.clickMe');
+button.addEventListener('click', mark.yellHi);
