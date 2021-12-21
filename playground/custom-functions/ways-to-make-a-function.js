@@ -63,7 +63,17 @@
 // const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
 
 // IIFE - Immediately Invoked Function Expression
-(function (name) {
-  console.log(`Running IFFY ${name}!`);
-  return `Hey there ${name}`;
-})('Bob');
+// (function (name) {
+//   console.log(`Running IFFY ${name}!`);
+//   return `Hey there ${name}`;
+// })('Bob');
+
+// Method - A function that lives in an object
+
+const mark = {
+  firstName: 'Mark',
+  sayHi() {
+    console.log(`Hi Mark`);
+    return `Hi Mark`;
+  },
+};
