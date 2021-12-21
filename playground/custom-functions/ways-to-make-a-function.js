@@ -59,4 +59,38 @@
 //   return baby;
 // }
 
-const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+// Probably not the best use of an arrow function. Less redable than a regular one
+// const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+
+// IIFE - Immediately Invoked Function Expression
+// (function (name) {
+//   console.log(`Running IFFY ${name}!`);
+//   return `Hey there ${name}`;
+// })('Bob');
+
+// Methods - A function that lives in an object
+
+const mark = {
+  firstName: 'Mark',
+  // Shorthand way
+  sayHi() {
+    console.log(this);
+    console.log(`Hi Mark`);
+    return `Hi Mark`;
+  },
+  yellHi: () => {
+    console.log('HI MARK!!!');
+    return 'HI MARK!!!';
+  },
+};
+
+// Callback function
+// Click Callback
+
+// function handleClick() {
+//   console.log('Click!!');
+// }
+// const button = document.querySelector('.clickMe');
+// button.addEventListener('click', handleClick);
+// or
+// button.addEventListener('click', () => console.log('Hi There'));
