@@ -59,4 +59,12 @@
 //   return baby;
 // }
 
-const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+// Probably not the best use of an arrow function. Less redable than a regular one
+// const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
+
+// IIFE
+// Immediately Invoked Function Expression
+(function () {
+  console.log('Running IFFY!');
+  return 'Hey there';
+})();
