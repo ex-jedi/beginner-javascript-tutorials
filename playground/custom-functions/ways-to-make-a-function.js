@@ -86,5 +86,11 @@ const mark = {
 
 // Callback function
 // Click Callback
-const button = document.querySelector('.clickMe');
-button.addEventListener('click', mark.yellHi);
+
+// function handleClick() {
+//   console.log('Click!!');
+// }
+// const button = document.querySelector('.clickMe');
+// button.addEventListener('click', handleClick);
+// or
+// button.addEventListener('click', () => console.log('Hi There'));
