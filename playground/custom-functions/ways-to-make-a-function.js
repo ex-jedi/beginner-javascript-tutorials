@@ -72,8 +72,13 @@
 
 const mark = {
   firstName: 'Mark',
+  // Shorthand way
   sayHi() {
     console.log(`Hi Mark`);
     return `Hi Mark`;
+  },
+  yellHi: () => {
+    console.log('HI MARK!!!');
+    return 'HI MARK!!!';
   },
 };
