@@ -74,6 +74,7 @@ const mark = {
   firstName: 'Mark',
   // Shorthand way
   sayHi() {
+    console.log(this);
     console.log(`Hi Mark`);
     return `Hi Mark`;
   },
