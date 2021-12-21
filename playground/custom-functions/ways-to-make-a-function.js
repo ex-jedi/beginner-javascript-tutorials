@@ -48,3 +48,15 @@
 
 // ...converted to arrow function
 // const add = (a, b = 3) => a + b;
+
+// Returning an object
+// function makeBaby(first, last) {
+//   const baby = {
+//     name: `${first} ${last}`,
+//     age: 0,
+//   };
+
+//   return baby;
+// }
+
+const makeBaby = (first, last) => ({ name: `${first} ${last}`, age: 0 });
