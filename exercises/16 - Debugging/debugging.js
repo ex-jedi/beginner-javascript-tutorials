@@ -4,15 +4,15 @@ const people = [
   { name: 'Snickers', cool: false, country: 'Dog Country' },
 ];
 
-people.forEach((person, index) => {
-  console.group(`${person.name}`);
-  console.log(person.country);
-  console.log(person.cool);
-  console.log('Done');
-  console.groupEnd(`${person.name}`);
-});
+// people.forEach((person, index) => {
+//   console.group(`${person.name}`);
+//   console.log(person.country);
+//   console.log(person.cool);
+//   console.log('Done');
+//   console.groupEnd(`${person.name}`);
+// });
 
-console.table(people);
+// console.table(people);
 
 // Console Methods
 
@@ -46,7 +46,7 @@ function doctorize(name) {
 }
 
 function greet(name) {
-  doesntExist();
+  doesntExist(); // Will call an error!
   return `Hello ${name}`;
 }
 
@@ -54,6 +54,13 @@ function go() {
   const name = doctorize(greet('Wes'));
   console.log(name);
 }
+
+function bootStrap() {
+  go();
+}
+
+// Callstack
+bootStrap();
 
 const button = document.querySelector('.bigger');
 button.addEventListener('click', (e) => {
