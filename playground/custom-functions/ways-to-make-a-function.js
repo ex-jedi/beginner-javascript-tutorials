@@ -2,6 +2,8 @@
 //   return `Dr ${firstName}`;
 // }
 
+const { setTimeout } = require('timers');
+
 // Anonymous function
 // function (firstName) {
 //   return `Dr ${firstName}`;
@@ -94,3 +96,10 @@ const mark = {
 // button.addEventListener('click', handleClick);
 // or
 // button.addEventListener('click', () => console.log('Hi There'));
+
+// Timers
+// setTimeout(mark.yellHi, 1000);
+
+setTimeout(() => {
+  console.log('Done!');
+}, 1000);
