@@ -6,10 +6,9 @@ const people = [
 
 people.forEach((person, index) => {
   console.log(person.name);
-  if (person.name === 'Wes') {
-    console.error('Who dat?');
-  }
 });
+
+console.table(people);
 
 // Console Methods
 
@@ -28,6 +27,7 @@ people.forEach((person, index) => {
 // Some Setup Code
 
 function doctorize(name) {
+  console.count('Running doctorize.');
   return `Dr. ${name}`;
 }
 
