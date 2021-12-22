@@ -12,6 +12,12 @@ const people = [
 //   console.groupEnd(`${person.name}`);
 // });
 
+people.forEach((person, index) => {
+  // Pauses JavaScript to show you a bunch of info.
+  debugger;
+  console.log(person.name);
+});
+
 // console.table(people);
 
 // Console Methods
@@ -60,7 +66,7 @@ function bootStrap() {
 }
 
 // Callstack
-bootStrap();
+// bootStrap();
 
 const button = document.querySelector('.bigger');
 button.addEventListener('click', (e) => {
