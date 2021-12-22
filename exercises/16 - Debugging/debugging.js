@@ -5,7 +5,11 @@ const people = [
 ];
 
 people.forEach((person, index) => {
-  console.log(person.name);
+  console.group(`${person.name}`);
+  console.log(person.country);
+  console.log(person.cool);
+  console.log('Done');
+  console.groupEnd(`${person.name}`);
 });
 
 console.table(people);
@@ -26,8 +30,18 @@ console.table(people);
 
 // Some Setup Code
 
+function doSomeStuff() {
+  console.group('Do stuff');
+  console.log('Hello');
+  console.warn('Uh oh');
+  console.error('Drat!');
+  console.groupEnd('Stuff done!');
+}
+
 function doctorize(name) {
-  console.count('Running doctorize.');
+  // Logs how many times this is run
+  // Can pass variables
+  console.count(`Running doctorize for ${name}.`);
   return `Dr. ${name}`;
 }
 
