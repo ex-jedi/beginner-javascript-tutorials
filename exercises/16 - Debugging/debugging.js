@@ -14,7 +14,7 @@ const people = [
 
 people.forEach((person, index) => {
   // Pauses JavaScript to show you a bunch of info.
-  debugger;
+  // debugger;
   console.log(person.name);
 });
 
