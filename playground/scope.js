@@ -44,6 +44,11 @@ function isCool(name) {
   if (name === 'Mark') {
     cool = true;
   }
-
   return cool;
+}
+
+// The i var variable leaks out. Chaneg to let or const to prevent that
+// eslint-disable-next-line no-var
+for (var i = 0; i < 10; i++) {
+  console.log(i);
 }
