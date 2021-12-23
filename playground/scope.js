@@ -21,7 +21,29 @@ function go() {
   console.log(age);
 }
 
-go();
+// go();
 
-console.log(are);
-console.log(hair);
+// console.log(are);
+// console.log(hair);
+
+// if (1 === 1) {
+//   const cool = true;
+//   // eslint-disable-next-line no-var
+//   var neat = true;
+//   // eslint-disable-next-line prefer-const
+//   let nice = true;
+// }
+
+// console.log(neat);
+// console.log(nice);
+// console.log(cool);
+
+// Function and block scope
+function isCool(name) {
+  let cool;
+  if (name === 'Mark') {
+    cool = true;
+  }
+
+  return cool;
+}
