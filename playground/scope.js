@@ -7,9 +7,9 @@ let age = 100;
 var where = 'here';
 
 // Also available on the window object
-function sayHI() {
-  console.log('Hi');
-}
+// function sayHI() {
+//   console.log('Hi');
+// }
 
 // function go() {
 //   // Function scope. Variables made in here only available in here
@@ -53,13 +53,21 @@ function sayHI() {
 //   console.log(i);
 // }
 
-const dog = 'Dug';
+// const dog = 'Dug';
 
-function logDog() {
-  console.log(dog);
-}
+// function logDog() {
+//   console.log(dog);
+// }
 
-function go() {
-  const dog = 'Rusty';
-  logDog(); // Logs 'Dug'. JavaScript doesn't care about where it's run, but where it's defined. Lexical scoping.
+// function go() {
+//   const dog = 'Rusty';
+//   logDog(); // Logs 'Dug'. JavaScript doesn't care about where it's run, but where it's defined. Lexical scoping.
+// }
+
+// Functions inside a function only available inside it. So yell is only availble inside sayHi
+function sayHI(name) {
+  function yell() {
+    console.log(name.toUpperCase());
+  }
+  yell();
 }
