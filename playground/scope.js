@@ -11,15 +11,15 @@ function sayHI() {
   console.log('Hi');
 }
 
-function go() {
-  // Function scope. Variables made in here only available in here
-  const hair = 'Black';
-  console.log(hair);
-  // Global variables available here via scope lookup
-  // Function look inside itself for variable first. If it's not here it looks outside.
-  const age = 200;
-  console.log(age);
-}
+// function go() {
+//   // Function scope. Variables made in here only available in here
+//   const hair = 'Black';
+//   console.log(hair);
+//   // Global variables available here via scope lookup
+//   // Function look inside itself for variable first. If it's not here it looks outside.
+//   const age = 200;
+//   console.log(age);
+// }
 
 // go();
 
@@ -39,16 +39,27 @@ function go() {
 // console.log(cool);
 
 // Function and block scope
-function isCool(name) {
-  let cool;
-  if (name === 'Mark') {
-    cool = true;
-  }
-  return cool;
-}
+// function isCool(name) {
+//   let cool;
+//   if (name === 'Mark') {
+//     cool = true;
+//   }
+//   return cool;
+// }
 
 // The i var variable leaks out. Chaneg to let or const to prevent that
 // eslint-disable-next-line no-var
-for (var i = 0; i < 10; i++) {
-  console.log(i);
+// for (var i = 0; i < 10; i++) {
+//   console.log(i);
+// }
+
+const dog = 'Dug';
+
+function logDog() {
+  console.log(dog);
+}
+
+function go() {
+  const dog = 'Rusty';
+  logDog(); // Logs 'Dug'. JavaScript doesn't care about where it's run, but where it's defined. Lexical scoping.
 }
