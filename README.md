@@ -53,7 +53,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   let score = 0;
   function win() {
     score++;
-return /`Your ${gameName} score is ${score}/`;
+return \`Your ${gameName} score is ${score}\`;
   }
   return win;
 };`
