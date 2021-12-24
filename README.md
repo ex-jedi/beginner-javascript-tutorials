@@ -46,7 +46,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 ## Closures
 
-- Can still access outer variables inside of the outer function scope, inside of our inner even after the createGame() function has been closed over.
+- A function inside a function can still access the variables of the outer function scope  inside of our inner even after the createGame() function has been closed over.
 - Useful for making 'Private variables'.
 
 `function createGame(gameName) {
