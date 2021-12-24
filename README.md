@@ -49,19 +49,22 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 - The win function inside the createGame function can still access the score variable of the outer function scope even after the createGame() function has been 'closed over'.
 - Useful for making 'private variables'.
 
-`function createGame(gameName) {
+```
+function createGame(gameName) {
   let score = 0;
   function win() {
     score++;
-return /`Your ${gameName} score is ${score}/`;
+return `Your ${gameName} score is ${score}`;
   }
   return win;
-};`
+};
 
-`const footballGame = createGame('Football');`
-`const tennisGame = createGame('Tennis');`
-`// Attaches win function to the variables. Outer variable score is available to the inner win function. So you.`
 
-`footballGame();`
-`tennisGame();`
-`Both function calls will have access to a private score variable.`
+const footballGame = createGame('Football');
+const tennisGame = createGame('Tennis');
+// Attaches win function to the variables. Outer variable score is available to the inner win function. So you.
+
+footballGame();
+tennisGame();
+\\ Both function calls will have access to a private score variable.
+```
