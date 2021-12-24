@@ -1,3 +1,5 @@
+// https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375524347
+
 function outer() {
   const outerVar = 'I an the outer Var!';
 
@@ -23,7 +25,27 @@ function createGreeting(greeting = '') {
 
 const hey = createGreeting('hey');
 const howdy = createGreeting('howdy');
+
+// Inner function can still access variables from the parent scope even when the parent function has 'closed over'.
 console.log(hey('Kate'));
 console.log(howdy('Kate'));
 console.log(hey('Mark'));
 console.log(howdy('Mark'));
+
+// Private variables
+
+function createGame(gameName) {
+  let score = 0;
+  function win() {
+    score++;
+    return `Your ${gameName} score is ${score}`;
+  }
+  return win;
+}
+
+const footballGame = createGame('Football');
+const tennisGame = createGame('Tennis');
+// Above attaches `win` function to the variables. Outer variable `score` is available to the inner `win function`. So you
+
+footballGame();
+tennisGame();
