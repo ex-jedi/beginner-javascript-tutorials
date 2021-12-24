@@ -43,3 +43,5 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
   - Variable declarations are hoisted, but values aren't.
     <https://wesbos.com/javascript/03-the-tricky-bits/hoisting/#variable-hoisting>
+
+## Closures
