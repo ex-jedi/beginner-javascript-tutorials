@@ -56,11 +56,12 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 return`Your ${gameName} score is ${score}`;
   }
   return win;
-}`
+};`
 
 `const footballGame = createGame('Football');`
 `const tennisGame = createGame('Tennis');`
-`// Above attaches`win` function to the variables. Outer variable `score` is available to the inner `win function`. So you.`
+`// Attaches win function to the variables. Outer variable score is available to the inner win function. So you.`
 
 `footballGame();`
 `tennisGame();`
+`Both function calls will have access to a private score variable.`
