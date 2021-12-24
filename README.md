@@ -62,7 +62,7 @@ return `Your ${gameName} score is ${score}`;
 
 const footballGame = createGame('Football');
 const tennisGame = createGame('Tennis');
-// Attaches win function to the variables. Outer variable score is available to the inner win function. So you.
+// Attaches win function to the variables. Outer variable score is available to the inner win function.
 
 footballGame();
 tennisGame();
