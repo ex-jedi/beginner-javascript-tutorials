@@ -45,3 +45,22 @@ Please feel free to add your blog post, videos, notes, or anything else related 
     <https://wesbos.com/javascript/03-the-tricky-bits/hoisting/#variable-hoisting>
 
 ## Closures
+
+- Can still access outer variables inside of the outer function scope, inside of our inner even after the createGame() function has been closed over.
+- Useful for making 'Private variables'.
+
+`function createGame(gameName) {
+  let score = 0;
+  function win() {
+    score++;
+return`Your ${gameName} score is ${score}`;
+  }
+  return win;
+}`
+
+`const footballGame = createGame('Football');`
+`const tennisGame = createGame('Tennis');`
+`// Above attaches`win` function to the variables. Outer variable `score` is available to the inner `win function`. So you.`
+
+`footballGame();`
+`tennisGame();`
