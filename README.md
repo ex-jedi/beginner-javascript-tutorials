@@ -33,15 +33,13 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 ## Variables
 
-- `var` variables are not block scoped, they are function scoped.
-
 - `const` and `let` variables are block scoped
-
+- `var` variables are not block scoped, they are function scoped.
 - `const` and `let` variables are not available on the `window` object but `var` variables are. For example...
 
-  - `const myConst = true; window.myConst undefined`
-  - `let myLet = true; window.myLet undefined`
-  - `var myVar = true; window.myVar true`
+  - `const myConst = true; window.myConst; undefined`
+  - `let myLet = true; window.myLet; undefined`
+  - `var myVar = true; window.myVar; true`
 
   - Variable declarations are hoisted, but values aren't.
     <https://wesbos.com/javascript/03-the-tricky-bits/hoisting/#variable-hoisting>
