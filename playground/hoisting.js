@@ -22,5 +22,5 @@ var age = 10;
 // Functions attached to variable can't be run before declaration
 go();
 const go = function () {
-  console.log('Go foe it');
+  console.log('Go for it');
 };
