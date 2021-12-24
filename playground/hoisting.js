@@ -15,12 +15,17 @@ function add(a, b) {
 
 // Variable declarations hoisted, but value are not.
 console.log(age);
-console.log(cool);
+// console.log(cool);
 // eslint-disable-next-line no-var
 var age = 10;
 
 // Functions attached to variable can't be run before declaration
-go();
+// go();
 const go = function () {
   console.log('Go for it');
 };
+
+/* eslint-disable */
+const myConst = true;
+let myLet = true;
+var myVar = true;
