@@ -14,7 +14,10 @@
     <div class="items">
       <p>Hi I'm a item</p>
       <div>
-        <h2>Sub Div</h2>
+        <h2>
+          Sub Div
+          <span>I am hidden</span>
+        </h2>
         <p>Hi I'm a item</p>
       </div>
       <img src="https://source.unsplash.com/random/300x300" />
@@ -23,8 +26,14 @@
     </div>
     <div class="items items2">
       <p>Hi I'm a item</p>
+      <p class="pizza">This is how many pizzas i ate 🍕</p>
       <img src="https://source.unsplash.com/random/300x300" />
     </div>
+    <style>
+      h2 span {
+        display: none;
+      }
+    </style>
     <script src="./the-dom.js"></script>
   </body>
 </html>
