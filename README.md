@@ -70,3 +70,10 @@ footballGame();
 tennisGame();
 \\ Both function calls will have access to a private score variable.
 ```
+
+## The DOM
+
+- Intro
+  <https://wesbos.com/javascript/04-the-dom/introduction-to-the-dom/#the-document-object-introduction>
+
+- querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
