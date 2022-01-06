@@ -20,6 +20,11 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 <https://wesbos.com/javascript>
 
+## Debugging
+
+- Console <https://wesbos.com/javascript/02-functions/debugging-tools/#console-debugging>
+- Breakpoints <https://wesbos.com/javascript/02-functions/debugging-tools/#breakpoints>
+
 ## Functions
 
 - Arrow functions are anonymous so they need to be attached to a variable.
@@ -77,3 +82,9 @@ tennisGame();
   <https://wesbos.com/javascript/04-the-dom/introduction-to-the-dom/#the-document-object-introduction>
 
 - querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
+
+# Adding Text
+
+- textContent shows hidden nodes and elements. innerText is aware of styling and shows only actual text. <https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#textcontent-and-innertext>
+
+- insertAdjacentText, best way to add text to elements. <https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#insertadjacenttext-and-insertadjacentelement>
