@@ -21,3 +21,4 @@ console.log(pizzaList.textContent);
 // pizzaList.textContent = `${pizzaList.textContent} 🍕`;
 
 pizzaList.insertAdjacentText('beforeend', '🍕');
+pizzaList.insertAdjacentText('afterbegin', '🍕');
