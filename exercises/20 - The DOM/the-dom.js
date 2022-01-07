@@ -24,3 +24,5 @@
 // pizzaList.insertAdjacentText('afterbegin', '🍕');
 
 // Classes
+const pic = document.querySelector('.nice');
+console.log(pic.classList);
