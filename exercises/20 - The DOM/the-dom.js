@@ -34,3 +34,9 @@ function toggleRound() {
 }
 
 pic.addEventListener('click', toggleRound);
+
+function isItRound() {
+  console.log(pic.classList.contains('round'));
+}
+
+pic.addEventListener('click', isItRound);
