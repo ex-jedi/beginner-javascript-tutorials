@@ -25,4 +25,7 @@
 
 // Classes
 const pic = document.querySelector('.nice');
+pic.classList.add('open');
+pic.classList.remove('cool');
+pic.classList.toggle('round');
 console.log(pic.classList);
