@@ -40,3 +40,22 @@ function isItRound() {
 }
 
 pic.addEventListener('click', isItRound);
+
+// Attributes
+pic.alt = 'A nice pic'; // setter
+console.log(pic.alt); // Getter
+console.log(pic.naturalWidth); // Returns 0... because you have to wait for the pic to load...
+// like so
+pic.addEventListener('load', () => console.log(pic.naturalWidth));
+// pic.width = 200;
+// Explicit getters ans setters
+console.log(pic.getAttribute('alt'));
+// Below works also for non standard attributes
+pic.setAttribute('alt', 'A very nice pic');
+console.log(pic.getAttribute('alt'));
+
+// Custom data attributes
+const custom = document.querySelector('.custom');
+console.log(custom);
+console.log(custom.dataset);
+custom.addEventListener('click', () => alert(`Hello ${custom.dataset.name}. You look ${custom.dataset.mood}.`));
