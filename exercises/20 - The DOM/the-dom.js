@@ -40,3 +40,11 @@ function isItRound() {
 }
 
 pic.addEventListener('click', isItRound);
+
+// Attributes
+pic.alt = 'A nice image'; // setter
+console.log(pic.alt); // Getter
+console.log(pic.naturalWidth); // Returns 0... because you have to wait for the pic to load...
+// like so
+pic.addEventListener('load', () => console.log(pic.naturalWidth));
+// pic.width = 200;
