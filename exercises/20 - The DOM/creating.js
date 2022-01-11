@@ -26,8 +26,12 @@ myDiv.insertAdjacentElement('afterbegin', myHeading);
 
 // Making a list
 const myList = document.createElement('ul');
-const li = document.createElement('li');
-li.textContent = 'Three';
-myList.appendChild(li);
+const liThree = document.createElement('li');
+liThree.textContent = 'Three';
+myList.appendChild(liThree);
 
 document.body.insertAdjacentElement('afterbegin', myList);
+
+const liOne = liThree.cloneNode();
+liOne.textContent = 'One';
+myList.insertAdjacentElement('afterBegin', liOne);
