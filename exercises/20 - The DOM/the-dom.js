@@ -46,7 +46,7 @@ pic.alt = 'A nice pic'; // setter
 console.log(pic.alt); // Getter
 console.log(pic.naturalWidth); // Returns 0... because you have to wait for the pic to load...
 // like so
-pic.addEventListener('load', () => console.log(pic.naturalWidth));
+pic.addEventListener('load', () => console.log('Natural width - ', pic.naturalWidth));
 // pic.width = 200;
 // Explicit getters ans setters
 console.log(pic.getAttribute('alt'));
