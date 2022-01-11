@@ -93,3 +93,12 @@ tennisGame();
 
 - Data attributes are accessed with `.dataset`.
   <https://wesbos.com/javascript/04-the-dom/built-in-and-custom-data-attributes/#data-attributes>
+
+# Creating & Adding HTML
+
+- Create HTML with `document.createElement()`.
+  <https://wesbos.com/javascript/04-the-dom/creating-html>
+  <https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement>
+- Several ways to add elements to the page. <https://wesbos.com/javascript/04-the-dom/creating-html/#append-method>
+  - Add elements to page with `appendChild()`. <https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild>
+  - Or use newer `.append()`. <https://developer.mozilla.org/en-US/docs/Web/API/Element/append>
