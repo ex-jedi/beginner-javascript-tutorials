@@ -87,4 +87,9 @@ tennisGame();
 
 - textContent shows hidden nodes and elements. innerText is aware of styling and shows only actual text. <https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#textcontent-and-innertext>
 
-- insertAdjacentText, best way to add text to elements. <https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#insertadjacenttext-and-insertadjacentelement>
+- insertAdjacentText, best way to add text to elements. <<https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#insertadjacenttext-and-insertadjacentelemen>
+
+# Data Attributes
+
+- Data attributes are accessed with `.dataset`.
+  <https://wesbos.com/javascript/04-the-dom/built-in-and-custom-data-attributes/#data-attributes>
