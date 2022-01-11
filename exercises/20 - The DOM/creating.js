@@ -23,3 +23,11 @@ document.body.appendChild(myDiv);
 const myHeading = document.createElement('h2');
 myHeading.textContent = 'I Am A heading';
 myDiv.insertAdjacentElement('afterbegin', myHeading);
+
+// Making a list
+const myList = document.createElement('ul');
+const li = document.createElement('li');
+li.textContent = 'Three';
+myList.appendChild(li);
+
+document.body.insertAdjacentElement('afterbegin', myList);
