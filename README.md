@@ -102,3 +102,5 @@ tennisGame();
 - Several ways to add elements to the page. <https://wesbos.com/javascript/04-the-dom/creating-html/#append-method>
   - Add elements to page with `appendChild()`. <https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild>
   - Or use newer `.append()`. <https://developer.mozilla.org/en-US/docs/Web/API/Element/append>
+- Add elements in specific places with `insertAdjacentElement()`. <https://wesbos.com/javascript/04-the-dom/creating-html/#insertadjacentelement-method>
+  - <https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML>

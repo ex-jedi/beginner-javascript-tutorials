@@ -18,3 +18,8 @@ myDiv.appendChild(myParagraph);
 myDiv.appendChild(myImage);
 // appendChild() causes a reflow each time you use it. So better to add get everything ready before you add it to the page
 document.body.appendChild(myDiv);
+
+// Adding stuff in specific places with insertAdjacentElement()
+const myHeading = document.createElement('h2');
+myHeading.textContent = 'I Am A heading';
+myDiv.insertAdjacentElement('afterbegin', myHeading);
