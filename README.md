@@ -131,3 +131,15 @@ const myHTML = `
 ```
 
 - HTML added this way is still a string, it doesn't really create elements.
+
+```javascript
+console.log(typeof myHTML); // Returns 'string'
+myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
+```
+
+- You have to pull it out then do stuff with it.
+
+```javascript
+const itemImage = document.querySelector('.wrapper img');
+itemImage.classList.add('special');
+```
