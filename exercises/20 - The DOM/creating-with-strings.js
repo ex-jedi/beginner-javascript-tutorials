@@ -12,4 +12,10 @@ const myHTML = `
 items.innerHTML = myHTML;
 
 // Caution! HTML added this way is still a string, it doesn't really create elements.
-console.log(typeof myHTML);
+// console.log(typeof myHTML);
+// myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
+
+// You have to pull it out then do stuff with it.
+const itemImage = document.querySelector('.wrapper img');
+itemImage.classList.add('special');
+console.log(itemImage);
