@@ -2,7 +2,7 @@
 const items = document.querySelector('.items1');
 const width = 500;
 const src = `https://picsum.photos/${width}`;
-const desc = `A Pic of Something <h1>Sup</h1><style>* {display: none;}</style>`;
+const desc = `A Pic of Something <img onload="alert('Hacked!')" src="https://picsum.photos/50">`;
 const myHTML = `
 <div class="wrapper">
   <h1>Hello ${desc}</h1>

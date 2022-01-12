@@ -121,7 +121,7 @@ tennisGame();
 ```javascript
 const width = 500;
 const src = `https://picsum.photos/${width}`;
-const desc = `A Pic of Something <h1>Sup!!</h1> <style>* {color: red;}</style>`;
+const desc = 'A Pic of Something';
 const myHTML = `
 <div class="wrapper">
   <h1>Hello ${desc}</h1>
@@ -157,4 +157,4 @@ console.log(myFragment);
 document.body.append(myFragment);
 ```
 
-- Security concerns
+- **Security concerns. Possible for users to add executabe code to the page.**
