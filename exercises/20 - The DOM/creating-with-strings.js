@@ -1,5 +1,6 @@
 const items = document.querySelector('.items1');
-const src = 'https://picsum.photos/400"';
+const width = 500;
+const src = `https://picsum.photos/${width}`;
 const desc = 'A Pic of Something';
 const myHTML = `
 <div class="wrapper">
