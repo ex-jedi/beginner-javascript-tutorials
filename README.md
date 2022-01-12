@@ -157,4 +157,14 @@ console.log(myFragment);
 document.body.append(myFragment);
 ```
 
-- **Security concerns. Possible for users to add executabe code to the page.**
+- **Security Concerns - XSS (Cross Site Scripting)**
+
+  - Cross Site scripting is when a third party injects a script tag through a security hole.
+
+  - Say the description above was a user input. They could add executabe code to the page
+
+  ```javascript
+  const desc = `A Pic of Something <img onload="alert('Hacked!')" src="https://picsum.photos/50">`;
+  ```
+
+  - Above is a pretty harmless examples, but it can leave sites open to serious problems. But it <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
