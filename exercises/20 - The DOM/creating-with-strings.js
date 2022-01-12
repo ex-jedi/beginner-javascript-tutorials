@@ -9,13 +9,10 @@ const myHTML = `
   <img src="${src}" alt="${desc}" />
 </div>
 `;
-items.innerHTML = myHTML;
 
-// Caution! HTML added this way is still a string, it doesn't really create elements.
-// console.log(typeof myHTML);
-// myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
-
-// You have to pull it out then do stuff with it.
-const itemImage = document.querySelector('.wrapper img');
-itemImage.classList.add('special');
-console.log(itemImage);
+// Turn a string into a DOM element
+const myFragment = document.createRange().createContextualFragment(myHTML);
+console.log(myFragment);
+// You can access them like normal DOm elements
+console.log(myFragment.querySelector('img'));
+document.body.appendChild(myFragment);
