@@ -143,3 +143,16 @@ myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
 const itemImage = document.querySelector('.wrapper img');
 itemImage.classList.add('special');
 ```
+
+- Strings can be converted into a DOM element with .createRange().
+
+```javascript
+const myFragment = document.createRange().createContextualFragment(myHTML);
+console.log(myFragment);
+```
+
+- Fragment can then be added to the DOM with appendChild(), append() or insertAdjacentElement() etc.
+
+```javascript
+document.body.append(myFragment);
+```

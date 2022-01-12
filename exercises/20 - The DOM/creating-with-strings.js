@@ -15,4 +15,4 @@ const myFragment = document.createRange().createContextualFragment(myHTML);
 console.log(myFragment);
 // You can access them like normal DOm elements
 console.log(myFragment.querySelector('img'));
-document.body.appendChild(myFragment);
+document.body.append(myFragment);
