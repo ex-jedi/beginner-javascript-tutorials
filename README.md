@@ -131,3 +131,40 @@ const myHTML = `
 ```
 
 - HTML added this way is still a string, it doesn't really create elements.
+
+```javascript
+console.log(typeof myHTML); // Returns 'string'
+myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
+```
+
+- You have to pull it out then do stuff with it.
+
+```javascript
+const itemImage = document.querySelector('.wrapper img');
+itemImage.classList.add('special');
+```
+
+- Strings can be converted into a DOM element with .createRange().
+
+```javascript
+const myFragment = document.createRange().createContextualFragment(myHTML);
+console.log(myFragment);
+```
+
+- Fragment can then be added to the DOM with appendChild(), append() or insertAdjacentElement() etc.
+
+```javascript
+document.body.append(myFragment);
+```
+
+- **Security Concerns - XSS (Cross Site Scripting)**
+
+  - Cross Site scripting is when a third party injects a script tag through a security hole.
+
+  - Say the description above was a user input. They could add executabe code to the page
+
+  ```javascript
+  const desc = `A Pic of Something <img onload="alert('Hacked!')" src="https://picsum.photos/50">`;
+  ```
+
+  - Above is a pretty harmless examples, but it can leave sites open to serious problems. But it <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
