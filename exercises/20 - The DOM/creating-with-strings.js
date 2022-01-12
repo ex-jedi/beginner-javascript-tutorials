@@ -1,3 +1,4 @@
+// Creating HTML with strings, backtics and interpolation
 const items = document.querySelector('.items1');
 const width = 500;
 const src = `https://picsum.photos/${width}`;
@@ -8,6 +9,7 @@ const myHTML = `
   <img src="${src}" alt="${desc}" />
 </div>
 `;
-
 items.innerHTML = myHTML;
-console.log(items.innerHTML);
+
+// Caution! HTML added this way is still a string, it doesn't really create elements.
+console.log(typeof myHTML);
