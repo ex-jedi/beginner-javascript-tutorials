@@ -104,3 +104,30 @@ tennisGame();
   - Or use newer `.append()`. <https://developer.mozilla.org/en-US/docs/Web/API/Element/append>
 - Add elements in specific places with `insertAdjacentElement()`. <https://wesbos.com/javascript/04-the-dom/creating-html/#insertadjacentelement-method>
   - <https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML>
+
+# Creating HTML with Strings
+
+- Backticks can be used to create HTML with strings. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss>
+
+  ```javascript
+  const myHTML =`
+    <div class="wrapper">
+      <h1>Hello there</h1>
+    </div>
+  ```
+
+- Backticks, variables and interpolation can be used for templating HTML.
+
+```javascript
+const width = 500;
+const src = `https://picsum.photos/${width}`;
+const desc = 'A Pic of Something';
+const myHTML = `
+<div class="wrapper">
+  <h1>Hello ${desc}</h1>
+  <img src="${src}" alt="${desc}" />
+</div>
+`;
+```
+
+- HTML added this way is still a string, it doesn't really create elements.
