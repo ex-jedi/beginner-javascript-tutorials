@@ -56,16 +56,16 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 - The win function inside the createGame function can still access the score variable of the outer function scope even after the createGame() function has been 'closed over'.
 - Useful for making 'private variables'.
 
-```javascript
-function createGame(gameName) {
-  let score = 0;
-  function win() {
-    score++;
-    return `Your ${gameName} score is ${score}`;
+  ```javascript
+  function createGame(gameName) {
+    let score = 0;
+    function win() {
+      score++;
+      return `Your ${gameName} score is ${score}`;
+    }
+    return win;
   }
-  return win;
-};
-
+  ```
 
 const footballGame = createGame('Football');
 const tennisGame = createGame('Tennis');
@@ -74,7 +74,8 @@ const tennisGame = createGame('Tennis');
 footballGame();
 tennisGame();
 \\ Both function calls will have access to a private score variable.
-```
+
+````
 
 ## The DOM
 
@@ -114,48 +115,48 @@ tennisGame();
     <div class="wrapper">
       <h1>Hello there</h1>
     </div>
-  ```
+````
 
 - Backticks, variables and interpolation can be used for templating HTML.
 
-```javascript
-const width = 500;
-const src = `https://picsum.photos/${width}`;
-const desc = 'A Pic of Something';
-const myHTML = `
-<div class="wrapper">
-  <h1>Hello ${desc}</h1>
-  <img src="${src}" alt="${desc}" />
-</div>
-`;
-```
+  ```javascript
+  const width = 500;
+  const src = `https://picsum.photos/${width}`;
+  const desc = 'A Pic of Something';
+  const myHTML = `
+  <div class="wrapper">
+    <h1>Hello ${desc}</h1>
+    <img src="${src}" alt="${desc}" />
+  </div>
+  `;
+  ```
 
 - HTML added this way is still a string, it doesn't really create elements.
 
-```javascript
-console.log(typeof myHTML); // Returns 'string'
-myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
-```
+  ```javascript
+  console.log(typeof myHTML); // Returns 'string'
+  myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
+  ```
 
 - You have to pull it out then do stuff with it.
 
-```javascript
-const itemImage = document.querySelector('.wrapper img');
-itemImage.classList.add('special');
-```
+  ```javascript
+  const itemImage = document.querySelector('.wrapper img');
+  itemImage.classList.add('special');
+  ```
 
 - Strings can be converted into a DOM element with .createRange().
 
-```javascript
-const myFragment = document.createRange().createContextualFragment(myHTML);
-console.log(myFragment);
-```
+  ```javascript
+  const myFragment = document.createRange().createContextualFragment(myHTML);
+  console.log(myFragment);
+  ```
 
 - Fragment can then be added to the DOM with appendChild(), append() or insertAdjacentElement() etc.
 
-```javascript
-document.body.append(myFragment);
-```
+  ```javascript
+  document.body.append(myFragment);
+  ```
 
 - **Security Concerns - XSS (Cross Site Scripting)**
 
@@ -176,23 +177,23 @@ document.body.append(myFragment);
 - `$0` can be used in the console to get the last element selected in the elements tab.
 - These will include nodes.
 
-```javascript
-el.childNodes;
-el.firstChild;
-el.nextSibling;
-el.parentNode;
-el.parentElement;
-```
+  ```javascript
+  el.childNodes;
+  el.firstChild;
+  el.nextSibling;
+  el.parentNode;
+  el.parentElement;
+  ```
 
 - These will ignore nodes
 
-```javascript
-el.firstElementChild;
-el.lastElementChild;
-el.previousElementSibling;
-el.nextElementSibling;
-el.children;
-```
+  ```javascript
+  el.firstElementChild;
+  el.lastElementChild;
+  el.previousElementSibling;
+  el.nextElementSibling;
+  el.children;
+  ```
 
 - Best to double check as it's not obvious from the names which ones include or ignore nodes
 
@@ -203,10 +204,10 @@ el.children;
 
 - Elements may still be accessed after removal.
 
-```javascript
-const para = document.createElement('p');
-para.textContent = 'Soon I will be gone!';
-document.body.append(para);
-para.remove();
-console.log(para); // Logs <p>Soon I will be gone!</p>
-```
+  ```javascript
+  const para = document.createElement('p');
+  para.textContent = 'Soon I will be gone!';
+  document.body.append(para);
+  para.remove();
+  console.log(para); // Logs <p>Soon I will be gone!</p>
+  ```
