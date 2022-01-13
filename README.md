@@ -170,3 +170,16 @@ document.body.append(myFragment);
   - Above is a pretty harmless examples, but it can leave sites open to serious attacks. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
 
 # Traversing the DOM & Removing Nodes
+
+- Traversing the Dom to find parents, children, sibling etc. nodes and elements. <<https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#properties-to-work-with-nodes-and-eleme>
+
+```javascript
+const paragraph = document.querySelector('.paragraph');
+console.log(paragraph.children);
+console.log(paragraph.firstElementChild);
+console.log(paragraph.lastElementChild);
+console.log(paragraph.previousElementSibling);
+console.log(paragraph.nextElementSibling);
+console.log(paragraph.parentElement);
+console.log(paragraph.childNodes);
+```
