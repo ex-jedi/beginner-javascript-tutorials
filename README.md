@@ -168,3 +168,45 @@ document.body.append(myFragment);
   ```
 
   - Above is a pretty harmless examples, but it can leave sites open to serious attacks. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
+
+# Traversing the DOM
+
+- Traversing the DOM to find parents, children, sibling etc. nodes and elements. <<https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#properties-to-work-with-nodes-and-eleme>
+
+- `$0` can be used in the console to get the last element selected in the elements tab.
+- These will include nodes.
+
+```javascript
+el.childNodes;
+el.firstChild;
+el.nextSibling;
+el.parentNode;
+el.parentElement;
+```
+
+- These will ignore nodes
+
+```javascript
+el.firstElementChild;
+el.lastElementChild;
+el.previousElementSibling;
+el.nextElementSibling;
+el.children;
+```
+
+- Best to double check as it's not obvious from the names which ones include or ignore nodes
+
+# Removing Elements
+
+- Use `el.remove()`.
+- <https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#removing-elements>
+
+- Elements may still be accessed after removal.
+
+```javascript
+const para = document.createElement('p');
+para.textContent = 'Soon I will be gone!';
+document.body.append(para);
+para.remove();
+console.log(para); // Logs <p>Soon I will be gone!</p>
+```
