@@ -171,15 +171,27 @@ document.body.append(myFragment);
 
 # Traversing the DOM & Removing Nodes
 
-- Traversing the Dom to find parents, children, sibling etc. nodes and elements. <<https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#properties-to-work-with-nodes-and-eleme>
+- Traversing the DOM to find parents, children, sibling etc. nodes and elements. <<https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#properties-to-work-with-nodes-and-eleme>
+
+- `$0` can be used in the console to get the last element selected in the elements tab.
+- These will include nodes.
 
 ```javascript
-const paragraph = document.querySelector('.paragraph');
-console.log(paragraph.children);
-console.log(paragraph.firstElementChild);
-console.log(paragraph.lastElementChild);
-console.log(paragraph.previousElementSibling);
-console.log(paragraph.nextElementSibling);
-console.log(paragraph.parentElement);
-console.log(paragraph.childNodes);
+el.childNodes;
+el.firstChild;
+el.nextSibling;
+el.parentNode;
+el.parentElement;
 ```
+
+- These will ignore nodes
+
+```javascript
+el.firstElementChild;
+el.lastElementChild;
+el.previousElementSibling;
+el.nextElementSibling;
+el.children;
+```
+
+- Best to double check as it's not obvious from the names which ones include or ignore nodes
