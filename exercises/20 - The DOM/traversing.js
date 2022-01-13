@@ -1,1 +1,2 @@
-console.log('Hi there');
+const paragraph = document.querySelector('.paragraph');
+console.log(paragraph.childNodes);

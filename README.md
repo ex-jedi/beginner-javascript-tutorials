@@ -168,3 +168,5 @@ document.body.append(myFragment);
   ```
 
   - Above is a pretty harmless examples, but it can leave sites open to serious attacks. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
+
+# Traversing the DOM & Removing Nodes
