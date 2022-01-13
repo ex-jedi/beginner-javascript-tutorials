@@ -199,8 +199,7 @@ tennisGame();
 
 # Removing Elements
 
-- Use `el.remove()`.
-- <https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#removing-elements>
+- Use `el.remove()`. <https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#removing-elements>
 
 - Elements may still be accessed after removal.
 
