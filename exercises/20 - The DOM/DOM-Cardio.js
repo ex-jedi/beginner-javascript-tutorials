@@ -42,9 +42,17 @@ myImg.alt = 'Cute puppy';
 // Append that image to the wrapper
 myDiv.append(myImg);
 
-console.log(myImg);
 // with HTML string, make a div, with two paragraphs inside of it
+const myHTML = `
+<div>
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+</div>
+`;
+
 // put this div before the unordered list from above
+const ulElement = myDiv.querySelector('ul');
+ulElement.insertAdjacentHTML('beforebegin', myHTML);
 
 // add a class to the second paragraph called warning
 // remove the first paragraph
