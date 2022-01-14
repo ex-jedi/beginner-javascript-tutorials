@@ -26,13 +26,23 @@ myDiv.append(myList);
 
 // create an image
 const myImg = document.createElement('img');
-console.log(myDiv);
-// set the source to an image
-// set the width to 250
-// add a class of cute
-// add an alt of Cute Puppy
-// Append that image to the wrapper
 
+// set the source to an image
+myImg.src = 'https://picsum.photos/id/237/500';
+
+// set the width to 250
+myImg.width = 250;
+
+// add a class of cute
+myImg.classList.add('cute');
+
+// add an alt of Cute Puppy
+myImg.alt = 'Cute puppy';
+
+// Append that image to the wrapper
+myDiv.append(myImg);
+
+console.log(myImg);
 // with HTML string, make a div, with two paragraphs inside of it
 // put this div before the unordered list from above
 
