@@ -1,24 +1,58 @@
 // Make a div
+const myDiv = document.createElement('div');
 
 // add a class of wrapper to it
+myDiv.className = 'wrapper';
 
 // put it into the body
+document.body.append(myDiv);
 
 // make an unordered list
+const myList = document.createElement('ul');
 
 // add three list items with the words "one, two, three" in them
+const liOne = document.createElement('li');
+liOne.textContent = 'One';
+myList.append(liOne);
+const liTwo = document.createElement('li');
+liTwo.textContent = 'Two';
+myList.append(liTwo);
+const liThree = document.createElement('li');
+liThree.textContent = 'Three';
+myList.append(liThree);
+
 // put that list into the above wrapper
+myDiv.append(myList);
 
 // create an image
+const myImg = document.createElement('img');
 
 // set the source to an image
+myImg.src = 'https://picsum.photos/id/237/500';
+
 // set the width to 250
+myImg.width = 250;
+
 // add a class of cute
+myImg.classList.add('cute');
+
 // add an alt of Cute Puppy
+myImg.alt = 'Cute puppy';
+
 // Append that image to the wrapper
+myDiv.append(myImg);
 
 // with HTML string, make a div, with two paragraphs inside of it
+const myHTML = `
+<div>
+  <p>First paragraph</p>
+  <p>Second paragraph</p>
+</div>
+`;
+
 // put this div before the unordered list from above
+const ulElement = myDiv.querySelector('ul');
+ulElement.insertAdjacentHTML('beforebegin', myHTML);
 
 // add a class to the second paragraph called warning
 // remove the first paragraph
