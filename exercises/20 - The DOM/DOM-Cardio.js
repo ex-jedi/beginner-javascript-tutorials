@@ -6,13 +6,27 @@ myDiv.className = 'wrapper';
 
 // put it into the body
 document.body.append(myDiv);
+
 // make an unordered list
+const myList = document.createElement('ul');
 
 // add three list items with the words "one, two, three" in them
+const liOne = document.createElement('li');
+liOne.textContent = 'One';
+myList.append(liOne);
+const liTwo = document.createElement('li');
+liTwo.textContent = 'Two';
+myList.append(liTwo);
+const liThree = document.createElement('li');
+liThree.textContent = 'Three';
+myList.append(liThree);
+
 // put that list into the above wrapper
+myDiv.append(myList);
 
 // create an image
-
+const myImg = document.createElement('img');
+console.log(myDiv);
 // set the source to an image
 // set the width to 250
 // add a class of cute
