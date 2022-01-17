@@ -44,7 +44,7 @@ myDiv.append(myImg);
 
 // with HTML string, make a div, with two paragraphs inside of it
 const myHTML = `
-<div>
+<div class="added-html">
   <p>First paragraph</p>
   <p>Second paragraph</p>
 </div>
@@ -55,7 +55,12 @@ const ulElement = myDiv.querySelector('ul');
 ulElement.insertAdjacentHTML('beforebegin', myHTML);
 
 // add a class to the second paragraph called warning
+const addedDiv = myDiv.querySelector('div');
+addedDiv.lastElementChild.classList.add('warning');
+console.log(addedDiv.lastElementChild.classList);
+
 // remove the first paragraph
+addedDiv.firstElementChild.remove();
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
 
