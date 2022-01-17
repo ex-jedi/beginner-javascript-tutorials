@@ -32,6 +32,7 @@ myImg.src = 'https://picsum.photos/id/237/500';
 
 // set the width to 250
 myImg.width = 250;
+myImg.height = 250;
 
 // add a class of cute
 myImg.classList.add('cute');
@@ -57,7 +58,6 @@ ulElement.insertAdjacentHTML('beforebegin', myHTML);
 // add a class to the second paragraph called warning
 const addedDiv = myDiv.querySelector('div');
 addedDiv.lastElementChild.classList.add('warning');
-console.log(addedDiv.lastElementChild.classList);
 
 // remove the first paragraph
 addedDiv.firstElementChild.remove();
@@ -70,14 +70,50 @@ addedDiv.firstElementChild.remove();
 //   <p>They are HEIGHT and AGE years old. In Dog years this person would be AGEINDOGYEARS. That would be a tall dog!</p>
 // </div>
 
+function generatePlayerCard(name, age, height) {
+  const HTML = `
+  <div class="player-card">
+    <h2>${name} — ${age}</h2>
+  <p>They are ${height} tall and ${age} years old. In Dog years this person would be ${
+    age * 7
+  }. That would be a tall dog!</p>
+  <button class="delete">Delete</button>
+  </div>
+  `;
+
+  return HTML;
+}
+
 // make a new div with a class of cards
+const playersDiv = document.createElement('div');
+playersDiv.classList.add('players');
 
 // make 4 player cards using generatePlayerCard
 
+const player1 = generatePlayerCard('Lula', 59, '1.6m');
+const player2 = generatePlayerCard('Mayme', 52, '2m');
+const player3 = generatePlayerCard('Lora', 26, '1.8m');
+const player4 = generatePlayerCard('Helena', 26, '1.5m');
+
 // append those cards to the div
+playersDiv.innerHTML = `${player1} ${player2} ${player3} ${player4}`;
+console.log(playersDiv);
+
 // put the div into the DOM just before the wrapper element
+myDiv.insertAdjacentElement('afterbegin', playersDiv);
+
 // Bonus, put a delete Button on each card so when you click it, the whole card is removed
 
 // select all the buttons!
+const deleteButtons = myDiv.querySelectorAll('.delete');
+
 // make out delete function
+
+function deletePlayer() {
+  // this.parentElement.remove();
+  this.closest('.player-card').remove();
+}
 // loop over them and attach a listener
+deleteButtons.forEach((entry) => {
+  entry.addEventListener('click', deletePlayer);
+});
