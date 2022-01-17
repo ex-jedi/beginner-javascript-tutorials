@@ -60,6 +60,7 @@ addedDiv.lastElementChild.classList.add('warning');
 console.log(addedDiv.lastElementChild.classList);
 
 // remove the first paragraph
+addedDiv.firstElementChild.remove();
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
 
