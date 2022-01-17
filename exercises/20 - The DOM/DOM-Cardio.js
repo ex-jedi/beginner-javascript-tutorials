@@ -96,8 +96,8 @@ const player3 = generatePlayerCard('Lora', 26, '1.8m');
 const player4 = generatePlayerCard('Helena', 26, '1.5m');
 
 // append those cards to the div
-playersDiv.innerHTML = ` ${player1} ${player2} ${player3} ${player4}`;
-console.log(myDiv);
+playersDiv.innerHTML = `${player1} ${player2} ${player3} ${player4}`;
+console.log(playersDiv);
 
 // put the div into the DOM just before the wrapper element
 myDiv.insertAdjacentElement('afterbegin', playersDiv);
@@ -106,13 +106,12 @@ myDiv.insertAdjacentElement('afterbegin', playersDiv);
 
 // select all the buttons!
 const deleteButtons = myDiv.querySelectorAll('.delete');
-console.log(deleteButtons);
 
 // make out delete function
 
 function deletePlayer() {
-  this.parentElement.remove();
-  // this.closest('.player-card').remove();
+  // this.parentElement.remove();
+  this.closest('.player-card').remove();
 }
 // loop over them and attach a listener
 deleteButtons.forEach((entry) => {
