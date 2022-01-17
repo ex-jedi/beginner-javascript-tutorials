@@ -32,6 +32,7 @@ myImg.src = 'https://picsum.photos/id/237/500';
 
 // set the width to 250
 myImg.width = 250;
+myImg.height = 250;
 
 // add a class of cute
 myImg.classList.add('cute');
