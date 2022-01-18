@@ -217,7 +217,7 @@ tennisGame();
 
 - <https://wesbos.com/javascript/05-events/event-listener>
 - You can attach event listeners to all elements, as well as the document and the window.
-- Takes two arguments. The event and a callback function
+- Takes two arguments. The event and a callback function.
 
   - A callback function is just a function one that will then be called at a later point in time.
     -The callback can be any type of function. Named, anonymous or arrow.
@@ -228,6 +228,10 @@ tennisGame();
 
   ```javascript
   const butts = document.querySelector('.butts');
+  function handleClick() {
+    console.log('Click');
+  }
+  butts.addEventListener('click', handleClick);
   ```
 
 - There are basically three steps...
