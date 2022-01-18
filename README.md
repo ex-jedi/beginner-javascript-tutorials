@@ -218,7 +218,7 @@ tennisGame();
 - You can attach event listeners to all elements, as well as the document and the window.
 - Takes two arguments. The event and a callback function
 
-  - A callback function is just a one that will then be called at a later point in time.
+  - A callback function is just a function one that will then be called at a later point in time.
 
   ```html
   <button class="butts">Click Me!</button>
@@ -228,7 +228,7 @@ tennisGame();
   const butts = document.querySelector('.butts');
   ```
 
-- Listeners basically do three things...
+- There are basically three steps...
   - Get something!
   - Listen for something!
   - Do something!
