@@ -260,7 +260,11 @@ tennisGame();
     console.log('Bought it!');
   }
 
+  //Regular anonymous function
   buyButtons.forEach((buyButton) => {
     buyButton.addEventListener('click', buyItem);
   });
+
+  // Or arrow function
+  buyButtons.forEach((button) => button.addEventListener('click', buyItem));
   ```

@@ -18,12 +18,12 @@ function buyItem() {
   console.log('Bought it!');
 }
 
-// Regular function
+// Regular anonymous function
 // buyButtons.forEach((buyButton) => {
 //   buyButton.addEventListener('click', buyItem);
 // });
 
-// Arrow Function
+// Or arrow function
 buyButtons.forEach((button) => button.addEventListener('click', buyItem));
 
 console.log(buyButtons);
