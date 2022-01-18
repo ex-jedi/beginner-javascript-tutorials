@@ -18,9 +18,12 @@ function buyItem() {
   console.log('Bought it!');
 }
 
-buyButtons.forEach((buyButton) => {
-  console.log('Binding the buy button');
-  buyButton.addEventListener('click', buyItem);
-});
+// Regular function
+// buyButtons.forEach((buyButton) => {
+//   buyButton.addEventListener('click', buyItem);
+// });
+
+// Arrow Function
+buyButtons.forEach((button) => button.addEventListener('click', buyItem));
 
 console.log(buyButtons);

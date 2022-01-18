@@ -239,3 +239,28 @@ tennisGame();
   ```javascript
   butts.removeEventListener('click', handleClick);
   ```
+
+- Listen for events on multiple elements with `.forEach()`. <https://wesbos.com/javascript/05-events/event-listener#listening-to-events-on-multiple-elements>
+
+  ```html
+  <button class="buy">Buy Item 1</button>
+  <button class="buy">Buy Item 2</button>
+  <button class="buy">Buy Item 3</button>
+  <button class="buy">Buy Item 4</button>
+  <button class="buy">Buy Item 5</button>
+  <button class="buy">Buy Item 6</button>
+  <button class="buy">Buy Item 7</button>
+  <button class="buy">Buy Item 8</button>
+  <button class="buy">Buy Item 9</button>
+  <button class="buy">Buy Item 10</button>
+  ```
+
+  ```javascript
+  function buyItem() {
+    console.log('Bought it!');
+  }
+
+  buyButtons.forEach((buyButton) => {
+    buyButton.addEventListener('click', buyItem);
+  });
+  ```
