@@ -210,3 +210,61 @@ tennisGame();
   para.remove();
   console.log(para); // Logs <p>Soon I will be gone!</p>
   ```
+
+## Events
+
+# Event Listeners
+
+- <https://wesbos.com/javascript/05-events/event-listener>
+- You can attach event listeners to all elements, as well as the document and the window.
+- Takes two arguments. The event and a callback function
+
+  - A callback function is just a function one that will then be called at a later point in time.
+    -The callback can be any type of function. Named, anonymous or arrow.
+
+  ```html
+  <button class="butts">Click Me!</button>
+  ```
+
+  ```javascript
+  const butts = document.querySelector('.butts');
+  ```
+
+- There are basically three steps...
+  - Get something!
+  - Listen for something!
+  - Do something!
+- To remove an event listener you need reference to the function. Won't work with anonymous functions. <https://wesbos.com/javascript/05-events/event-listener#removing-an-event-listener>
+
+  ```javascript
+  butts.removeEventListener('click', handleClick);
+  ```
+
+- Listen for events on multiple elements with `.forEach()`. <https://wesbos.com/javascript/05-events/event-listener#listening-to-events-on-multiple-elements>
+
+  ```html
+  <button class="buy">Buy Item 1</button>
+  <button class="buy">Buy Item 2</button>
+  <button class="buy">Buy Item 3</button>
+  <button class="buy">Buy Item 4</button>
+  <button class="buy">Buy Item 5</button>
+  <button class="buy">Buy Item 6</button>
+  <button class="buy">Buy Item 7</button>
+  <button class="buy">Buy Item 8</button>
+  <button class="buy">Buy Item 9</button>
+  <button class="buy">Buy Item 10</button>
+  ```
+
+  ```javascript
+  function buyItem() {
+    console.log('Bought it!');
+  }
+
+  //Regular anonymous function
+  buyButtons.forEach((buyButton) => {
+    buyButton.addEventListener('click', buyItem);
+  });
+
+  // Or arrow function
+  buyButtons.forEach((button) => button.addEventListener('click', buyItem));
+  ```
