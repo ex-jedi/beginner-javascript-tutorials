@@ -265,7 +265,7 @@ tennisGame();
   }
 
   //Regular anonymous function
-  buyButtons.forEach((buyButton) => {
+  buyButtons.forEach(function (buyButton) {
     buyButton.addEventListener('click', buyItem);
   });
 
