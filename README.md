@@ -215,10 +215,12 @@ tennisGame();
 
 # Event Listeners
 
+- <https://wesbos.com/javascript/05-events/event-listener>
 - You can attach event listeners to all elements, as well as the document and the window.
 - Takes two arguments. The event and a callback function
 
   - A callback function is just a function one that will then be called at a later point in time.
+    -The callback can be any type of function. Named, anonymous or arrow.
 
   ```html
   <button class="butts">Click Me!</button>
@@ -232,10 +234,8 @@ tennisGame();
   - Get something!
   - Listen for something!
   - Do something!
-- To remove an event listener you need reference to the function. Won't work with anonymous functions
+- To remove an event listener you need reference to the function. Won't work with anonymous functions. <https://wesbos.com/javascript/05-events/event-listener#removing-an-event-listener>
 
   ```javascript
   butts.removeEventListener('click', handleClick);
   ```
-
-- <https://wesbos.com/javascript/05-events/event-listener>

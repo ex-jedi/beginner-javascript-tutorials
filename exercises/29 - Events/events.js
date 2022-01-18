@@ -10,3 +10,17 @@ function handleClick() {
 butts.addEventListener('click', handleClick);
 cool.addEventListener('click', handleClick);
 butts.removeEventListener('click', handleClick);
+
+// Listen on multiple items
+const buyButtons = document.querySelectorAll('button.buy');
+
+function buyItem() {
+  console.log('Bought it!');
+}
+
+buyButtons.forEach((buyButton) => {
+  console.log('Binding the buy button');
+  buyButton.addEventListener('click', buyItem);
+});
+
+console.log(buyButtons);
