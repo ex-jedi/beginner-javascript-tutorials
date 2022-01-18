@@ -232,4 +232,10 @@ tennisGame();
   - Get something!
   - Listen for something!
   - Do something!
+- To remove an event listener you need reference to the function. Won't work with anonymous functions
+
+  ```javascript
+  butts.removeEventListener('click', handleClick);
+  ```
+
 - <https://wesbos.com/javascript/05-events/event-listener>

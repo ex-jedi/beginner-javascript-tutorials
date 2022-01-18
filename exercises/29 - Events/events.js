@@ -9,3 +9,4 @@ function handleClick() {
 // Function is added without brackets so it doesn't run on load, just when we call it with the event listener.
 butts.addEventListener('click', handleClick);
 cool.addEventListener('click', handleClick);
+butts.removeEventListener('click', handleClick);
