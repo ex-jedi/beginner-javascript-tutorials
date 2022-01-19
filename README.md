@@ -357,6 +357,7 @@ function handleBuyButtonClick(event) {
 ```
 
 - Events bubble up. But events can go in the other direction with capture.
+
   - Very rarely used though.
 
 ```javascript
