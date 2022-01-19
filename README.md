@@ -327,13 +327,30 @@ function handleBuyButtonClick(event) {
 
   ```javascript
   function handleBuyButtonClick(event) {
+    console.log('Target -', event.target); // Thing that was clicked
+    console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
+    console.log(event.target === event.currentTarget);
+  }
+  ```
+
+# Propagation
+
+![alt](https://uploads.sitepoint.com/wp-content/uploads/2017/05/1495534508eventflow.svg)
+
+- It is possible to be clicking on multiple things as a certain time. That is what is referred to as propagation. When we clicked the strong tag, what happens is the event bubbles up.
+
+  - Meaning we clicked on the strong tag, but we also clicked on the button, and then we also clicked on the body, and the HTML tag, and the window, and the google chrome browser etc, etc.
+
+- The way you can prevent that is with a method on the event that is called `stopPropagation`.
+
+```javascript
+function handleBuyButtonClick(event) {
   console.log('Target -', event.target); // Thing that was clicked
   console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
   console.log(event.target === event.currentTarget);
-  ```
-
+  // Halts event
+  event.stopPropagation();
 }
-
 ```
 
-```
+- Events bubble up. But events can go in the other direction with
