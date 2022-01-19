@@ -19,11 +19,13 @@ function handleBuyButtonClick(event) {
   console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
   console.log(event.target === event.currentTarget);
   // Halts event
-  event.stopPropagation();
 }
 
 buyButtons.forEach((buyButton) => {
   buyButton.addEventListener('click', handleBuyButtonClick);
 });
 
-window.addEventListener('click', (e) => console.log(e.target));
+window.addEventListener('click', (e) => {
+  console.log('Window Clicked');
+  console.log(e.target), { capture: true };
+});
