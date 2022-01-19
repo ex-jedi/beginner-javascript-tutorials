@@ -307,6 +307,12 @@ function handleBuyButtonClick(event) {
 
 - You can also drill down for more specific information, such as data on the target or text content etc.
 
+```html
+<button data-price="424" class="buy">Buy <strong>Item</strong> 1</button>
+<button data-price="282" class="buy">Buy <strong>Item</strong> 2</button>
+<button data-price="880" class="buy">Buy <strong>Item</strong> 3</button>
+```
+
 ```javascript
 function handleBuyButtonClick(event) {
   const button = event.target;
@@ -314,4 +320,20 @@ function handleBuyButtonClick(event) {
   console.log(parseFloat(event.target.dataset.price));
   // parseFloat converts a string to a number and keeps decimals.
 }
+```
+
+- `event.target` is the thing that was clicked.
+- `event.currenTarget` is the thing that fired the event listener.
+
+  ```javascript
+  function handleBuyButtonClick(event) {
+  console.log('Target -', event.target); // Thing that was clicked
+  console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
+  console.log(event.target === event.currentTarget);
+  ```
+
+}
+
+```
+
 ```

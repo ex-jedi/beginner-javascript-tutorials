@@ -15,10 +15,9 @@ butts.removeEventListener('click', handleClick);
 const buyButtons = document.querySelectorAll('button.buy');
 
 function handleBuyButtonClick(event) {
-  const button = event.target;
-  console.log(button.textContent);
-  console.log(parseFloat(event.target.dataset.price));
-  // parseFloat converts a string to a number and keeps decimals.
+  console.log('Target -', event.target); // Thing that was clicked
+  console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
+  console.log(event.target === event.currentTarget);
 }
 
 buyButtons.forEach((buyButton) => {
