@@ -16,7 +16,7 @@ const buyButtons = document.querySelectorAll('button.buy');
 
 function handleBuyButtonClick(event) {
   console.log('You bought it!');
-  console.log(event.target);
+  console.log(parseFloat(event.target.dataset.price));
 }
 
 buyButtons.forEach((buyButton) => {
