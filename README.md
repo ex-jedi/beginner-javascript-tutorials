@@ -217,8 +217,9 @@ tennisGame();
 
 - <https://wesbos.com/javascript/05-events/event-listener>
 - You can attach event listeners to all elements, as well as the document and the window.
-- Takes two arguments. The event and a callback function.
+- Takes three arguments. The event, a callback function and an optional options object.
 
+  - `addEventListener(type, listener, options);`
   - A callback function is just a function one that will then be called at a later point in time.
     -The callback can be any type of function. Named, anonymous or arrow.
 
@@ -335,6 +336,8 @@ function handleBuyButtonClick(event) {
 
 # Propagation
 
+- <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture#this-keyword>
+
 ![alt](https://uploads.sitepoint.com/wp-content/uploads/2017/05/1495534508eventflow.svg)
 
 - It is possible to be clicking on multiple things as a certain time. That is what is referred to as propagation. When we clicked the strong tag, what happens is the event bubbles up.
@@ -353,4 +356,12 @@ function handleBuyButtonClick(event) {
 }
 ```
 
-- Events bubble up. But events can go in the other direction with
+- Events bubble up. But events can go in the other direction with capture.
+  - Very rarely used though.
+
+```javascript
+window.addEventListener('click', (e) => {
+  console.log('Window Clicked');
+  console.log(e.target), { capture: true };
+});
+```
