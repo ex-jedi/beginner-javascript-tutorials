@@ -29,3 +29,8 @@ window.addEventListener('click', (e) => {
   console.log('Window Clicked');
   console.log(e.target), { capture: true };
 });
+
+const photoEl = document.querySelector('.photo');
+photoEl.addEventListener('mouseenter', function (e) {
+  console.log(this);
+});
