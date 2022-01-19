@@ -336,6 +336,8 @@ function handleBuyButtonClick(event) {
 
 # Propagation
 
+- <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture#this-keyword>
+
 ![alt](https://uploads.sitepoint.com/wp-content/uploads/2017/05/1495534508eventflow.svg)
 
 - It is possible to be clicking on multiple things as a certain time. That is what is referred to as propagation. When we clicked the strong tag, what happens is the event bubbles up.
