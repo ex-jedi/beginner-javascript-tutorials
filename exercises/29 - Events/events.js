@@ -14,7 +14,7 @@ butts.removeEventListener('click', handleClick);
 // Listen on multiple items
 const buyButtons = document.querySelectorAll('button.buy');
 
-function handleBuyButtonClick() {
+function handleBuyButtonClick(event) {
   console.log('You bought it!');
 }
 

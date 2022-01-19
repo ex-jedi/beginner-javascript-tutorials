@@ -272,3 +272,21 @@ tennisGame();
   // Or arrow function
   buyButtons.forEach((button) => button.addEventListener('click', buyItem));
   ```
+
+# Targets, Bubbling, Propogation and Capture
+
+- <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture>
+- Access event object by adding it as the paramiter of event listener callback function.
+
+  - Event listener callback only accepts one param, the event object. <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback>
+
+  ```Javascript
+    function handleBuyButtonClick(event) {
+      console.log('You are buying it');
+      console.log(event);
+    }
+  ```
+
+```
+
+```
