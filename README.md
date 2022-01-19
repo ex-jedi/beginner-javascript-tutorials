@@ -272,3 +272,85 @@ tennisGame();
   // Or arrow function
   buyButtons.forEach((button) => button.addEventListener('click', buyItem));
   ```
+
+# Targets, Bubbling, Propogation and Capture
+
+- <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture>
+- Access event object by adding it as the paramiter of event listener callback function.
+
+  - Event listener callback only accepts one param, the event object. <https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#the_event_listener_callback>
+
+  ```Javascript
+    function handleBuyButtonClick(event) {
+      console.log('You are buying it');
+      console.log(event);
+    }
+  ```
+
+# Target
+
+- Access target by adding `.target` to `event`.
+
+```javascript
+function handleBuyButtonClick(event) {
+  console.log('You bought it!');
+  console.log(event.target);
+```
+
+- Target can be used to get information about the target, in this example about what was clicked.
+
+```javascript
+function handleBuyButtonClick(event) {
+  console.log('You bought it!');
+  console.log(event.target);
+```
+
+- You can also drill down for more specific information, such as data on the target or text content etc.
+
+```html
+<button data-price="424" class="buy">Buy <strong>Item</strong> 1</button>
+<button data-price="282" class="buy">Buy <strong>Item</strong> 2</button>
+<button data-price="880" class="buy">Buy <strong>Item</strong> 3</button>
+```
+
+```javascript
+function handleBuyButtonClick(event) {
+  const button = event.target;
+  console.log(button.textContent);
+  console.log(parseFloat(event.target.dataset.price));
+  // parseFloat converts a string to a number and keeps decimals.
+}
+```
+
+- `event.target` is the thing that was clicked.
+- `event.currenTarget` is the thing that fired the event listener.
+
+  ```javascript
+  function handleBuyButtonClick(event) {
+    console.log('Target -', event.target); // Thing that was clicked
+    console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
+    console.log(event.target === event.currentTarget);
+  }
+  ```
+
+# Propagation
+
+![alt](https://uploads.sitepoint.com/wp-content/uploads/2017/05/1495534508eventflow.svg)
+
+- It is possible to be clicking on multiple things as a certain time. That is what is referred to as propagation. When we clicked the strong tag, what happens is the event bubbles up.
+
+  - Meaning we clicked on the strong tag, but we also clicked on the button, and then we also clicked on the body, and the HTML tag, and the window, and the google chrome browser etc, etc.
+
+- The way you can prevent that is with a method on the event that is called `stopPropagation`.
+
+```javascript
+function handleBuyButtonClick(event) {
+  console.log('Target -', event.target); // Thing that was clicked
+  console.log('Current Target -', event.currentTarget); // Thing that fired the event listener
+  console.log(event.target === event.currentTarget);
+  // Halts event
+  event.stopPropagation();
+}
+```
+
+- Events bubble up. But events can go in the other direction with
