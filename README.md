@@ -287,6 +287,31 @@ tennisGame();
     }
   ```
 
+# Target
+
+- Access target by adding `.target` to `event`.
+
+```javascript
+function handleBuyButtonClick(event) {
+  console.log('You bought it!');
+  console.log(event.target);
 ```
 
+- Target can be used to get information about the target, in this example about what was clicked.
+
+```javascript
+function handleBuyButtonClick(event) {
+  console.log('You bought it!');
+  console.log(event.target);
+```
+
+- You can also drill down for more specific information, such as data on the target or text content etc.
+
+```javascript
+function handleBuyButtonClick(event) {
+  const button = event.target;
+  console.log(button.textContent);
+  console.log(parseFloat(event.target.dataset.price));
+  // parseFloat converts a string to a number and keeps decimals.
+}
 ```
