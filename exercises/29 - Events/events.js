@@ -7,9 +7,9 @@ function handleClick() {
 }
 
 // Function is added without brackets so it doesn't run on load, just when we call it with the event listener.
-// butts.addEventListener('click', handleClick);
-// cool.addEventListener('click', handleClick);
-// butts.removeEventListener('click', handleClick);
+butts.addEventListener('click', handleClick);
+cool.addEventListener('click', handleClick);
+butts.removeEventListener('click', handleClick);
 
 // Listen on multiple items
 const buyButtons = document.querySelectorAll('button.buy');
@@ -27,7 +27,7 @@ buyButtons.forEach((buyButton) => {
 
 window.addEventListener('click', (e) => {
   console.log('Window Clicked');
-  console.log(e.target), { capture: true };
+  console.log(e.target);
 });
 
 const photoEl = document.querySelector('.photo');
