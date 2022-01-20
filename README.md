@@ -423,3 +423,17 @@ window.addEventListener('click', (e) => {
     }
   });
   ```
+
+  - More form events.
+
+  ```javascript
+  function logEvent(e) {
+    console.log(e.type);
+    console.log(e.target.value);
+  }
+
+  signup.addEventListener('keyup', logEvent);
+  signup.addEventListener('keydown', logEvent);
+  signup.addEventListener('focus', logEvent);
+  signup.addEventListener('blur', logEvent);
+  ```
