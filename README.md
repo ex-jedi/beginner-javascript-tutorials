@@ -366,3 +366,32 @@ window.addEventListener('click', (e) => {
   console.log(e.target), { capture: true };
 });
 ```
+
+# Prevent Default and Form Even
+
+- <https://wesbos.com/javascript/05-events/prevent-default-and-form-events>
+- Some elements have a default behaviour, like links for instance. The default action can be stopped with `preventDefault`.
+
+  ```html
+  <a class="bbc" href="http://bbc.co.uk">BBC</a>
+  ```
+
+  ```javascript
+  const bbc = document.querySelector('.bbc');
+  // Halts page change until a confirmation is given by the user
+  bbc.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pageChange = confirm(
+      'This website might be malicious! Do you want to proceed?',
+    );
+    if (pageChange) window.location = e.currentTarget.href;
+  });
+
+  // Better way to do above
+  bbc.addEventListener('click', (e) => {
+    const pageChange = confirm(
+      'This website might be malicious! Do you want to proceed?',
+    );
+    if (!pageChange) e.preventDefault();
+  });
+  ```
