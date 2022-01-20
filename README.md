@@ -366,3 +366,74 @@ window.addEventListener('click', (e) => {
   console.log(e.target), { capture: true };
 });
 ```
+
+# Prevent Default and Form Even
+
+- <https://wesbos.com/javascript/05-events/prevent-default-and-form-events>
+- Some elements have a default behaviour, like links for instance. The default action can be stopped with `preventDefault`.
+
+  - Preventing link default action.
+
+  ```html
+  <a class="bbc" href="http://bbc.co.uk">BBC</a>
+  ```
+
+  ```javascript
+  const bbc = document.querySelector('.bbc');
+  // Halts page change until a confirmation is given by the user
+  bbc.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pageChange = confirm(
+      'This website might be malicious! Do you want to proceed?',
+    );
+    if (pageChange) window.location = e.currentTarget.href;
+  });
+
+  // Better way to do above
+  bbc.addEventListener('click', (e) => {
+    const pageChange = confirm(
+      'This website might be malicious! Do you want to proceed?',
+    );
+    if (!pageChange) e.preventDefault();
+  });
+  ```
+
+  - Preventing form default action if user is called Chad (sorry Chad).
+
+  ```html
+  <form name="signup">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="Wes Bos" />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="wesbos@gmail.com" />
+    <input type="checkbox" id="agree" name="agree" />
+    <label for="agree">I agree to the terms and conditions</label>
+    <hr />
+    <button type="submit">Submit</button>
+  </form>
+  ```
+
+  ```javascript
+  const signup = document.querySelector("[name='signup']");
+  signup.addEventListener('submit', (e) => {
+    const name = e.currentTarget.name.value.toLowerCase();
+    if (name.includes('chad')) {
+      alert('Sorry bro, no Chads allowed!');
+      e.preventDefault();
+    }
+  });
+  ```
+
+  - More form events.
+
+  ```javascript
+  function logEvent(e) {
+    console.log(e.type);
+    console.log(e.target.value);
+  }
+
+  signup.addEventListener('keyup', logEvent);
+  signup.addEventListener('keydown', logEvent);
+  signup.addEventListener('focus', logEvent);
+  signup.addEventListener('blur', logEvent);
+  ```
