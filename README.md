@@ -398,7 +398,7 @@ window.addEventListener('click', (e) => {
   });
   ```
 
-  - Preventing form default action
+  - Preventing form default action if user is called Chad (sorry Chad).
 
   ```html
   <form name="signup">
@@ -416,6 +416,10 @@ window.addEventListener('click', (e) => {
   ```javascript
   const signup = document.querySelector("[name='signup']");
   signup.addEventListener('submit', (e) => {
-    e.preventDefault();
+    const name = e.currentTarget.name.value.toLowerCase();
+    if (name.includes('chad')) {
+      alert('Sorry bro, no Chads allowed!');
+      e.preventDefault();
+    }
   });
   ```
