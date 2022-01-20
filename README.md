@@ -367,7 +367,7 @@ window.addEventListener('click', (e) => {
 });
 ```
 
-# Prevent Default and Form Even
+# Prevent Default and Form Events
 
 - <https://wesbos.com/javascript/05-events/prevent-default-and-form-events>
 - Some elements have a default behaviour, like links for instance. The default action can be stopped with `preventDefault`.
