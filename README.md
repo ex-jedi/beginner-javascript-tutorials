@@ -372,6 +372,8 @@ window.addEventListener('click', (e) => {
 - <https://wesbos.com/javascript/05-events/prevent-default-and-form-events>
 - Some elements have a default behaviour, like links for instance. The default action can be stopped with `preventDefault`.
 
+  - Preventing link default action.
+
   ```html
   <a class="bbc" href="http://bbc.co.uk">BBC</a>
   ```
@@ -393,5 +395,27 @@ window.addEventListener('click', (e) => {
       'This website might be malicious! Do you want to proceed?',
     );
     if (!pageChange) e.preventDefault();
+  });
+  ```
+
+  - Preventing form default action
+
+  ```html
+  <form name="signup">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="Wes Bos" />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="wesbos@gmail.com" />
+    <input type="checkbox" id="agree" name="agree" />
+    <label for="agree">I agree to the terms and conditions</label>
+    <hr />
+    <button type="submit">Submit</button>
+  </form>
+  ```
+
+  ```javascript
+  const signup = document.querySelector("[name='signup']");
+  signup.addEventListener('submit', (e) => {
+    e.preventDefault();
   });
   ```

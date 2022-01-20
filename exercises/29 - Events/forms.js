@@ -5,3 +5,9 @@ bbc.addEventListener('click', (e) => {
   const pageChange = confirm('This website might be malicious!');
   if (!pageChange) e.preventDefault();
 });
+
+const signup = document.querySelector("[name='signup']");
+signup.addEventListener('submit', (e) => {
+  console.log(e);
+  e.preventDefault();
+});
