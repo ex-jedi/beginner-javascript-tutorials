@@ -92,8 +92,6 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 - The window is where global variables are stored, as well as helpful properties like `window.location`.
 
-- querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
-
 ## Introduction The DOM
 
 - Intro
@@ -110,7 +108,12 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   - We can fetch new data.
   - We can play music and video.
   - We can add any type of interaction to the page.
+
     - that is done by writing JavaScript that interfaces with the DOM (the things that are on the page, the elements on the page).
+
+# Selecting elements
+
+    - querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
 
 # Adding Text
 
