@@ -65,17 +65,15 @@ Please feel free to add your blog post, videos, notes, or anything else related 
     }
     return win;
   }
+
+  const footballGame = createGame('Football');
+  const tennisGame = createGame('Tennis');
+  // Attaches win function to the variables. Outer variable score is available to the inner win function.
+  footballGame();
+  tennisGame();
+
+  \\ Both function calls will have access to a private score variable.
   ```
-
-const footballGame = createGame('Football');
-const tennisGame = createGame('Tennis');
-// Attaches win function to the variables. Outer variable score is available to the inner win function.
-
-footballGame();
-tennisGame();
-\\ Both function calls will have access to a private score variable.
-
-````
 
 ## The DOM
 
@@ -100,11 +98,14 @@ tennisGame();
 - Create HTML with `document.createElement()`.
   <https://wesbos.com/javascript/04-the-dom/creating-html>
   <https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement>
+
 - Several ways to add elements to the page. <https://wesbos.com/javascript/04-the-dom/creating-html/#append-method>
+
   - Add elements to page with `appendChild()`. <https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild>
   - Or use newer `.append()`. <https://developer.mozilla.org/en-US/docs/Web/API/Element/append>
+
 - Add elements in specific places with `insertAdjacentElement()`. <https://wesbos.com/javascript/04-the-dom/creating-html/#insertadjacentelement-method>
-  - <https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML>
+- <https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML>
 
 # Creating HTML with Strings
 
@@ -115,7 +116,7 @@ tennisGame();
     <div class="wrapper">
       <h1>Hello there</h1>
     </div>
-````
+  ```
 
 - Backticks, variables and interpolation can be used for templating HTML.
 
@@ -437,3 +438,7 @@ window.addEventListener('click', (e) => {
   signup.addEventListener('focus', logEvent);
   signup.addEventListener('blur', logEvent);
   ```
+
+```
+
+```
