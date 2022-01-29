@@ -75,12 +75,45 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   \\ Both function calls will have access to a private score variable.
   ```
 
-## The DOM
+## The Navigator Object
+
+- The navigator is sort of just a higher level thing than the window.
+- It gives information not just about the browser, but the device itself, the device that it is on.
+- Including things like web cam and audio access, battery level, GPS coordinates.
+- Things that are device specific will live on the navigator.
+
+## The Window Object
+
+- The window object is everything about the currently opened window. That includes:
+
+  - the browser bar
+  - the tabs
+  - the scroll bar etc.
+
+- The window is where global variables are stored, as well as helpful properties like `window.location`.
+
+## Introduction The DOM
 
 - Intro
   <https://wesbos.com/javascript/04-the-dom/introduction-to-the-dom/#the-document-object-introduction>
 
-- querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
+- The document is responsible for everything from the opening `<html>` tag to the closing `</html>` tag.
+- The Document Object Model (DOM) is the data representation of the objects that comprise the structure and content of a document on the web.
+
+- The DOM allows us to interact with the Document via JavaScript.
+
+  - We can do things like listen for clicks and scrolls.
+  - We can add, move, remove elements from that page or things like text, images, etc.
+  - We can add and remove CSS classes from elements which can trigger animations.
+  - We can fetch new data.
+  - We can play music and video.
+  - We can add any type of interaction to the page.
+
+    - that is done by writing JavaScript that interfaces with the DOM (the things that are on the page, the elements on the page).
+
+# Selecting elements
+
+    - querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
 
 # Adding Text
 
