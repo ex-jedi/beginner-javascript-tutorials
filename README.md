@@ -472,6 +472,4 @@ window.addEventListener('click', (e) => {
   signup.addEventListener('blur', logEvent);
   ```
 
-```
-
-```
+## Accessibility and Keyboard Codes
