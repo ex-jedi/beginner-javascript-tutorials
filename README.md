@@ -477,7 +477,7 @@ window.addEventListener('click', (e) => {
 - Don't use links as buttons and vice versa.
   - Links go somewhere, buttons do something.
 - Elements that are not keyboard accessible should not have clicks registered on them, unless absolutely necessary.
-  - Can be forced but best avoided
+  - Can be done but best avoided
 
     ```html
     <img
