@@ -24,3 +24,14 @@ signup.addEventListener('keyup', logEvent);
 signup.addEventListener('keydown', logEvent);
 signup.addEventListener('focus', logEvent);
 signup.addEventListener('blur', logEvent);
+
+// Best not to register event on things that aren't keyboard accessable. Can be forced though.
+function handlePhotoClick(e) {
+  if (e.key === 'Enter' || e.type === 'click') {
+    console.log('Click');
+  }
+}
+
+const photo = document.querySelector('.photo');
+photo.addEventListener('click', handlePhotoClick);
+photo.addEventListener('keyup', handlePhotoClick);

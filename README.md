@@ -472,6 +472,32 @@ window.addEventListener('click', (e) => {
   signup.addEventListener('blur', logEvent);
   ```
 
-```
+## Accessibility and Keyboard Codes
 
-```
+- Don't use links as buttons and vice versa.
+  - Links go somewhere, buttons do something.
+- Elements that are not keyboard accessible should not have clicks registered on them, unless absolutely necessary.
+  - Can be done but best avoided
+
+    ```html
+    <img
+    class="photo"
+    role="button"
+    tabindex="0"
+    src="https://picsum.photos/500"
+    alt="Picture"
+    />
+    ```
+
+    ```javascript
+      const photo = document.querySelector('.photo');
+
+      function handlePhotoClick(e) {
+        if (e.key === 'Enter' || e.type === 'click') {
+        console.log('Click');
+        }
+      }
+
+      photo.addEventListener('click', handlePhotoClick);
+      photo.addEventListener('keyup', handlePhotoClick);
+    ```
