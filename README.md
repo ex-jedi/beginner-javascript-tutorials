@@ -548,8 +548,8 @@ window.addEventListener('click', (e) => {
 
   - Not always necessary to use multiple if statements when evaluating conditions..
 
-  ```javascript
-  function slugify(sentence, lowercase) {
+```javascript
+ function slugify(sentence, lowercase) {
   const slug = sentence.replace(/\s/g, '-');
   if (lowercase) {
     return slug.toLowerCase();
@@ -559,5 +559,31 @@ window.addEventListener('click', (e) => {
         }
 
   slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
-
 ```
+
+# Operators
+
+- === equals (same as).
+  - Don't use == as 1t doesn't compare types.
+- != not equal to
+- `>` greater than
+- `<` Less than
+- > = Greater than or equal to
+- < = Less than or equal to
+- || or
+- && and
+
+# Truthy and Falsy
+
+- Some methods return true of false
+
+  ```javascript
+  const sentence = 'Mark is cool!';
+  const name = 'Mark';
+
+  const isItMe = sentence.includes(name);
+
+  if (isItMe) {
+    console.log("It's me");
+  } // Logs It's me
+  ```
