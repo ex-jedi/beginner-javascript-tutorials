@@ -545,3 +545,19 @@ window.addEventListener('click', (e) => {
     console.log("nothing was true");
   }
   ```
+
+  - Not always necessary to use multiple if statements when evaluating conditions..
+
+  ```javascript
+  function slugify(sentence, lowercase) {
+  const slug = sentence.replace(/\s/g, '-');
+  if (lowercase) {
+    return slug.toLowerCase();
+  }
+  // No
+  return slug;
+        }
+
+  slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
+
+```

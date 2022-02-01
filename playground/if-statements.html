@@ -18,6 +18,15 @@
       } else {
         console.log('Younger that 60');
       }
+
+      function slugify(sentence, lowercase) {
+        const slug = sentence.replace(/\s/g, '-');
+        if (lowercase) {
+          return slug.toLowerCase();
+        }
+        // No
+        return slug;
+      }
     </script>
   </body>
 </html>
