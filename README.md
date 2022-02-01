@@ -575,6 +575,21 @@ window.addEventListener('click', (e) => {
 
 # Truthy and Falsy
 
+- Truthy
+  - 1 // truthy
+  - -10 // truthy
+  - full string // truthy
+  - a string of "0" // truthy
+  - empty array // truthy
+  - empty object // truthy
+
+- Falsy
+  - 0 // falsy
+  - undefined variable // falsy
+  - null / Variable set to null // falsy
+  - NaN // falsy
+  - empty string // falsy
+
 - Some methods return true of false
 
   ```javascript
