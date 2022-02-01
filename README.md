@@ -501,3 +501,47 @@ window.addEventListener('click', (e) => {
       photo.addEventListener('click', handlePhotoClick);
       photo.addEventListener('keyup', handlePhotoClick);
     ```
+
+## Logic and Flow Control
+
+# If Statements
+
+-If 10 is greater than 2, log "Yep" to the console.
+
+  ```javascript
+  if (10 > 2) {
+    console.log('Yep');
+  }
+  ```
+
+- The entire if statement is `if (10 > 2) { console.log('Yep); }`
+
+- The code within the parenthesis following the if statement, `(10 > 2)`, is  the condition.
+
+- You can also chain  "else ifs" as many times as you want.
+
+  ``` javascript
+  if (10 > 2) {
+  console.log('Yep');
+  } else if (11 > 10) {
+  console.log('Yep');
+  } else if (3 > 1) {
+  console.log('Yep');
+  }
+  ```
+
+  - Although all 3 conditions above 👆 are true, the 2nd and 3rd blocks will never run because the first condition evaluates to true and runs.
+
+- An `else{}` at the end of the if statement will run if nothing is matched
+
+  ```javascript
+  if (age > 70) {
+    console.log('In your seventies');
+  } else if (age > 60) {
+    console.log('In your sixties');
+  } else if (age > 50) {
+    console.log('In your 50s');
+  } else {
+    console.log("nothing was true");
+  }
+  ```
