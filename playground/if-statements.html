@@ -9,38 +9,55 @@
 
   <body>
     <script>
-      const age = 77;
+      // const age = 77;
 
-      if (age > 70) {
-        console.log('Old!');
-      } else if (age > 60) {
-        console.log('Still Old');
-      } else {
-        console.log('Younger that 60');
-      }
+      // if (age > 70) {
+      //   console.log('Old!');
+      // } else if (age > 60) {
+      //   console.log('Still Old');
+      // } else {
+      //   console.log('Younger that 60');
+      // }
 
-      function slugify(sentence, lowercase) {
-        const slug = sentence.replace(/\s/g, '-');
-        if (lowercase) {
-          return slug.toLowerCase();
-        }
-        // No
-        return slug;
-      }
+      // function slugify(sentence, lowercase) {
+      //   const slug = sentence.replace(/\s/g, '-');
+      //   if (lowercase) {
+      //     return slug.toLowerCase();
+      //   }
+      //   // No
+      //   return slug;
+      // }
 
-      // Some methods return true of false
-      const sentence = 'Mark is cool!';
-      const name = 'Mark';
+      // // Some methods return true of false
+      // const sentence = 'Mark is cool!';
+      // const name = 'Mark';
 
-      const isItMe = sentence.includes(name);
+      // const isItMe = sentence.includes(name);
 
-      if (isItMe) {
-        console.log("It's me");
-      } // Logs It's me
+      // if (isItMe) {
+      //   console.log("It's me");
+      // } // Logs It's me
 
-      const isTrue = {};
+      // const isTrue = {};
 
-      if (isTrue.keys) {
+      // if (isTrue.keys) {
+      //   console.log(isTrue, 'is true');
+      // } else {
+      //   console.log(isTrue, 'is false');
+      // }
+
+      // Coercion
+
+      let isTrue = true;
+      isTrue = !isTrue;
+      console.log(isTrue);
+
+      let val = 10; // val === 10
+      val = !!val; // val === true
+
+      console.log('Val - ', val);
+
+      if (isTrue) {
         console.log(isTrue, 'is true');
       } else {
         console.log(isTrue, 'is false');
