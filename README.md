@@ -604,3 +604,8 @@ window.addEventListener('click', (e) => {
     console.log("It's me");
   } // Logs It's me
   ```
+
+# Coercion
+
+- A bang  (`!`) in front of a boolian flips it.
+- A double bang  (`!!`) before a value coerces it into a boolian.
