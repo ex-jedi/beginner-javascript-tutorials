@@ -581,7 +581,9 @@ window.addEventListener('click', (e) => {
   - full string // truthy
   - a string of "0" // truthy
   - empty array // truthy
+    - Check if array is empty with `.length`.
   - empty object // truthy
+    - Check if object is empty with `.keys` .
 
 - Falsy
   - 0 // falsy
