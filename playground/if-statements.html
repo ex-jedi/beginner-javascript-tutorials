@@ -48,9 +48,16 @@
 
       // Coercion
 
-      const isTrue = 0;
+      let isTrue = true;
+      isTrue = !isTrue;
+      console.log(isTrue);
 
-      if (!isTrue) {
+      let val = 10; // val === 10
+      val = !!val; // val === true
+
+      console.log('Val - ', val);
+
+      if (isTrue) {
         console.log(isTrue, 'is true');
       } else {
         console.log(isTrue, 'is false');

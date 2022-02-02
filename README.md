@@ -609,3 +609,12 @@ window.addEventListener('click', (e) => {
 
 - A bang  (`!`) in front of a boolian flips it.
 - A double bang  (`!!`) before a value coerces it into a boolian.
+
+```javascript
+let bool = true; // bool === true
+bool = !bool; // bool === false
+
+let val = 10 // val === 10
+val = !!val // val === true
+
+```
