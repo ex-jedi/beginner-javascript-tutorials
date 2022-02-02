@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>If Statements</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>If Statements</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      const age = 77;
 
-<body>
-  <script>
-    if (10 > 2) {
-      console.log('Yep');
-    }
-  </script>
-</body>
+      if (age > 70) {
+        console.log('Old!');
+      } else if (age > 60) {
+        console.log('Still Old');
+      } else {
+        console.log('Younger that 60');
+      }
 
+      function slugify(sentence, lowercase) {
+        const slug = sentence.replace(/\s/g, '-');
+        if (lowercase) {
+          return slug.toLowerCase();
+        }
+        // No
+        return slug;
+      }
+
+      // Some methods return true of false
+      const sentence = 'Mark is cool!';
+      const name = 'Mark';
+
+      const isItMe = sentence.includes(name);
+
+      if (isItMe) {
+        console.log("It's me");
+      } // Logs It's me
+
+      i;
+    </script>
+  </body>
 </html>

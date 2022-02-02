@@ -501,3 +501,104 @@ window.addEventListener('click', (e) => {
       photo.addEventListener('click', handlePhotoClick);
       photo.addEventListener('keyup', handlePhotoClick);
     ```
+
+## Logic and Flow Control
+
+# If Statements
+
+-If 10 is greater than 2, log "Yep" to the console.
+
+  ```javascript
+  if (10 > 2) {
+    console.log('Yep');
+  }
+  ```
+
+- The entire if statement is `if (10 > 2) { console.log('Yep); }`
+
+- The code within the parenthesis following the if statement, `(10 > 2)`, is  the condition.
+
+- You can also chain  "else ifs" as many times as you want.
+
+  ``` javascript
+  if (10 > 2) {
+  console.log('Yep');
+  } else if (11 > 10) {
+  console.log('Yep');
+  } else if (3 > 1) {
+  console.log('Yep');
+  }
+  ```
+
+  - Although all 3 conditions above 👆 are true, the 2nd and 3rd blocks will never run because the first condition evaluates to true and runs.
+
+- An `else{}` at the end of the if statement will run if nothing is matched
+
+  ```javascript
+  if (age > 70) {
+    console.log('In your seventies');
+  } else if (age > 60) {
+    console.log('In your sixties');
+  } else if (age > 50) {
+    console.log('In your 50s');
+  } else {
+    console.log("nothing was true");
+  }
+  ```
+
+  - Not always necessary to use multiple if statements when evaluating conditions..
+
+```javascript
+ function slugify(sentence, lowercase) {
+  const slug = sentence.replace(/\s/g, '-');
+  if (lowercase) {
+    return slug.toLowerCase();
+  }
+  // No
+  return slug;
+        }
+
+  slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
+```
+
+# Operators
+
+- === equals (same as).
+  - Don't use == as 1t doesn't compare types.
+- != not equal to
+- `>` greater than
+- `<` Less than
+- > = Greater than or equal to
+- < = Less than or equal to
+- || or
+- && and
+
+# Truthy and Falsy
+
+- Truthy
+  - 1 // truthy
+  - -10 // truthy
+  - full string // truthy
+  - a string of "0" // truthy
+  - empty array // truthy
+  - empty object // truthy
+
+- Falsy
+  - 0 // falsy
+  - undefined variable // falsy
+  - null / Variable set to null // falsy
+  - NaN // falsy
+  - empty string // falsy
+
+- Some methods return true of false
+
+  ```javascript
+  const sentence = 'Mark is cool!';
+  const name = 'Mark';
+
+  const isItMe = sentence.includes(name);
+
+  if (isItMe) {
+    console.log("It's me");
+  } // Logs It's me
+  ```
