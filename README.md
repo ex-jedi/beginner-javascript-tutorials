@@ -561,6 +561,16 @@ window.addEventListener('click', (e) => {
   slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
 ```
 
+- Simple if statement can be one liners
+
+  ```javascript
+  function doSomething() {
+    console.log('Doing something!');
+  }
+  const isTrue = true;
+  if(isTrue) doSomething();
+  ```
+
 # Operators
 
 - === equals (same as).
@@ -609,6 +619,7 @@ window.addEventListener('click', (e) => {
 
 - A bang  (`!`) in front of a boolian flips it.
 - A double bang  (`!!`) before a value coerces it into a boolian.
+  - Coercion is usually not used very often.
 
 ```javascript
 let bool = true; // bool === true
@@ -618,3 +629,99 @@ let val = 10 // val === 10
 val = !!val // val === true
 
 ```
+
+# Ternary
+
+- Like a shorthand if statement.
+
+- Ternarys have three things...
+  1. A condition
+  2. What to do if true
+  3. What to do if false
+
+- Example
+  - Simple if statement...
+
+  ```javascript
+    const count = 2;
+    let word;
+    if (count === 1) {
+      word = 'item';
+    } else {
+      word = 'items';
+    }
+    const sentence = `You have ${count} ${word} in your cart.`;
+    //Sentence -  'You have 2 items in your cart.'
+  ```
+
+  - Ternary version...
+
+  ```javascript
+     const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} ${word} in your cart.`;
+  ```
+
+  - Or even...
+
+  ```javascript
+     const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} item${count === 1 ? '' : 's' } in your cart.`;
+  ```
+
+- Can be used to run functions
+
+  ```javascript
+        function showAdminBar() {
+        console.log('Show admin bar.');
+      }
+
+      const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
+  ```
+
+# Short Circuiting - The AND AND Trick
+
+- JavaScript will abort a condition when one of them is false
+- This can be used... or abused to run checks
+
+  ```javascript
+        function check1() {
+        console.log('Running check 1');
+        return true;
+      }
+      function check2() {
+        console.log('Running check 2');
+        return false;
+      }
+      function check3() {
+        console.log('Running check 3');
+        return true;
+      }
+
+      // The && conditions below will stop at check 2 as it's false.
+      if (check1() && check2() && check3()) {
+        console.log('All checks passed!');
+      } else {
+        console.log('Some checks failed');
+      }
+  ```
+
+- You could use this instead of the ternary further up
+  - So instead of...
+
+  ```javascript
+    const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
+  ```
+
+  - You could use...
+
+  ```javascript
+    const isAdmin = true;
+      isAdmin && showAdminBar();
+  ```
+
+  - Some people don't like this though, others do.
+  - This pattern is used in React.
+
+- <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>

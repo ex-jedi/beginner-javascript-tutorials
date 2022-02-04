@@ -48,20 +48,77 @@
 
       // Coercion
 
-      let isTrue = true;
-      isTrue = !isTrue;
-      console.log(isTrue);
+      // let isTrue = true;
+      // isTrue = !isTrue;
+      // console.log(isTrue);
 
-      let val = 10; // val === 10
-      val = !!val; // val === true
+      // let val = 10; // val === 10
+      // val = !!val; // val === true
 
-      console.log('Val - ', val);
+      // console.log('Val - ', val);
 
-      if (isTrue) {
-        console.log(isTrue, 'is true');
-      } else {
-        console.log(isTrue, 'is false');
+      // if (isTrue) {
+      //   console.log(isTrue, 'is true');
+      // } else {
+      //   console.log(isTrue, 'is false');
+      // }
+      // const isCool = false;
+
+      // if (!isCool) {
+      //   console.log('You are not true!');
+      // }
+
+      // const name = 'Mark';
+
+      // // Ternary example
+      // const count = 1;
+
+      // if (count === 1) {
+      //   word = 'item';
+      // } else {
+      //   word = 'items';
+      // }
+
+      // const word = count === 1 ? 'item' : 'items';
+      // const sentence = `You have ${count} item${
+      //   count === 1 ? '' : 's'
+      // } in your cart.`;
+      // console.log(sentence);
+
+      function showAdminBar() {
+        console.log('Show admin bar.');
       }
+
+      // const isAdmin = true;
+      // isAdmin ? showAdminBar() : null;
+      // or
+      // isAdmin && showAdminBar();
+
+      function check1() {
+        console.log('Running check 1');
+        return true;
+      }
+      function check2() {
+        console.log('Running check 2');
+        return false;
+      }
+      function check3() {
+        console.log('Running check 3');
+        return true;
+      }
+
+      if (check1() && check2() && check3()) {
+        console.log('All checks passed!');
+      } else {
+        console.log('Some checks failed');
+      }
+
+      // One line if statements
+      function doSomething() {
+        console.log('Doing something!');
+      }
+      const isTrue = true;
+      if (isTrue) doSomething();
     </script>
   </body>
 </html>
