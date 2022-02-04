@@ -561,6 +561,16 @@ window.addEventListener('click', (e) => {
   slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
 ```
 
+- Simple if statement can be one liners
+
+  ```javascript
+  function doSomething() {
+    console.log('Doing something!');
+  }
+  const isTrue = true;
+  if(isTrue) doSomething();
+  ```
+
 # Operators
 
 - === equals (same as).
@@ -696,6 +706,22 @@ val = !!val // val === true
       }
   ```
 
-- Some people don't like this, others do.
+- You could use this instead of the ternary further up
+  - So instead of...
+
+  ```javascript
+    const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
+  ```
+
+  - You could use...
+
+  ```javascript
+    const isAdmin = true;
+      isAdmin && showAdminBar();
+  ```
+
+  - Some people don't like this though, others do.
+  - This pattern is used in React.
 
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
