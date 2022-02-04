@@ -71,16 +71,19 @@
       const name = 'Mark';
 
       // Ternary example
-      const count = 2;
-      let word;
+      const count = 1;
 
-      if (count === 1) {
-        word = 'item';
-      } else {
-        word = 'items';
-      }
+      // if (count === 1) {
+      //   word = 'item';
+      // } else {
+      //   word = 'items';
+      // }
 
-      const sentence = `You have ${count} ${word} in your cart.`;
+      const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} item${
+        count === 1 ? '' : 's'
+      } in your cart.`;
+      console.log(sentence);
     </script>
   </body>
 </html>

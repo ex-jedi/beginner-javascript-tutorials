@@ -623,4 +623,39 @@ val = !!val // val === true
 # Ternary
 
 - Like a shorthand if statement.
+
+- Ternarys have three things...
+  1. A condition
+  2. What to do if true
+  3. What to do if false
+
+- Example
+  - Simple if statement...
+
+  ```javascript
+    const count = 2;
+    let word;
+    if (count === 1) {
+      word = 'item';
+    } else {
+      word = 'items';
+    }
+    const sentence = `You have ${count} ${word} in your cart.`;
+    //Sentence -  'You have 2 items in your cart.'
+  ```
+
+  - Ternary version...
+
+  ```javascript
+     const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} ${word} in your cart.`;
+  ```
+
+  - Another ternary...
+
+  ```javascript
+     const word = count === 1 ? 'item' : 'items';
+      const sentence = `You have ${count} item${count === 1 ? '' : 's' } in your cart.`;
+  ```
+
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
