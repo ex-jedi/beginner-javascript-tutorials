@@ -669,4 +669,33 @@ val = !!val // val === true
       isAdmin ? showAdminBar() : null;
   ```
 
+# Short Circuiting - The AND AND Trick
+
+- JavaScript will abort a condition when one of them is false
+- This can be used... or abused to run checks
+
+  ```javascript
+        function check1() {
+        console.log('Running check 1');
+        return true;
+      }
+      function check2() {
+        console.log('Running check 2');
+        return false;
+      }
+      function check3() {
+        console.log('Running check 3');
+        return true;
+      }
+
+      // The && conditions below will stop at check 2 as it's false.
+      if (check1() && check2() && check3()) {
+        console.log('All checks passed!');
+      } else {
+        console.log('Some checks failed');
+      }
+  ```
+
+- Some people don't like this, others do.
+
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
