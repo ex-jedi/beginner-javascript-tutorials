@@ -619,3 +619,8 @@ let val = 10 // val === 10
 val = !!val // val === true
 
 ```
+
+# Ternary
+
+- Like a shorthand if statement.
+- <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
