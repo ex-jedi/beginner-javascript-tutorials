@@ -609,6 +609,7 @@ window.addEventListener('click', (e) => {
 
 - A bang  (`!`) in front of a boolian flips it.
 - A double bang  (`!!`) before a value coerces it into a boolian.
+  - Coercion is usually not used very often.
 
 ```javascript
 let bool = true; // bool === true
