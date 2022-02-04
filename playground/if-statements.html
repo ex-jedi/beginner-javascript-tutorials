@@ -84,6 +84,13 @@
         count === 1 ? '' : 's'
       } in your cart.`;
       console.log(sentence);
+
+      function showAdminBar() {
+        console.log('Show admin bar.');
+      }
+
+      const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
     </script>
   </body>
 </html>

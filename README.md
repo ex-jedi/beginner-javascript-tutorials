@@ -651,11 +651,22 @@ val = !!val // val === true
       const sentence = `You have ${count} ${word} in your cart.`;
   ```
 
-  - Another ternary...
+  - Or even...
 
   ```javascript
      const word = count === 1 ? 'item' : 'items';
       const sentence = `You have ${count} item${count === 1 ? '' : 's' } in your cart.`;
+  ```
+
+- Can be used to run functions
+
+  ```javascript
+        function showAdminBar() {
+        console.log('Show admin bar.');
+      }
+
+      const isAdmin = true;
+      isAdmin ? showAdminBar() : null;
   ```
 
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
