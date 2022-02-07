@@ -10,7 +10,10 @@
         position: relative;
         --x: 10px;
         --y: 10px;
-        transform: translateX(var(--x)) translateY(var(--y));
+        --rotateX: 0;
+        --rotate: 0;
+        transform: translateX(var(--x)) translateY(var(--y))
+          rotateY(var(--rotateX)) rotate(var(--rotate));
         transition: all 0.2s;
       }
     </style>
@@ -23,30 +26,40 @@
       let x = 0;
       let y = 0;
       const speed = 5;
-
+      let flipped = false;
+      let rotate = 0;
       function handleKeyDown(e) {
-        if (!e.key.includes('Arrow')) {
-          console.log('Stay!');
-        }
+        if (!e.key.includes('Arrow')) return;
         switch (e.key) {
           case 'ArrowUp':
             y -= 1;
+            rotate = -90;
             break;
           case 'ArrowDown':
             y += 1;
+            rotate = 90;
             break;
           case 'ArrowLeft':
             x -= 1;
+            rotate = 0;
+            flipped = true;
             break;
           case 'ArrowRight':
             x += 1;
+            rotate = 0;
+            flipped = false;
             break;
           default:
             console.log('Not a valid move!');
         }
         turtle.setAttribute(
           'style',
-          `--x: ${x * speed}px; --y: ${y * speed}px;`,
+          `
+          --rotateX: ${flipped ? '180deg' : '0deg'};
+          --rotate: ${rotate}deg;
+          --x: ${x * speed}px;
+          --y: ${y * speed}px;
+          `,
         );
         console.log(`Y = ${x} and X = ${x}px`);
       }
