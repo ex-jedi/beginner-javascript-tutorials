@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <img width="300" src="./turtle.png" alt="Turtle" class="turt" />
+    <script>
+      const turtle = document.querySelector('.turt');
+      let x = 0;
+      let y = 0;
 
+      function handleKeyDown(e) {
+        if (!e.key.includes('Arrow')) {
+          console.log('Stay!');
+        }
+        switch (e.key) {
+          case 'ArrowUp':
+            y -= 1;
+            break;
+          case 'ArrowDown':
+            y += 1;
+            break;
+          case 'ArrowLeft':
+            x -= 1;
+            break;
+          case 'ArrowRight':
+            x += 1;
+            break;
+          default:
+            console.log('Not a valid move!');
+        }
+        console.log(`Y = ${y} and x = ${x}`);
+      }
 
-<body>
-
-</body>
-
+      window.addEventListener('keydown', handleKeyDown);
+    </script>
+  </body>
 </html>
