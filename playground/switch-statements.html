@@ -11,6 +11,7 @@
         --x: 10px;
         --y: 10px;
         transform: translateX(var(--x)) translateY(var(--y));
+        transition: all 0.2s;
       }
     </style>
   </head>
@@ -21,7 +22,7 @@
       const turtle = document.querySelector('.turt');
       let x = 0;
       let y = 0;
-      const speed = 20;
+      const speed = 5;
 
       function handleKeyDown(e) {
         if (!e.key.includes('Arrow')) {
@@ -43,7 +44,6 @@
           default:
             console.log('Not a valid move!');
         }
-
         turtle.setAttribute(
           'style',
           `--x: ${x * speed}px; --y: ${y * speed}px;`,
