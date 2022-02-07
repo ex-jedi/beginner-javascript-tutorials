@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../base.css" />
+    <style>
+      .turt {
+        position: relative;
+        --x: 10px;
+        --y: 10px;
+        transform: translateX(var(--x)) translateY(var(--y));
+        transition: all 0.2s;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <img width="300" src="./turtle.png" alt="Turtle" class="turt" />
+    <script>
+      const turtle = document.querySelector('.turt');
+      let x = 0;
+      let y = 0;
+      const speed = 5;
 
+      function handleKeyDown(e) {
+        if (!e.key.includes('Arrow')) {
+          console.log('Stay!');
+        }
+        switch (e.key) {
+          case 'ArrowUp':
+            y -= 1;
+            break;
+          case 'ArrowDown':
+            y += 1;
+            break;
+          case 'ArrowLeft':
+            x -= 1;
+            break;
+          case 'ArrowRight':
+            x += 1;
+            break;
+          default:
+            console.log('Not a valid move!');
+        }
+        turtle.setAttribute(
+          'style',
+          `--x: ${x * speed}px; --y: ${y * speed}px;`,
+        );
+        console.log(`Y = ${x} and X = ${x}px`);
+      }
 
-<body>
-
-</body>
-
+      window.addEventListener('keydown', handleKeyDown);
+    </script>
+  </body>
 </html>
