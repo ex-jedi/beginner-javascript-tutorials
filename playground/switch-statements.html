@@ -21,6 +21,7 @@
       const turtle = document.querySelector('.turt');
       let x = 0;
       let y = 0;
+      const speed = 20;
 
       function handleKeyDown(e) {
         if (!e.key.includes('Arrow')) {
@@ -28,22 +29,25 @@
         }
         switch (e.key) {
           case 'ArrowUp':
-            y -= 10;
+            y -= 1;
             break;
           case 'ArrowDown':
-            y += 10;
+            y += 1;
             break;
           case 'ArrowLeft':
-            x -= 10;
+            x -= 1;
             break;
           case 'ArrowRight':
-            x += 10;
+            x += 1;
             break;
           default:
             console.log('Not a valid move!');
         }
 
-        turtle.setAttribute('style', `--x: ${x}px; --y: ${y}px;`);
+        turtle.setAttribute(
+          'style',
+          `--x: ${x * speed}px; --y: ${y * speed}px;`,
+        );
         console.log(`Y = ${x} and X = ${x}px`);
       }
 
