@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="../base.css" />
+    <style>
+      .turt {
+        position: relative;
+        --x: 10px;
+        --y: 10px;
+        transform: translateX(var(--x)) translateY(var(--y));
+      }
+    </style>
   </head>
 
   <body>
@@ -20,21 +28,23 @@
         }
         switch (e.key) {
           case 'ArrowUp':
-            y -= 1;
+            y -= 10;
             break;
           case 'ArrowDown':
-            y += 1;
+            y += 10;
             break;
           case 'ArrowLeft':
-            x -= 1;
+            x -= 10;
             break;
           case 'ArrowRight':
-            x += 1;
+            x += 10;
             break;
           default:
             console.log('Not a valid move!');
         }
-        console.log(`Y = ${y} and x = ${x}`);
+
+        turtle.setAttribute('style', `--x: ${x}px; --y: ${y}px;`);
+        console.log(`Y = ${x} and X = ${x}px`);
       }
 
       window.addEventListener('keydown', handleKeyDown);
