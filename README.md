@@ -750,3 +750,45 @@ switch (event.key) {
 
 - Needs a break after each cases.
 - Needs a default case which will run if the condition doesn't match any of the cases
+
+## Intervals and Timers
+
+# Timers
+
+- `setTimeout()` is used for timers
+- Takes two things
+  - A callback function (named, anonymous or arrow)
+  - The number of milliseconds to wait
+
+    ```javascript
+          setTimeout(() => {
+        console.log('Done!');
+      }, 1000);
+
+      // Takes anonymous, named or arrow function...
+
+      function timer() {
+      console.log('Done');
+      }
+
+      setTimeout(timer, 1000);
+      ```
+
+- Timers don't act as pauses in JavaScript
+- This is due to the asynchronous nature of JavaScript
+
+  ```javascript
+       function timer() {
+        console.log('Done');
+      }
+
+      console.log('Starting');
+      setTimeout(timer, 1000);
+      console.log('Finishing');
+
+      // Will log..
+      //Starting, Finishing, Done; In that order
+  ```
+
+- JavaScript queues up the timer to be run after 1000 milliseconds, it will go to the next line of code and come back to timer when it's time.
+  - That's why the function is called a callback as JavaScript will come back and call it at a later point in time.
