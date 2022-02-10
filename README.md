@@ -757,11 +757,19 @@ switch (event.key) {
 
 - `setTimeout()` is used for timers
 - Takes two things
-  - A callback function
+  - A callback function (named, anonymous or arrow)
   - The number of milliseconds to wait
 
     ```javascript
           setTimeout(() => {
         console.log('Done!');
       }, 1000);
+
+      // Takes anonymous, named or arrow function...
+
+      function timer() {
+      console.log('Done');
+      }
+
+      setTimeout(timer, 1000);
       ```
