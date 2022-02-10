@@ -725,3 +725,28 @@ val = !!val // val === true
   - This pattern is used in React.
 
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
+
+# Switch Statement
+
+```javascript
+switch (event.key) {
+  case 'ArrowUp':
+    y = y - 1;
+    break;
+  case 'ArrowDown':
+    y = y + 1;
+    break;
+  case 'ArrowLeft':
+    x =  x + 1;
+    break;
+  case 'ArrowRight':
+    x = x - 1;
+    break;
+  default:
+    console.log("That is not a valid move");
+    break;
+}
+```
+
+- Needs a break after each cases.
+- Needs a default case which will run if the condition doesn't match any of the cases
