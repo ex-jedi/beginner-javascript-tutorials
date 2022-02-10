@@ -750,3 +750,18 @@ switch (event.key) {
 
 - Needs a break after each cases.
 - Needs a default case which will run if the condition doesn't match any of the cases
+
+## Intervals and Timers
+
+# Timers
+
+- `setTimeout()` is used for timers
+- Takes two things
+  - A callback function
+  - The number of milliseconds to wait
+
+    ```javascript
+          setTimeout(() => {
+        console.log('Done!');
+      }, 1000);
+      ```
