@@ -818,4 +818,36 @@ switch (event.key) {
 
 # Clearing timers and intervals
 
-- ~To clear a timer or interval you have to save the reference to it.
+- To clear a timer or interval you have to save the reference to it.
+  - Clear timers with `clearTimeout()`.
+
+  ```javascript
+
+      function destroy() {
+       document.body.innerHTML = `<p>DESTROY</p>  `;
+      }
+
+      // Countdown
+      const destroyTimer = setTimeout(destroy, 5000);
+
+      // Stops countdown with a click
+      window.addEventListener('click', () => {
+        console.log('You stopped the destruction!');
+        clearTimeout(destroyTimer);
+      });
+  ```
+
+  - Clear intervals with `clearInterval()`.
+
+  ```javascript
+    // Sets interval
+    const wutInterval = setInterval(() => {
+      console.log('Wut!');
+    }, 500);
+
+    // Clears interval after 3 seconds
+    setTimeout(() => {
+      clearInterval(wutInterval);
+      console.log('Wut Stopped!');
+    }, 3000);
+  ```
