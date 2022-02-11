@@ -749,16 +749,16 @@ switch (event.key) {
 ```
 
 - Needs a break after each cases.
-- Needs a default case which will run if the condition doesn't match any of the cases
+- Needs a default case which will run if the condition doesn't match any of the cases.
 
 ## Intervals and Timers
 
 # Timers
 
-- `setTimeout()` is used for timers
-- Takes two things
-  - A callback function (named, anonymous or arrow)
-  - The number of milliseconds to wait
+- `setTimeout()` is used for timers.
+- Takes two things.
+  - A callback function (named, anonymous or arrow).
+  - The number of milliseconds to wai.t
 
     ```javascript
           setTimeout(() => {
@@ -774,8 +774,8 @@ switch (event.key) {
       setTimeout(timer, 1000);
       ```
 
-- Timers don't act as pauses in JavaScript
-- This is due to the asynchronous nature of JavaScript
+- Timers don't act as pauses in JavaScript.
+- This is due to the asynchronous nature of JavaScript.
 
   ```javascript
        function timer() {
@@ -792,3 +792,30 @@ switch (event.key) {
 
 - JavaScript queues up the timer to be run after 1000 milliseconds, it will go to the next line of code and come back to timer when it's time.
   - That's why the function is called a callback as JavaScript will come back and call it at a later point in time.
+
+# Intervals
+
+- Intervals accomplished with `setInterval()`
+- Like `setTimeout()` it also takes a callback function and a time in milliseconds for the interval.
+- Theres no built in way to run a function immediately and add an intereval.
+  - Can be done like so...
+
+  ```javascript
+
+      function sayHI() {
+        console.log('Hi!');
+      }
+
+      function setImmediateInterval(funcToRun, ms) {
+        // Run the function right away
+        funcToRun();
+        // Set an interval to run the function along with interval in
+        return setInterval(funcToRun, ms);
+      }
+
+      setImmediateInterval(sayHI, 500);
+  ```
+
+# Clearing timers and intervals
+
+- ~To clear a timer or interval you have to save the reference to it.

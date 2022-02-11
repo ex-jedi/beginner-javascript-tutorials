@@ -9,12 +9,43 @@
 
   <body>
     <script>
-      function timer() {
-        console.log('Done');
+      //   function timer() {
+      //     console.log('Done');
+      //   }
+
+      //   function sayHI() {
+      //     console.log('Hi!');
+      //   }
+
+      //   // Timer
+      //   // console.log('Starting');
+      //   // setTimeout(timer, 1000);
+      //   // console.log('Finishing');
+
+      //   // Interval
+
+      //   function setImmediateInterval(funcToRun, ms) {
+      //     // Run the function right away
+      //     funcToRun();
+      //     // Set an interval to run the function along with interval in
+      //     return setInterval(funcToRun, ms);
+      //   }
+
+      //   setImmediateInterval(timer, 1000);
+      //   setImmediateInterval(sayHI, 500);
+      //
+
+      function destroy() {
+        document.body.innerHTML = `<p>DESTROY</p>  `;
       }
-      console.log('Starting');
-      setTimeout(timer, 1000);
-      console.log('Finishing');
+
+      const destroyTimer = setTimeout(destroy, 5000);
+      console.log(destroyTimer);
+
+      window.addEventListener('click', () => {
+        console.log('You stopped the destruction!');
+        clearTimeout(destroyTimer);
+      });
     </script>
   </body>
 </html>
