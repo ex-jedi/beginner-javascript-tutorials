@@ -46,6 +46,15 @@
         console.log('You stopped the destruction!');
         clearTimeout(destroyTimer);
       });
+
+      const wutInterval = setInterval(() => {
+        console.log('Wut!');
+      }, 500);
+
+      setTimeout(() => {
+        clearInterval(wutInterval);
+        console.log('Wut Stopped!');
+      }, 3000);
     </script>
   </body>
 </html>
