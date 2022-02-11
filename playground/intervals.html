@@ -39,7 +39,13 @@
         document.body.innerHTML = `<p>DESTROY</p>  `;
       }
 
-      setTimeout(destroy, 1000);
+      const destroyTimer = setTimeout(destroy, 5000);
+      console.log(destroyTimer);
+
+      window.addEventListener('click', () => {
+        console.log('You stopped the destruction!');
+        clearTimeout(destroyTimer);
+      });
     </script>
   </body>
 </html>
