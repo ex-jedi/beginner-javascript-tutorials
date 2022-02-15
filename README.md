@@ -851,3 +851,204 @@ switch (event.key) {
       console.log('Wut Stopped!');
     }, 3000);
   ```
+
+## Objects
+
+- Group together keys (properties) and values of related data or collections of functionality.
+- Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
+- Object creation with object literal syntax.
+
+  ```javascript
+       const person = {
+        name: 'Mark',
+        age: 500,
+      };
+  ```
+
+- If an object's property has the same name as a variable you can just insert the variable name like so.
+
+  ```javascript
+        const age = 100;
+
+        const person = {
+          name: 'Mark',
+          age,
+        };
+  ```
+
+- Can use strings for property names if you need dashes or spaces etc.
+  - recommended to use a trailing comma (comma dangle).
+
+  ```javascript
+      const age = 100;
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+      };
+  ```
+
+- Objects values can be any type, including objects.
+
+  ```javascript
+      const age = 100;
+
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+        clothing: {
+          shirts: 5,
+          trousers: 3,
+        },
+      };
+  ```
+
+- Properties can be added to an object with dot notation
+
+  ```javascript
+    person.job = 'Web Developer';
+    console.log(person);
+    // Console: {name: 'Mark', age: 100, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```
+
+- Values can be changes with dot notation
+
+  ```javascript
+      const age = 100;
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+        clothing: {
+          shirts: 5,
+          trousers: 3,
+        },
+      };
+
+      person.age = 50;
+
+      console.log(person);
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```
+
+# Const
+
+- Doesn't mean the values of an object can't be changed. Means the binding to the object cannot be changed.
+
+  ```javascript
+
+    const person = {
+      name: 'Mark',
+      etc...
+      },
+    };
+
+    person = {
+      name: 'Robert',
+    };
+    // Will throw 'Assignment to constant variable' error.
+  ```
+
+- Can create a frozen (immutable) object, one where properties an values can't be changed with `Object.freeze()`.
+
+  ```javascript
+      const personFroze = Object.freeze(person);
+      console.log(personFroze);
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+      personFroze.name = 'Jon';
+      console.log(personFroze);
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```
+
+# Acessing properties
+
+- Using dot notation, most common
+
+    ```javascript
+      console.log(person.age);
+    ```
+
+  - Dot notation can be chained
+
+      ```javascript
+        console.log(person.clothing.shirts);
+        // Console: 50
+      ```
+
+- Can use square brackets.
+
+    ```javascript
+      console.log(person[age]);
+    ```
+
+  - Used when a property name is attached to a variable.
+
+    ```javascript
+      const propertyToCheck = prompt('What do you want to check?');
+      console.log(person[propertyToCheck]);
+      // Displays a prompt where you enter a property name top check
+    ```
+
+  - Also used when a non-valid propert name is used. Ig it contains spaces or hyphens etc.
+
+- If a property doesn't exist a lookup will return undefined
+
+    ```javascript
+      console.log(person.clothing.jumpers);
+      // Console: undefined
+    ```
+
+- Looking up a property on a property that doesn't exist will throw an error
+
+  ```javascript
+    console.log(person.clothing.jumpers.colour);
+    // Console: Uncaught TypeError: Cannot read properties of undefined (reading 'colour') at objects.html:35:43
+  ```
+
+  - Can use optional chaining
+    - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining>
+
+      ```javascript
+        console.log(person.clothing?.jumpers?.colour);
+        // Console: undefined
+      ```
+
+  - Or could do something like this as a fallback for a property that doesn't exist.
+
+    ```javascript
+      console.log(person.clothing.jumpers.colour ? person.clothing.jumpers.colour : `Property does not exist`);
+      // Console: Property does not exist
+    ```
+
+- Delete a property with `delete` keyword.
+  - Can check if it has worked as it will return `true` or `false` depending on whether it's successfull or not
+
+    ```javascript
+      console.log(delete person.clothing);
+      // Console: true
+      console.log(person.clothing);
+      // Console: undefined
+    ```
+
+# Methods
+
+- An object property that is a function
+
+    ```javascript
+        const person = {
+          name: 'Mark',
+          ...
+          // Below is shorthand it is not an arrow function!
+          greeting(greeting = 'Hi') {
+          return `${greeting} ${this.name}`;
+        },
+        };
+        person.greeting();
+        // Returns Hi Mark
+    ```
+
+  - `this` generally the thing that's left of the dot.
+    - So `this` in the case of `person.greeting()` is `person`.
+
+- Arrow functions can be used for methods, but that means you don't have access to `this` on the object. `this` will refer to the `window` object.

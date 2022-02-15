@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <input type="text" name="first" value="Mark" />
+    <script>
+      const age = 100;
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+        clothing: {
+          shirts: 5,
+          trousers: 3,
+        },
+        greeting(greeting = 'Hi') {
+          return `${greeting} ${this.name}`;
+        },
+      };
 
-<body>
-  <script>
+      person.job = 'Web Developer';
+      // Change values with dot notation
+      person.age = 50;
 
-  </script>
-</body>
+      // const personFroze = Object.freeze(person);
+      // console.log(personFroze);
+      // personFroze.name = 'Jon';
+      // console.log(personFroze);
+      // console.log(person.age);
+      // const propertyToCheck = prompt('What do you want to check?');
+      // console.log(person[propertyToCheck]);
+      // console.log(person.clothing?.jumpers?.colour);
+      // const nameInnput = document.querySelector('[name="first"]');
+      // const nameVal = nameInnput ? nameInnput.value : 'Nope';
+      // console.log(nameVal);
 
+      // console.log(delete person.clothing);
+      // console.log(person.clothing);
+
+      // Method
+    </script>
+  </body>
 </html>
