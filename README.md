@@ -851,3 +851,8 @@ switch (event.key) {
       console.log('Wut Stopped!');
     }, 3000);
   ```
+
+## Objects
+
+  - Group together keys (properties) and values of related data or collections of functionality
+  - Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
