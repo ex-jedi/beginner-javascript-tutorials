@@ -1292,5 +1292,6 @@ switch (event.key) {
         ul.insertAdjacentHTML('afterbegin', li);
       }
     ```
+![Screenshot 2022-02-15 165059](https://user-images.githubusercontent.com/3149496/154111317-f5e8d318-ebc6-4541-874b-380be73040aa.png)
 
 - Maps keep things in order.
