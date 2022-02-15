@@ -1030,3 +1030,25 @@ switch (event.key) {
       console.log(person.clothing);
       // Console: undefined
     ```
+
+# Methods
+
+- An object property that is a function
+
+    ```javascript
+        const person = {
+          name: 'Mark',
+          ...
+          // Below is shorthand it is not an arrow function!
+          greeting(greeting = 'Hi') {
+          return `${greeting} ${this.name}`;
+        },
+        };
+        person.greeting();
+        // Returns Hi Mark
+    ```
+
+  - `this` generally the thing that's left of the dot.
+    - So `this` in the case of `person.greeting()` is `person`.
+
+- Arrow functions can be used for methods, but that means you don't have access to `this` on the object. `this` will refer to the `window` object.
