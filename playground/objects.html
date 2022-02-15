@@ -24,10 +24,18 @@
       // Change values with dot notation
       person.age = 50;
 
-      const personFroze = Object.freeze(person);
-      console.log(personFroze);
-      personFroze.name = 'Jon';
-      console.log(personFroze);
+      // const personFroze = Object.freeze(person);
+      // console.log(personFroze);
+      // personFroze.name = 'Jon';
+      // console.log(personFroze);
+      // console.log(person.age);
+      // const propertyToCheck = prompt('What do you want to check?');
+      // console.log(person[propertyToCheck]);
+      console.log(
+        person.clothing.shirts
+          ? person.clothing.shirts
+          : `Property does not exist`,
+      );
     </script>
   </body>
 </html>

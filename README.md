@@ -909,7 +909,7 @@ switch (event.key) {
   ```javascript
     person.job = 'Web Developer';
     console.log(person);
-    // Console outputs {name: 'Mark', age: 100, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+    // Console: {name: 'Mark', age: 100, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
 
 - Values can be changes with dot notation
@@ -929,7 +929,7 @@ switch (event.key) {
       person.age = 50;
 
       console.log(person);
-      // Console outputs {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
 
 # Const
@@ -955,8 +955,59 @@ switch (event.key) {
   ```javascript
       const personFroze = Object.freeze(person);
       console.log(personFroze);
-      // Console outputs: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
       personFroze.name = 'Jon';
       console.log(personFroze);
-      // Console outputs: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+      // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
+
+# Acessing properties
+
+- Using dot notation, most common
+
+    ```javascript
+      console.log(person.age);
+    ```
+
+  - Dot notation can be chained
+
+      ```javascript
+        console.log(person.clothing.shirts);
+        // Console: 50
+      ```
+
+- Can use square brackets.
+
+    ```javascript
+      console.log(person[age]);
+    ```
+
+  - Used when a property name is attached to a variable.
+
+    ```javascript
+      const propertyToCheck = prompt('What do you want to check?');
+      console.log(person[propertyToCheck]);
+      // Displays a prompt where you enter a property name top check
+    ```
+
+  - Also used when a non-valid propert name is used. Ig it contains spaces or hyphens etc.
+
+- If a property doesn't exist a lookup will return undefined
+
+      ```javascript
+        console.log(person.clothing.jumpers);
+        // Console: undefined
+
+- Looking up a property on a property that doesn't exist will throw an error
+
+  ```javascript
+    console.log(person.clothing.jumpers.colour);
+    // Console: Uncaught TypeError: Cannot read properties of undefined (reading 'colour') at objects.html:35:43
+  ```
+
+  - Can do something like this as a fallback for a property that doesn't exist.
+
+    ```javascript
+      console.log(person.clothing.jumpers ? person.clothing.jumpers : `Property does not exist`);
+      // Console: Property does not exist
+    ```
