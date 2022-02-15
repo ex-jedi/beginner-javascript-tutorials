@@ -1339,6 +1339,7 @@ switch (event.key) {
 
 - Use indexes to access array items
 - Arrays indexes are zero based.
+- Access indexes with square brackets.
 
   ```javascript
     const names = ['Mark', 'Kate'];
@@ -1352,4 +1353,10 @@ switch (event.key) {
       const names = ['Mark', 'Kate'];
       console.log(names.length);
       // Console: 2
+  ```
+
+- To find the last item in an array use `array.length - 1`
+
+  ```javascript
+    console.log(names[names.length - 1]);
   ```
