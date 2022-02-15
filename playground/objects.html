@@ -63,24 +63,50 @@
       };
 
       // const person3 = person1;
-      const person3 = { ...person1 };
+      // Old way
       // const person3 = Object.assign({}, person1)
+      // New way. Shallow copy only...
+      // const person3 = { ...person1 };
+      // Lodash
+      // const person3 = _.cloneDeep(person1);
 
-      console.log(person3 === person1);
-      // Console: false
+      // console.log(person3 === person1);
+      // // Console: false
 
-      person3.first = 'Dug';
+      // person3.first = 'Dug';
 
-      console.log(person3.first);
-      // Console: 'Dug'
-      console.log(person1.first);
-      // Console: 'Mark'
+      // console.log(person3.first);
+      // // Console: 'Dug'
+      // console.log(person1.first);
+      // // Console: 'Mark'
 
-      person3.clothing.shirts = 100;
-      console.log(person3.clothing.shirts);
-      // Console: 100
-      console.log(person1.clothing.shirts);
-      // Console: 100
+      // person3.clothing.shirts = 100;
+      // console.log(person3.clothing.shirts);
+      // // Console: 100
+      // console.log(person1.clothing.shirts);
+      // // Console: 10
+
+      // Merging objects
+
+      const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+        oysters: 14,
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+        oysters: 56,
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+
+      console.log(inventory.oysters);
     </script>
   </body>
 </html>

@@ -1148,3 +1148,72 @@ switch (event.key) {
       console.log(person1.clothing.shirts);
       // Console: 100
   ```
+
+- Can use outside library, like Lodash. <https://lodash.com/>
+  - Lodash has a `_.cloneDeep()` method for deep cloning. <https://lodash.com/docs/4.17.15#cloneDeep>
+
+  ```javascript
+      const person3 = _.cloneDeep(person1);
+
+      console.log(person3 === person1);
+      // Console: false
+
+      person3.first = 'Dug';
+
+      console.log(person3.first);
+      // Console: 'Dug'
+      console.log(person1.first);
+      // Console: 'Mark'
+
+      person3.clothing.shirts = 100;
+      console.log(person3.clothing.shirts);
+      // Console: 100
+      console.log(person1.clothing.shirts);
+      // Console: 10
+  ```
+
+- Objects can be merged with the spread operator
+- You can also add properties onto the merged object literal
+
+  ```javascript
+        const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+  ```
+
+- If there are duplicate properties they will be overwritten. So the oyster property in the first object is overwritten by the oyster property in the second.
+
+  ```javascript
+        const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+        oysters: 14
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+        oysters: 56
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+
+    console.log(inventory.oysters);
+    // Console: 56
+  ```
