@@ -8,6 +8,7 @@
   </head>
 
   <body>
+    <input type="text" name="first" value="Mark" />
     <script>
       const age = 100;
       const person = {
@@ -31,7 +32,13 @@
       // console.log(person.age);
       // const propertyToCheck = prompt('What do you want to check?');
       // console.log(person[propertyToCheck]);
-      console.log(person.clothing?.jumpers?.colour);
+      // console.log(person.clothing?.jumpers?.colour);
+      // const nameInnput = document.querySelector('[name="first"]');
+      // const nameVal = nameInnput ? nameInnput.value : 'Nope';
+      // console.log(nameVal);
+
+      console.log(delete person.clothing);
+      console.log(person.clothing);
     </script>
   </body>
 </html>

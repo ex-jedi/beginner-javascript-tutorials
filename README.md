@@ -994,9 +994,10 @@ switch (event.key) {
 
 - If a property doesn't exist a lookup will return undefined
 
-      ```javascript
-        console.log(person.clothing.jumpers);
-        // Console: undefined
+    ```javascript
+      console.log(person.clothing.jumpers);
+      // Console: undefined
+    ```
 
 - Looking up a property on a property that doesn't exist will throw an error
 
@@ -1018,4 +1019,14 @@ switch (event.key) {
     ```javascript
       console.log(person.clothing.jumpers.colour ? person.clothing.jumpers.colour : `Property does not exist`);
       // Console: Property does not exist
+    ```
+
+- Delete a property with `delete` keyword.
+  - Can check if it has worked as it will return `true` or `false` depending on whether it's successfull or not
+
+    ```javascript
+      console.log(delete person.clothing);
+      // Console: true
+      console.log(person.clothing);
+      // Console: undefined
     ```
