@@ -1217,3 +1217,17 @@ switch (event.key) {
     console.log(inventory.oysters);
     // Console: 56
   ```
+
+- If you use an object in a function any modifications madeare made on the external object. Changes are not scoped to the function.
+
+  ```javascript
+      function doStuff2(data) {
+        data.tomatoes = 10000;
+        console.log(data);
+      }
+      doStuff2(inventory);
+      console.log(inventory.tomatoes);
+      // Console: 10000
+  ```
+
+- Make a copy of an object with one of the afore mentioned methods if you need to use it but don't want to alter it.

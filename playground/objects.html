@@ -106,7 +106,20 @@
         fish: 33,
       };
 
-      console.log(inventory.oysters);
+      // console.log(inventory.oysters);
+
+      function doStuff(data) {
+        data = 'Something else';
+        console.log(data);
+      }
+
+      function doStuff2(data) {
+        data.tomatoes = 10000;
+        console.log(data);
+      }
+      doStuff(name1);
+      doStuff2(inventory);
+      console.log(inventory.tomatoes);
     </script>
   </body>
 </html>
