@@ -949,3 +949,14 @@ switch (event.key) {
     };
     // Will throw 'Assignment to constant variable' error.
   ```
+
+- Can create a frozen (immutable) object, one where properties an values can't be changed with `Object.freeze()`.
+
+  ```javascript
+      const personFroze = Object.freeze(person);
+      console.log(personFroze);
+      // Console outputs: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+      personFroze.name = 'Jon';
+      console.log(personFroze);
+      // Console outputs: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```

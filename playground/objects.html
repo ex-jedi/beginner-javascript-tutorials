@@ -24,9 +24,10 @@
       // Change values with dot notation
       person.age = 50;
 
-      person = {
-        name: 'Robert',
-      };
+      const personFroze = Object.freeze(person);
+      console.log(personFroze);
+      personFroze.name = 'Jon';
+      console.log(personFroze);
     </script>
   </body>
 </html>
