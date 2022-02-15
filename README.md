@@ -1315,3 +1315,41 @@ switch (event.key) {
 - The position of each item in an array is call an index.
 - The number of items is called the length.
 - Each item can be any type, including other arrays.
+- Most commonly created with array literal syntax.
+
+  ```javascript
+    const names = ['Mark', 'Kate'];
+  ```
+
+- Arrays are actually objects.
+
+  ```javascript
+     const names = ['Mark', 'Kate'];
+      console.log(typeof names);
+      // Console: object
+  ```
+
+  - If you need to check if something is an array use `Array.isArray()`
+
+    ```javascript
+      const names = ['Mark', 'Kate'];
+      console.log(Array.isArray(names));
+      // Console: true
+    ```
+
+- Use indexes to access array items
+- Arrays indexes are zero based.
+
+  ```javascript
+    const names = ['Mark', 'Kate'];
+    console.log(names[1]);
+    // Console: Kate
+  ```
+
+- Array length is not zero based.
+
+  ```javascript
+      const names = ['Mark', 'Kate'];
+      console.log(names.length);
+      // Console: 2
+  ```
