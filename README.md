@@ -1279,4 +1279,18 @@ switch (event.key) {
   ```
 
   - Loop over the map to show points and prizes on the page
+
+    ```javascript
+      const prizes = new Map();
+      prizes.set(100, 'Bear');
+      prizes.set(200, 'Duck');
+      prizes.set(300, 'Car');
+
+      const ul = document.querySelector('.prizes');
+      for (const [points, prize] of prizes) {
+        const li = `<li> ${points} points wins a ${prize}  </li>`;
+        ul.insertAdjacentHTML('afterbegin', li);
+      }
+    ```
+
 - Maps keep things in order.
