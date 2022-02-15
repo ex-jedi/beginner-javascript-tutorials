@@ -854,13 +854,52 @@ switch (event.key) {
 
 ## Objects
 
-- Group together keys (properties) and values of related data or collections of functionality
+- Group together keys (properties) and values of related data or collections of functionality.
 - Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
-- Object creation with object literal syntax
+- Object creation with object literal syntax.
 
   ```javascript
        const person = {
         name: 'Mark',
         age: 500,
+      };
+  ```
+
+- If an object's propert has the same name as a variable you can just insert the variable name like so.
+
+  ```javascript
+        const age = 100;
+
+        const person = {
+          name: 'Mark',
+          age,
+        };
+  ```
+
+- Can use strings for property names if you need dashes or spaces etc.
+  - recommended to use a trailing comma (comma dangle).
+
+  ```javascript
+      const age = 100;
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+      };
+  ```
+
+- Objects values can be any type, including objects.
+
+  ```javascript
+      const age = 100;
+
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+        clothing: {
+          shirts: 5,
+          trousers: 3,
+        },
       };
   ```
