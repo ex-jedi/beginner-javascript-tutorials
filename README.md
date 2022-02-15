@@ -1307,3 +1307,11 @@ switch (event.key) {
 - Maps keep things in order.
 - Can't put functions in a map.
 - JSON doesn't handle maps.
+
+## Arrays
+
+- A list of items where the order matters.
+- Each thing in an array is an item.
+- The position of each item in an array is call an index.
+- The number of items is called the length.
+- Each item can be any type, including other arrays.
