@@ -1305,3 +1305,5 @@ switch (event.key) {
 ![Screenshot 2022-02-15 165059](https://user-images.githubusercontent.com/3149496/154111317-f5e8d318-ebc6-4541-874b-380be73040aa.png)
 
 - Maps keep things in order.
+- Can't put functions in a map.
+- JSON doesn't handle maps.
