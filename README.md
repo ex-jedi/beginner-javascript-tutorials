@@ -1231,3 +1231,51 @@ switch (event.key) {
   ```
 
 - Make a copy of an object with one of the afore mentioned methods if you need to use it but don't want to alter it.
+
+## Maps
+
+- Create a map with `new map()`
+
+    ```javascript
+      const myMap = new Map();
+    ```
+
+- Add keys and values with `set()`
+
+  ```javascript
+    myMap.set('name', 'Mark');
+  ```
+
+- Keys can be any type
+
+  ```javascript
+    const myMap = new Map();
+    myMap.set('name', 'Mark');
+    myMap.set(100, 'This is a number');
+  ```
+
+- Can for instance use a map for additional information for an object, using the object variable.
+
+  ```javascript
+      const person1 = {
+        name: 'wes',
+        age: 200,
+      };
+
+      const myMap = new Map();
+      myMap.set(person1, 'Really Cool');
+  ```
+
+- As you can use any type as a key you could use a map to get prizes relating to a score number...
+
+  ```javascript
+      const score = 200;
+      const prizes = new Map();
+      prizes.set(100, 'Bear');
+      prizes.set(200, 'Duck');
+      prizes.set(300, 'Car');
+      console.log(`you win a ${prizes.get(score)}`);
+      // Console: you win a duck
+  ```
+
+- Maps keep things in order.
