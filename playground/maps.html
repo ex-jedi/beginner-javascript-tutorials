@@ -20,6 +20,17 @@
         const li = `<li> ${points} points wins a ${prize}  </li>`;
         ul.insertAdjacentHTML('afterbegin', li);
       }
+
+      const person1 = {
+        name: 'wes',
+        age: 200,
+      };
+
+      const sendIt = JSON.stringify(person1);
+      console.log(sendIt);
+
+      const gotIt = JSON.parse(sendIt);
+      console.log(gotIt);
     </script>
   </body>
 </html>

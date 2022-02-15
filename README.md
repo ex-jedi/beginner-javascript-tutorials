@@ -1230,7 +1230,7 @@ switch (event.key) {
       // Console: 10000
   ```
 
-- Make a copy of an object with one of the afore mentioned methods if you need to use it but don't want to alter it.
+- Make a copy of an object with one of the aforementioned methods if you need to use it but don't want to alter it.
 
 ## Maps
 
