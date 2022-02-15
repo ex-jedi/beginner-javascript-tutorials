@@ -854,5 +854,13 @@ switch (event.key) {
 
 ## Objects
 
-  - Group together keys (properties) and values of related data or collections of functionality
-  - Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
+- Group together keys (properties) and values of related data or collections of functionality
+- Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
+- Object creation with object literal syntax
+
+  ```javascript
+       const person = {
+        name: 'Mark',
+        age: 500,
+      };
+  ```
