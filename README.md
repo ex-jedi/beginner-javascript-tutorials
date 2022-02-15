@@ -1278,4 +1278,5 @@ switch (event.key) {
       // Console: you win a duck
   ```
 
+  - Loop over the map to show points and prizes on the page
 - Maps keep things in order.

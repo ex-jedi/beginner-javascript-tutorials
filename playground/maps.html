@@ -10,12 +10,10 @@
   <body>
     <ul class="prizes"></ul>
     <script>
-      const score = 200;
       const prizes = new Map();
       prizes.set(100, 'Bear');
       prizes.set(200, 'Duck');
       prizes.set(300, 'Car');
-      console.log(`you win a ${prizes.get(score)}`);
 
       const ul = document.querySelector('.prizes');
       for (const [points, prize] of prizes) {
