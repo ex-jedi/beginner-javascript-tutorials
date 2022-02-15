@@ -1129,3 +1129,22 @@ switch (event.key) {
       ```javascript
         const person3 = Object.assign({}, person1)
       ```
+
+- Spread operator runs into the same problem with 'nested' objects as it makes a shallow copy.
+
+  ```javascript
+          const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+        clothing: {
+          shirts: 10,
+          hats: 2,
+        },
+      };
+
+      person3.clothing.shirts = 100;
+      console.log(person3.clothing.shirts);
+      // Console: 100
+      console.log(person1.clothing.shirts);
+      // Console: 100
+  ```

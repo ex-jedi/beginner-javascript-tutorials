@@ -49,6 +49,10 @@
       const person1 = {
         first: 'Mark',
         second: 'Phoenix',
+        clothing: {
+          shirts: 10,
+          hats: 2,
+        },
       };
 
       const person2 = {
@@ -69,6 +73,12 @@
       // Console: 'Dug'
       console.log(person1.first);
       // Console: 'Mark'
+
+      person3.clothing.shirts = 100;
+      console.log(person3.clothing.shirts);
+      // Console: 100
+      console.log(person1.clothing.shirts);
+      // Console: 100
     </script>
   </body>
 </html>
