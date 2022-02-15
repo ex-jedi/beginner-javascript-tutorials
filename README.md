@@ -1052,3 +1052,182 @@ switch (event.key) {
     - So `this` in the case of `person.greeting()` is `person`.
 
 - Arrow functions can be used for methods, but that means you don't have access to `this` on the object. `this` will refer to the `window` object.
+
+# Reference vs Value
+
+- Created Objects with the same properties and values are not the same object.
+
+  ```javascript
+      const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      const person2 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      console.log(person1 === person2);
+        // Console: false
+  ```
+
+- If you assign a variable to an existing object both variables point to the same object.
+
+  ```javascript
+      const person1 = {
+      first: 'Mark',
+      second: 'Phoenix',
+    };
+
+    const person3 = person1;
+
+    console.log(person3 === person1);
+    // Console: true
+  ```
+
+- `person1` and `person3` point to the SAME object!
+
+- So if you change properties on `person1` or `person3` you're changing a property on one object, not two separate ones.
+
+  ```javascript
+    const person1 = {
+      first: 'Mark',
+      second: 'Phoenix',
+    };
+
+    const person3 = person1;
+
+    person3.first = 'Dug';
+    console.log(person3.first);
+    // Console: 'Dug'
+
+    console.log(person1.first);
+    // Console: 'Dug'
+  ```
+
+  - See Just JavaSCript for the right mental model. <https://justjavascript.com/learn>
+
+- A way to copy and create a separate object is to use the spread operator.
+
+    ```javascript
+      const person3 = { ...person1 };
+
+      console.log(person3 === person1);
+      // Console: false
+
+      person3.first = 'Dug';
+
+      console.log(person3.first);
+      // Console: 'Dug'
+      console.log(person1.first);
+      // Console: 'Mark'
+    ```
+
+  - Older, not so popular these days, way. Just in case you see it somewhere.
+
+      ```javascript
+        const person3 = Object.assign({}, person1)
+      ```
+
+- Spread operator runs into the same problem with 'nested' objects as it makes a shallow copy.
+
+  ```javascript
+          const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+        clothing: {
+          shirts: 10,
+          hats: 2,
+        },
+      };
+
+      person3.clothing.shirts = 100;
+      console.log(person3.clothing.shirts);
+      // Console: 100
+      console.log(person1.clothing.shirts);
+      // Console: 100
+  ```
+
+- Can use outside library, like Lodash. <https://lodash.com/>
+  - Lodash has a `_.cloneDeep()` method for deep cloning. <https://lodash.com/docs/4.17.15#cloneDeep>
+
+  ```javascript
+      const person3 = _.cloneDeep(person1);
+
+      console.log(person3 === person1);
+      // Console: false
+
+      person3.first = 'Dug';
+
+      console.log(person3.first);
+      // Console: 'Dug'
+      console.log(person1.first);
+      // Console: 'Mark'
+
+      person3.clothing.shirts = 100;
+      console.log(person3.clothing.shirts);
+      // Console: 100
+      console.log(person1.clothing.shirts);
+      // Console: 10
+  ```
+
+- Objects can be merged with the spread operator
+- You can also add properties onto the merged object literal
+
+  ```javascript
+        const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+  ```
+
+- If there are duplicate properties they will be overwritten. So the oyster property in the first object is overwritten by the oyster property in the second.
+
+  ```javascript
+        const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+        oysters: 14
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+        oysters: 56
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+
+    console.log(inventory.oysters);
+    // Console: 56
+  ```
+
+- If you use an object in a function any modifications madeare made on the external object. Changes are not scoped to the function.
+
+  ```javascript
+      function doStuff2(data) {
+        data.tomatoes = 10000;
+        console.log(data);
+      }
+      doStuff2(inventory);
+      console.log(inventory.tomatoes);
+      // Console: 10000
+  ```
+
+- Make a copy of an object with one of the afore mentioned methods if you need to use it but don't want to alter it.

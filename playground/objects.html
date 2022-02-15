@@ -9,6 +9,8 @@
 
   <body>
     <input type="text" name="first" value="Mark" />
+    <!-- Loading Lodash  -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
       const age = 100;
       const person = {
@@ -43,7 +45,81 @@
       // console.log(delete person.clothing);
       // console.log(person.clothing);
 
-      // Method
+      const name1 = 'Mark';
+      const name2 = 'Mark';
+
+      const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+        clothing: {
+          shirts: 10,
+          hats: 2,
+        },
+      };
+
+      const person2 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      // const person3 = person1;
+      // Old way
+      // const person3 = Object.assign({}, person1)
+      // New way. Shallow copy only...
+      // const person3 = { ...person1 };
+      // Lodash
+      // const person3 = _.cloneDeep(person1);
+
+      // console.log(person3 === person1);
+      // // Console: false
+
+      // person3.first = 'Dug';
+
+      // console.log(person3.first);
+      // // Console: 'Dug'
+      // console.log(person1.first);
+      // // Console: 'Mark'
+
+      // person3.clothing.shirts = 100;
+      // console.log(person3.clothing.shirts);
+      // // Console: 100
+      // console.log(person1.clothing.shirts);
+      // // Console: 10
+
+      // Merging objects
+
+      const meatInventory = {
+        bacon: 2,
+        sausage: 3,
+        oysters: 14,
+      };
+
+      const veggieInventory = {
+        lettuce: 5,
+        tomatoes: 3,
+        oysters: 56,
+      };
+
+      const inventory = {
+        ...meatInventory,
+        ...veggieInventory,
+        fish: 33,
+      };
+
+      // console.log(inventory.oysters);
+
+      function doStuff(data) {
+        data = 'Something else';
+        console.log(data);
+      }
+
+      function doStuff2(data) {
+        data.tomatoes = 10000;
+        console.log(data);
+      }
+      doStuff(name1);
+      doStuff2(inventory);
+      console.log(inventory.tomatoes);
     </script>
   </body>
 </html>
