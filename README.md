@@ -1005,9 +1005,17 @@ switch (event.key) {
     // Console: Uncaught TypeError: Cannot read properties of undefined (reading 'colour') at objects.html:35:43
   ```
 
-  - Can do something like this as a fallback for a property that doesn't exist.
+  - Can use optional chaining
+    - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining>
+
+      ```javascript
+        console.log(person.clothing?.jumpers?.colour);
+        // Console: undefined
+      ```
+
+  - Or could do something like this as a fallback for a property that doesn't exist.
 
     ```javascript
-      console.log(person.clothing.jumpers ? person.clothing.jumpers : `Property does not exist`);
+      console.log(person.clothing.jumpers.colour ? person.clothing.jumpers.colour : `Property does not exist`);
       // Console: Property does not exist
     ```
