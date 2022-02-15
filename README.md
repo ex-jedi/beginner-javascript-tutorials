@@ -865,7 +865,7 @@ switch (event.key) {
       };
   ```
 
-- If an object's propert has the same name as a variable you can just insert the variable name like so.
+- If an object's property has the same name as a variable you can just insert the variable name like so.
 
   ```javascript
         const age = 100;
@@ -902,4 +902,50 @@ switch (event.key) {
           trousers: 3,
         },
       };
+  ```
+
+- Properties can be added to an object with dot notation
+
+  ```javascript
+    person.job = 'Web Developer';
+    console.log(person);
+    // Console outputs {name: 'Mark', age: 100, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```
+
+- Values can be changes with dot notation
+
+  ```javascript
+      const age = 100;
+      const person = {
+        name: 'Mark',
+        age,
+        'cool-dude': true,
+        clothing: {
+          shirts: 5,
+          trousers: 3,
+        },
+      };
+
+      person.age = 50;
+
+      console.log(person);
+      // Console outputs {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
+  ```
+
+# Const
+
+- Doesn't mean the values of an object can't be changed. Means the binding to the object cannot be changed.
+
+  ```javascript
+
+    const person = {
+      name: 'Mark',
+      etc...
+      },
+    };
+
+    person = {
+      name: 'Robert',
+    };
+    // Will throw 'Assignment to constant variable' error.
   ```
