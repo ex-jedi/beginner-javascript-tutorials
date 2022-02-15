@@ -1052,3 +1052,80 @@ switch (event.key) {
     - So `this` in the case of `person.greeting()` is `person`.
 
 - Arrow functions can be used for methods, but that means you don't have access to `this` on the object. `this` will refer to the `window` object.
+
+# Reference vs Value
+
+- Created Objects with the same properties and values are not the same object.
+
+  ```javascript
+      const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      const person2 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      console.log(person1 === person2);
+        // Console: false
+  ```
+
+- If you assign a variable to an existing object both variables point to the same object.
+
+  ```javascript
+      const person1 = {
+      first: 'Mark',
+      second: 'Phoenix',
+    };
+
+    const person3 = person1;
+
+    console.log(person3 === person1);
+    // Console: true
+  ```
+
+- `person1` and `person3` point to the SAME object!
+
+- So if you change properties on `person1` or `person3` you're changing a property on one object, not two separate ones.
+
+  ```javascript
+    const person1 = {
+      first: 'Mark',
+      second: 'Phoenix',
+    };
+
+    const person3 = person1;
+
+    person3.first = 'Dug';
+    console.log(person3.first);
+    // Console: 'Dug'
+
+    console.log(person1.first);
+    // Console: 'Dug'
+  ```
+
+  - See Just JavaSCript for the right mental model. <https://justjavascript.com/learn>
+
+- A way to copy and create a separate object is to use the spread operator.
+
+    ```javascript
+      const person3 = { ...person1 };
+
+      console.log(person3 === person1);
+      // Console: false
+
+      person3.first = 'Dug';
+
+      console.log(person3.first);
+      // Console: 'Dug'
+      console.log(person1.first);
+      // Console: 'Mark'
+    ```
+
+  - Older, not so popular these days, way. Just in case you see it somewhere.
+
+      ```javascript
+        const person3 = Object.assign({}, person1)
+      ```

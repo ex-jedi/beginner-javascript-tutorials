@@ -43,7 +43,32 @@
       // console.log(delete person.clothing);
       // console.log(person.clothing);
 
-      // Method
+      const name1 = 'Mark';
+      const name2 = 'Mark';
+
+      const person1 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      const person2 = {
+        first: 'Mark',
+        second: 'Phoenix',
+      };
+
+      // const person3 = person1;
+      const person3 = { ...person1 };
+      // const person3 = Object.assign({}, person1)
+
+      console.log(person3 === person1);
+      // Console: false
+
+      person3.first = 'Dug';
+
+      console.log(person3.first);
+      // Console: 'Dug'
+      console.log(person1.first);
+      // Console: 'Mark'
     </script>
   </body>
 </html>
