@@ -1234,7 +1234,7 @@ switch (event.key) {
 
 ## Maps
 
-- Create a map with `new map()`
+- Create a map with `new map()`.
 
     ```javascript
       const myMap = new Map();
@@ -1245,6 +1245,15 @@ switch (event.key) {
   ```javascript
     myMap.set('name', 'Mark');
   ```
+
+- Can also use arrays to add keys and values to a map.
+
+    ```javascript
+        const myMap2 = new Map([
+          ['name', 'mark'],
+          ['age', 48],
+        ]);
+    ```
 
 - Keys can be any type
 
@@ -1292,6 +1301,7 @@ switch (event.key) {
         ul.insertAdjacentHTML('afterbegin', li);
       }
     ```
+
 ![Screenshot 2022-02-15 165059](https://user-images.githubusercontent.com/3149496/154111317-f5e8d318-ebc6-4541-874b-380be73040aa.png)
 
 - Maps keep things in order.
