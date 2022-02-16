@@ -1392,3 +1392,18 @@ switch (event.key) {
       console.log(numbers);
       // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     ```
+
+- To avoid altering the original array make a copy first, then run any mutation methods on the copy.
+
+  ```javascript
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      // Make a copy first, then run reverse() on the copy.
+      const numbersReversed = [...numbers].reverse();
+
+      console.log(numbers);
+      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+      console.log(numbersReversed);
+      // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+  ```
