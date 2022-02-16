@@ -10,7 +10,22 @@
   <body>
     <script>
       const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
-      console.log(Array.isArray(names));
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const numbersReversed = [...numbers].reverse();
+      console.log('numbers -', numbers);
+      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      console.log(numbersReversed);
+      // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+      // const numbersBackwards = numbers.reverse();
+      // console.log(numbersBackwards);
+      // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+      // console.log(numbers);
+      // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+      // const pizzaSlice = numbers.slice(2, 4);
+      // console.log(pizzaSlice);
+      // Console: [3, 4]
+      // console.log(numbers);
+      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     </script>
   </body>
 </html>
