@@ -1407,3 +1407,14 @@ switch (event.key) {
       console.log(numbersReversed);
       // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
   ```
+
+- Add items to the end of an array with `push()`.
+  - `push()` is a mutation method!
+
+    ```javascript
+          const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      names.push('Pete');
+      console.log(names);
+      // Console: ['Mark', 'Kate', 'Dug', 'Jon', 'Sam', 'Pete']
+
+    ```
