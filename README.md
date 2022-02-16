@@ -1364,6 +1364,7 @@ switch (event.key) {
 # Mutation
 
 - Some array methods will alter the original array, even if you attempt to make a new array.
+  - `.reverse()` is a mutation method. It alters the array it's run on. This will cause bugs if forgotten!
 
   ```javascript
       const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -1377,3 +1378,17 @@ switch (event.key) {
       // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
       // Original numbers array is altered (mutated).
   ```
+
+  - `slice()` which returns a 'slice' of an array based on index values passed in, is not a mutation method. It will not alter the array it's run on.
+
+    ```javascript
+      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      const pizzaSlice = numbers.slice(2, 4);
+
+      console.log(pizzaSlice);
+      // Console: [3, 4]
+
+      console.log(numbers);
+      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    ```
