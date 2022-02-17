@@ -1379,7 +1379,7 @@ switch (event.key) {
       // Original numbers array is altered (mutated).
   ```
 
-  - `slice()` which returns a 'slice' of an array based on index values passed in, is not a mutation method. It will not alter the array it's run on.
+  - **`slice()`** which returns a 'slice' of an array based on index values passed in, is not a mutation method. It will not alter the array it's run on.
 
   ```javascript
     slice()
@@ -1425,9 +1425,15 @@ switch (event.key) {
   - `push()` is a mutation method!
 
     ```javascript
-          const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
-      names.push('Pete');
+        const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
       console.log(names);
       // Console: ['Mark', 'Kate', 'Dug', 'Jon', 'Sam', 'Pete']
 
+    ```
+
+  - Can make a copy on an array with spread and add new items to avoid mutating the original,
+
+    ```javascript
+      const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      const newNames = [...names, 'Pete'];
     ```
