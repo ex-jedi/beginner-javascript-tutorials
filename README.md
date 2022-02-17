@@ -1379,20 +1379,6 @@ switch (event.key) {
       // Original numbers array is altered (mutated).
   ```
 
-  - `slice()` which returns a 'slice' of an array based on index values passed in, is not a mutation method. It will not alter the array it's run on.
-
-    ```javascript
-      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-      const pizzaSlice = numbers.slice(2, 4);
-
-      console.log(pizzaSlice);
-      // Console: [3, 4]
-
-      console.log(numbers);
-      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    ```
-
 - To avoid altering the original array make a copy first, then run any mutation methods on the copy.
 
   ```javascript
@@ -1412,9 +1398,90 @@ switch (event.key) {
   - `push()` is a mutation method!
 
     ```javascript
-          const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
-      names.push('Pete');
+        const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
       console.log(names);
       // Console: ['Mark', 'Kate', 'Dug', 'Jon', 'Sam', 'Pete']
 
     ```
+
+  - Can make a copy of an array with spread and add new items to avoid mutating the original,
+
+    ```javascript
+      const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      const newNames = [...names, 'Pete'];
+    ```
+
+- Add items to the front of the array with `unshift()`.
+  - `unshift()` mutates the original array.
+
+  ```javascript
+      const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      names.unshift('Meg');
+  ```
+
+  - Can make a copy of an array with spread and add new items to the front to avoid mutating the original.
+
+  ```javascript
+      const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      const newNames = ['meg', ...names];
+  ```
+
+- **`splice()`** mutates an array by removing or replacing existing elements and/or adding new elements in place.
+  - Has a start, a optional delete count and the option to insert new elements from the start.
+
+  ```javascript
+    splice(start)
+    splice(start, deleteCount)
+    splice(start, deleteCount, item1)
+    splice(start, deleteCount, item1, item2, itemN)
+  ```
+
+- **`slice()`** which returns a 'slice' of an array based on index values passed in
+- Is NOT a mutation method. It returns a shallow copy of a portion of an array into a new one. It will not alter the array it's run on.
+
+```javascript
+  slice()
+  slice(start)
+  slice(start, end)
+```
+
+- Start is optional and zero index based. If it's undefined it'll start from 0.
+- If `start` is greater than the index range of the sequence, an empty array is returned.
+- End (also optional) is zero-based index before which to end extraction. slice extracts UP TO but NOT INCLUDING end.
+- If end is omitted, slice extracts through the end of the array `(arr.length)`.
+- If end is greater than the length of the sequence, slice extracts through to the end of the array `(arr.length)`.
+- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#syntax>
+
+```javascript
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const pizzaSlice = numbers.slice(2, 4);
+
+  console.log(pizzaSlice);
+  // Console: [3, 4]
+
+  console.log(numbers);
+  // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+- Can be used to make a copy of an array and add items to the copy taken from the original with spread like so.
+
+  ```javascript
+  const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
+  const newBikes = [...bikes.slice(0, 3), 'benotto', ...bikes.slice(3)];
+  console.log(newBikes);
+  // Console:  ['bianchi', 'miele', 'panasonic', 'benotto', 'miyata']
+  // Copies original array and adds benotto
+  ```
+
+- Can be used to make a copy of an array and 'remove' in the copy.
+
+  ```javascript
+       console.log(newBikes);
+    // Console: ['bianchi', 'miele', 'panasonic', 'benotto', 'miyata']
+
+      const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+      console.log(newBikes2);
+    // Console: ['bianchi', 'miele', 'panasonic', 'miyata']
+    // Copies original array and adds removes benotto
+  ```
