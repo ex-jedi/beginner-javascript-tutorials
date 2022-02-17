@@ -1381,17 +1381,30 @@ switch (event.key) {
 
   - `slice()` which returns a 'slice' of an array based on index values passed in, is not a mutation method. It will not alter the array it's run on.
 
-    ```javascript
-      const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  ```javascript
+    slice()
+    slice(start)
+    slice(start, end)
+  ```
 
-      const pizzaSlice = numbers.slice(2, 4);
+  - Start is optional and zero index based. If it's undefined it'll start from 0.
+  - If `start` is greater than the index range of the sequence, an empty array is returned.
+  - End (also optional) is zero-based index before which to end extraction. slice extracts UP TO but NOT INCLUDING end.
+  - If end is omitted, slice extracts through the end of the array `(arr.length)`.
+  - If end is greater than the length of the sequence, slice extracts through to the end of the array `(arr.length)`.
+  - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#syntax>
 
-      console.log(pizzaSlice);
-      // Console: [3, 4]
+  ```javascript
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-      console.log(numbers);
-      // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    ```
+    const pizzaSlice = numbers.slice(2, 4);
+
+    console.log(pizzaSlice);
+    // Console: [3, 4]
+
+    console.log(numbers);
+    // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  ```
 
 - To avoid altering the original array make a copy first, then run any mutation methods on the copy.
 
