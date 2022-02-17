@@ -13,6 +13,8 @@
       const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
       const newBikes = [...bikes.slice(0, 3), 'benotto', ...bikes.slice(3)];
       console.log(newBikes);
+      const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+      console.log(newBikes2);
       // const newNames = ['meg', ...names];
       // names.unshift('Meg');
       // console.log(names);

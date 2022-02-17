@@ -1464,11 +1464,24 @@ switch (event.key) {
   // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-- Can be used to add items to arrays with spread like so.
+- Can be used to make a copy of an array and add items to the copy taken from the original with spread like so.
 
   ```javascript
   const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
   const newBikes = [...bikes.slice(0, 3), 'benotto', ...bikes.slice(3)];
   console.log(newBikes);
   // Console:  ['bianchi', 'miele', 'panasonic', 'benotto', 'miyata']
+  // Copies original array and adds benotto
+  ```
+
+- Can be used to make a copy of an array and 'remove' in the copy.
+
+  ```javascript
+       console.log(newBikes);
+    // Console: ['bianchi', 'miele', 'panasonic', 'benotto', 'miyata']
+
+      const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+      console.log(newBikes2);
+    // Console: ['bianchi', 'miele', 'panasonic', 'miyata']
+    // Copies original array and adds removes benotto
   ```
