@@ -108,28 +108,80 @@
       // Console: ['h', 'o', 't', ' ', 'd', 'o', 'g', 's', ',', 'h', 'a', 'm', 'b', 'u', 'r', 'g', 'e', 'r', 's', ',', 's', 'a', 'u', 's', 'a', 'g', 'e', 's', ',', 'c', 'o', 'r', 'n']
 
       // take the last item off toppings with pop()
-      console.log(toppings);
+      // console.log(toppings);
       // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
 
-      const topPop = toppings.pop();
-      console.log(toppings);
-      // Removes last item (cheese)
-      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
+      // const topPop = toppings.pop();
+      // console.log(toppings);
+      // // Removes last item (cheese)
+      // // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
 
-      console.log(topPop);
-      // Console: Cheese
+      // console.log(topPop);
+      // // Console: Cheese
 
-      // add it back with push()
+      // // add it back with push()
 
-      toppings.push(topPop);
-      console.log(toppings);
-      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+      // const topPush = toppings.push(topPop);
+      // console.log(toppings);
+
+      // // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      // console.log(topPush);
+      // // Console: 11
+
       // take the first item off toppings with shift()
+      // console.log(toppings);
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+      const toppingsShift = toppings.shift();
+      // console.log(toppingsShift);
+      // Console: Mushrooms
+
+      // console.log(toppings);
+      // Console: ['Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
       // add it back in with unshift()
+
+      const topUnshift = toppings.unshift(toppingsShift);
+      // console.log(toppings);
+      // Mushrooms are back!
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      // console.log(topUnshift);
+      // Console: 11 (length of the mutated array)
+
       // Do the last four,but immutable (with spreads and new variables)
 
+      // console.log(toppings);
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      let newToppings = toppings.slice(0, toppings.length - 1);
+      // console.log(newToppings);
+
+      // Get last item from toppings array
+      const lastItem = toppings[toppings.length - 1];
+      // console.log(lastItem);
+      // Console: Cheese
+
+      // Add it back to newToppings with spread
+      newToppings = [...newToppings, lastItem];
+      // Cheese is back
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      // console.log(newToppings);
+      newToppings = toppings.slice(1, toppings.length - 1);
+      // console.log(newToppings);
+
+      newToppings = [toppings[0], ...newToppings];
+      // console.log(newToppings);
+
       // Make a copy of the toppings array with slice()
+
+      const toppingsSlice = toppings.slice();
+      console.log('toppingsSlice - ', toppingsSlice);
       // Make a copy of the toppings array with a spread
+
+      const toppingSpread = [...toppings];
+      console.log('toppingSpread - ', toppingSpread);
       // take out items 3 to 5 of your new toppings array with splice()
       // find the index of Avocado with indexOf() / lastIndexOf()
       // Check if hot sauce is in the toppings with includes()
