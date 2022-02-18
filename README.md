@@ -1550,6 +1550,22 @@ switch (event.key) {
 - 'Built in' methods on the array object constructor rather than on the array instance
 - Methods called on object instances are called instance methods.
 - Array static methods are...
-  - `Array.from()`. Creates a new Array instance from an array-like object or iterable object.
+  - `Array.of()`. Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments (not often used).
+  - `Array.from()`. Creates a new Array instance from an array-like object or iterable object (something with a length) .
+  - Takes the array-like thing and an optional map function.
+
+    ```javascript
+      // Arrow function
+      Array.from(arrayLike, (element) => { /*...*/ } )
+      Array.from(arrayLike, (element, index) => { /*...*/ } )
+    ```
+
+  - Example...
+
+    ```javascript
+        const range = Array.from({ length: 10 }, (_, index) => index);
+      console.log(range);
+      // Console: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    ```
+
   - `Array.isArray()`. Returns true if the argument is an array, or false otherwise.
-  - `Array.of()`. Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.
