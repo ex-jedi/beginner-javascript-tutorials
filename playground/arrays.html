@@ -9,7 +9,7 @@
 
   <body>
     <script>
-      // const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+      const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
       // const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
       // const newBikes = [...bikes.slice(0, 3), 'benotto', ...bikes.slice(3)];
       // console.log(newBikes);
@@ -45,6 +45,33 @@
         { text: 'good bikes', id: 333 },
         { text: 'so good', id: 433 },
       ];
+
+      const namesIndex = names.findIndex((name) => name === 'Kate');
+      console.log(namesIndex);
+
+      const noKate = [
+        ...names.slice(0, namesIndex),
+        ...names.slice(namesIndex + 1),
+      ];
+
+      console.log(names);
+      console.log(noKate);
+
+      function deleteComment(id, commentsArray) {
+        // Find index of comment in the array
+        const commentIndex = commentsArray.findIndex(
+          (comment) => comment.id === id,
+        );
+        console.log(commentsArray[commentIndex]);
+        // Make new array minus the comment & return it
+        return [
+          ...commentsArray.slice(0, commentIndex),
+          ...commentsArray.slice(commentIndex + 1),
+        ];
+      }
+
+      const commentsUpdated = deleteComment(123, comments);
+      console.log(commentsUpdated);
     </script>
   </body>
 </html>
