@@ -1544,3 +1544,12 @@ switch (event.key) {
           ];
       */
     ```
+
+# Static Array Methods
+
+- 'Built in' methods on the array object constructor rather than on the array instance
+- Methods called on object instances are called instance methods.
+- Array static methods are...
+  - `Array.from()`. Creates a new Array instance from an array-like object or iterable object.
+  - `Array.isArray()`. Returns true if the argument is an array, or false otherwise.
+  - `Array.of()`. Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.
