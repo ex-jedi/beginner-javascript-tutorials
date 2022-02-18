@@ -1437,7 +1437,7 @@ switch (event.key) {
   ```
 
 - **`slice()`** which returns a 'slice' of an array based on index values passed in
-- Is NOT a mutation method. It returns a shallow copy of a portion of an array into a new one. It will not alter the array it's run on.
+- Is **NOT A MUTATION METHOD**. It returns a shallow copy of a portion of an array into a new one. It will not alter the array it's run on.
 
 ```javascript
   slice()
@@ -1447,7 +1447,7 @@ switch (event.key) {
 
 - Start is optional and zero index based. If it's undefined it'll start from 0.
 - If `start` is greater than the index range of the sequence, an empty array is returned.
-- End (also optional) is zero-based index before which to end extraction. slice extracts UP TO but NOT INCLUDING end.
+- End (also optional) is zero-based index before which to end extraction. slice extracts **UP TO** but **NOT INCLUDING END**.
 - If end is omitted, slice extracts through the end of the array `(arr.length)`.
 - If end is greater than the length of the sequence, slice extracts through to the end of the array `(arr.length)`.
 - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#syntax>
@@ -1485,3 +1485,62 @@ switch (event.key) {
     // Console: ['bianchi', 'miele', 'panasonic', 'miyata']
     // Copies original array and adds removes benotto
   ```
+
+- Removing items with **`findIndex()`**
+  - Simple example...
+
+  ```javascript
+    const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
+
+    // Find index of Kate
+    const namesIndex = names.findIndex((name) => name === 'Kate');
+    // Returns 1
+
+    // Make a new array with Kate removed
+    const noKate = [
+      ...names.slice(0, namesIndex),
+      ...names.slice(namesIndex + 1),
+    ];
+
+    console.log(names);
+    // Console: ['Mark', 'Kate', 'Dug', 'Jon', 'Sam']
+
+    console.log(noKate);
+    // Console: ['Mark', 'Dug', 'Jon', 'Sam']
+  ```
+
+  - Example finding object in array with an id...
+
+    ```javascript
+        const comments = [
+          { text: 'Cool Beans', id: 123 },
+          { text: 'Love this', id: 133 },
+          { text: 'Neato', id: 233 },
+          { text: 'good bikes', id: 333 },
+          { text: 'so good', id: 433 },
+        ];
+
+        function deleteComment(id, commentsArray) {
+          // Find index of comment in the array
+          const commentIndex = commentsArray.findIndex(
+            (comment) => comment.id === id,
+          );
+          console.log(commentsArray[commentIndex]);
+          // Make new array minus the comment & return it
+          return [
+          ...commentsArray.slice(0, commentIndex),
+          ...commentsArray.slice(commentIndex + 1),
+          ];
+        }
+
+        const commentsUpdated = deleteComment(123, comments);
+        console.log(commentsUpdated);
+        /* Console: [
+          // Comment 123 'removed'
+          { text: 'Love this', id: 133 },
+          { text: 'Neato', id: 233 },
+          { text: 'good bikes', id: 333 },
+          { text: 'so good', id: 433 },
+          ];
+      */
+    ```
