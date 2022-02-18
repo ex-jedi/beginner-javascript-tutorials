@@ -54,13 +54,25 @@
 
       // Array.of();
       const range = Array.from({ length: 10 }, (_, index) => index);
-      console.log(range);
+      // console.log(range);
       // Console: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
       // Make a function that creates a range from x to y with Array.from();
+      function createRange(start, end) {
+        return Array.from(
+          { length: end - start + 1 },
+          (_item, index) => index + start,
+          // item is undefined, the underscore is just to show that.
+        );
+      }
+      const myRange = createRange(5, 17);
+      console.log(myRange);
+      // Console: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
       // Check if the last array you created is really an array with Array.isArray();
-
+      const isArray = Array.isArray(myRange);
+      console.log(isArray);
+      // Console: true
       // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
 
       /*

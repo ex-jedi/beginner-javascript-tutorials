@@ -1560,12 +1560,32 @@ switch (event.key) {
       Array.from(arrayLike, (element, index) => { /*...*/ } )
     ```
 
-  - Example...
+  - Examples...
 
     ```javascript
-        const range = Array.from({ length: 10 }, (_, index) => index);
-      console.log(range);
+      // Create array
+      const makeArray = Array.from({ length: 10 }, (_, index) => index);
+      console.log(makeArray);
       // Console: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+      // Function that creates a range from x to y with Array.from();
+      function createRange(start, end) {
+        return Array.from(
+          { length: end - start + 1 },
+          (_item, index) => index + start,
+          // item will be undefined, the underscore is just to show that.
+        );
+      }
+
+      const myRange = createRange(5, 17);
+      console.log(myRange);
+      // Console: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
     ```
 
   - `Array.isArray()`. Returns true if the argument is an array, or false otherwise.
+
+    ```javascript
+      const isArray = Array.isArray(myRange);
+      console.log(isArray);
+      // Console: true
+    ```
