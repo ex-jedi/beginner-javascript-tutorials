@@ -1545,7 +1545,7 @@ switch (event.key) {
       */
     ```
 
-# Static Array Methods
+# Array Static Methods
 
 - 'Built in' methods on the array object constructor rather than on the array instance
 - Methods called on object instances are called instance methods.
@@ -1589,3 +1589,39 @@ switch (event.key) {
       console.log(isArray);
       // Console: true
     ```
+
+# Object Static Methods
+
+- Object.entries() method returns an array of an object's [key, value] pairs.
+
+  ```javascript
+    const meats = {
+      beyond: 10,
+      beef: 5,
+      pork: 7,
+    };
+
+    console.log(Object.entries(meats));
+    // Console: [['beyond', 10], ['beef', 5], ['pork', 7]]
+
+    // Looping over entries with forEach()
+    Object.entries(meats).forEach((item) => {
+      // Destructuring array results in variables
+      const [thing1, thing2] = item;
+      console.log(thing1, thing2);
+    });
+  ```
+
+- Object.keys() returns a new array that contains the keys for each index in the array.
+
+    ```javascript
+      console.log(Object.keys(meats));
+      // Console: ['beyond', 'beef', 'pork']
+    ```
+
+- Object.values() method returns an array of a given object's enumerable property values.
+
+  ```javascript
+    console.log(Object.values(meats));
+    // Console: [10, 5, 7]
+  ```

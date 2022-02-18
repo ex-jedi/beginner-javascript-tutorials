@@ -66,14 +66,23 @@
         );
       }
       const myRange = createRange(5, 17);
-      console.log(myRange);
+      // console.log(myRange);
       // Console: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
       // Check if the last array you created is really an array with Array.isArray();
       const isArray = Array.isArray(myRange);
-      console.log(isArray);
+      // console.log(isArray);
       // Console: true
       // Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+      // console.log(Object.entries(meats));
+      // console.log(Object.keys(meats));
+      // console.log(Object.values(meats));
+
+      Object.entries(meats).forEach((item) => {
+        // Destructuring array results in variables
+        const [thing1, thing2] = item;
+        console.log(thing1, thing2);
+      });
 
       /*
         Instance Methods
