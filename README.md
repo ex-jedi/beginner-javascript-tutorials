@@ -1544,3 +1544,48 @@ switch (event.key) {
           ];
       */
     ```
+
+# Static Array Methods
+
+- 'Built in' methods on the array object constructor rather than on the array instance
+- Methods called on object instances are called instance methods.
+- Array static methods are...
+  - `Array.of()`. Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments (not often used).
+  - `Array.from()`. Creates a new Array instance from an array-like object or iterable object (something with a length) .
+  - Takes the array-like thing and an optional map function.
+
+    ```javascript
+      // Arrow function
+      Array.from(arrayLike, (element) => { /*...*/ } )
+      Array.from(arrayLike, (element, index) => { /*...*/ } )
+    ```
+
+  - Examples...
+
+    ```javascript
+      // Create array
+      const makeArray = Array.from({ length: 10 }, (_, index) => index);
+      console.log(makeArray);
+      // Console: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+      // Function that creates a range from x to y with Array.from();
+      function createRange(start, end) {
+        return Array.from(
+          { length: end - start + 1 },
+          (_item, index) => index + start,
+          // item will be undefined, the underscore is just to show that.
+        );
+      }
+
+      const myRange = createRange(5, 17);
+      console.log(myRange);
+      // Console: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    ```
+
+  - `Array.isArray()`. Returns true if the argument is an array, or false otherwise.
+
+    ```javascript
+      const isArray = Array.isArray(myRange);
+      console.log(isArray);
+      // Console: true
+    ```
