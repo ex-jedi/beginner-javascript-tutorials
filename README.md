@@ -1464,7 +1464,31 @@ switch (event.key) {
   // Console: [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
-- Can be used to make a copy of an array and add items to the copy taken from the original with spread like so.
+- Using `slice()` to 'remove' the last item from an array.
+
+  ```javascript
+      const toppings = [
+        'Mushrooms ',
+        'Tomatoes',
+        'Eggs',
+        'Chili',
+        'Lettuce',
+        'Avocado',
+        'Chiles',
+        'Bacon',
+        'Pickles',
+        'Onions',
+        'Cheese',
+      ];
+
+      // Make new array & copy toppings into it without last item.
+      const toppingsEnd = toppings.slice(0, toppings.length - 1);
+      console.log(toppingsEnd);
+      // Cheese removed
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
+  ```
+
+- Can be used to make a copy of an array and insert items to the copy like so.
 
   ```javascript
   const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
@@ -1474,7 +1498,7 @@ switch (event.key) {
   // Copies original array and adds benotto
   ```
 
-- Can be used to make a copy of an array and 'remove' in the copy.
+- Can be used to make a copy of an array and 'remove' items from the copy.
 
   ```javascript
        console.log(newBikes);
@@ -1627,4 +1651,99 @@ switch (event.key) {
   ```javascript
     console.log(Object.values(meats));
     // Console: [10, 5, 7]
+  ```
+
+# Array Instance Methods
+
+- The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
+
+  ```javascript
+    const buns = ['egg', 'wonder', 'brioche'];
+    const bunsString = buns.join();
+    console.log(bunsString);
+    // Console: egg,wonder,brioche
+
+    const bunsStringTwo = buns.join(' and ');
+    console.log(bunsStringTwo);
+    // Console: egg and wonder and brioche
+  ```
+
+- The `split()` method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+  - The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.
+
+    ```javascript
+      const foodString = 'hot dogs,hamburgers,sausages,corn';
+
+      const foodArray = foodString.split();
+      console.log(foodArray);
+      // Console: ['hot dogs,hamburgers,sausages,corn']]
+
+      const foodArrayTwo = foodString.split('');
+      console.log(foodArrayTwo);
+      // Console: ['h', 'o', 't', ' ', 'd', 'o', 'g', 's', ',', 'h', 'a', 'm', 'b', 'u', 'r', 'g', 'e', 'r', 's', ',', 's', 'a', 'u', 's', 'a', 'g', 'e', 's', ',', 'c', 'o', 'r', 'n']
+    ```
+
+- The `pop()` method removes the last element from an array (mutating it) and returns that element.
+
+    ```javascript
+      const toppings = [
+        'Mushrooms ',
+        'Tomatoes',
+        'Eggs',
+        'Chili',
+        'Lettuce',
+        'Avocado',
+        'Chiles',
+        'Bacon',
+        'Pickles',
+        'Onions',
+        'Cheese',
+      ];
+
+      const topPop = toppings.pop();
+      console.log(toppings);
+      // Removes last item (cheese)
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
+
+      console.log(topPop);
+      // Console: Cheese
+    ```
+
+- The push() method adds one or more elements to the end of an array (mutating it) and returns the new length of the array.
+
+  ```javascript
+      const topPush = toppings.push(topPop);
+      console.log(toppings);
+      // Cheese is back
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      console.log(topPush);
+      // Console: 11 (length of the mutated array)
+  ```
+
+- The `shift()` method removes the first element from an array and returns the removed element.
+
+  ```javascript
+      console.log(toppings);
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      const toppingsShift = toppings.shift();
+      console.log(toppingsShift);
+      // Console: Mushrooms
+
+      console.log(toppings);
+      // Mushrooms removed
+      // Console: ['Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+  ```
+
+- The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+  ```javascript
+      const topUnshift = toppings.unshift(toppingsShift);
+      console.log(toppings);
+      // Mushrooms are back!
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      console.log(topUnshift);
+      // Console: 11 (length of the mutated array)
   ```

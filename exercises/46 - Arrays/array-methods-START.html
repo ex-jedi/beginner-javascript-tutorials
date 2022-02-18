@@ -78,11 +78,11 @@
       // console.log(Object.keys(meats));
       // console.log(Object.values(meats));
 
-      Object.entries(meats).forEach(([meat, qty]) => {
-        // Destructuring array results in variables
-        // const [meat, qty] = item;
-        console.log(meat, qty);
-      });
+      // Object.entries(meats).forEach(([meat, qty]) => {
+      //   // Destructuring array results in variables
+      //   // const [meat, qty] = item;
+      //   console.log(meat, qty);
+      // });
 
       /*
         Instance Methods
@@ -90,10 +90,40 @@
 
       // Display all bun types with " or " - use join()
 
-      // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
+      // const bunsString = buns.join();
+      // const bunsStringTwo = buns.join(' and ');
+      // console.log(bunsString);
+      // console.log(bunsStringTwo);
+
+      // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into an array
+
+      // const foodString = 'hot dogs,hamburgers,sausages,corn,';
+
+      // const foodArray = foodString.split();
+      // console.log(foodArray);
+      // // Console: ['hot dogs,hamburgers,sausages,corn']]
+
+      // const foodArrayTwo = foodString.split('');
+      // // console.log(foodArrayTwo);
+      // Console: ['h', 'o', 't', ' ', 'd', 'o', 'g', 's', ',', 'h', 'a', 'm', 'b', 'u', 'r', 'g', 'e', 'r', 's', ',', 's', 'a', 'u', 's', 'a', 'g', 'e', 's', ',', 'c', 'o', 'r', 'n']
 
       // take the last item off toppings with pop()
+      console.log(toppings);
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
+
+      const topPop = toppings.pop();
+      console.log(toppings);
+      // Removes last item (cheese)
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
+
+      console.log(topPop);
+      // Console: Cheese
+
       // add it back with push()
+
+      toppings.push(topPop);
+      console.log(toppings);
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
       // take the first item off toppings with shift()
       // add it back in with unshift()
       // Do the last four,but immutable (with spreads and new variables)
