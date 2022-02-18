@@ -1765,3 +1765,29 @@ switch (event.key) {
       console.log(topUnshift);
       // Console: 11 (length of the mutated array)
   ```
+
+- The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+  - When comparing strings and characters, includes() is **case-sensitive**.
+
+    ```javascript
+      const toppings = [
+        'Mushrooms ',
+        'Tomatoes',
+        'Eggs',
+        'Chili',
+        'Lettuce',
+        'Avocado',
+        'Chiles',
+        'Bacon',
+        'Pickles',
+        'Onions',
+        'Cheese',
+      ];
+
+      const AnyEggs = toppings.includes('Eggs');
+      console.log(AnyEggs);
+      // Console: true
+      const canHazHot = toppings.includes('Hot Sauce');
+      console.log(canHazHot);
+      // Console: false
+    ```
