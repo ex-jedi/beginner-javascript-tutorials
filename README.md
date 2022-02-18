@@ -1605,10 +1605,13 @@ switch (event.key) {
     // Console: [['beyond', 10], ['beef', 5], ['pork', 7]]
 
     // Looping over entries with forEach()
-    Object.entries(meats).forEach((item) => {
-      // Destructuring array results in variables
-      const [thing1, thing2] = item;
-      console.log(thing1, thing2);
+    // Shows examples of destructuring
+    // Destructured variables can be called anything you choose
+    Object.entries(meats).forEach(([meat, qty]) => {
+      // const meat = entry[0];
+      // const qty = entry[1];
+      // const [meat, qty] = entry;
+      console.log(meat, qty);
     });
   ```
 

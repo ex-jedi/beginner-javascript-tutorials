@@ -78,10 +78,10 @@
       // console.log(Object.keys(meats));
       // console.log(Object.values(meats));
 
-      Object.entries(meats).forEach((item) => {
+      Object.entries(meats).forEach(([meat, qty]) => {
         // Destructuring array results in variables
-        const [thing1, thing2] = item;
-        console.log(thing1, thing2);
+        // const [meat, qty] = item;
+        console.log(meat, qty);
       });
 
       /*
