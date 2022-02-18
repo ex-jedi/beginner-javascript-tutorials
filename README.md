@@ -1482,10 +1482,28 @@ switch (event.key) {
       ];
 
       // Make new array & copy toppings into it without last item.
-      const toppingsEnd = toppings.slice(0, toppings.length - 1);
+      let toppingsEnd = toppings.slice(0, toppings.length - 1);
       console.log(toppingsEnd);
       // Cheese removed
       // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions']
+  ```
+
+- Adding the last item back.
+
+  ```javascript
+     let newToppings = toppings.slice(0, toppings.length - 1);
+      console.log(newToppings);
+
+      // Get last item from toppings array
+      const lastItem = toppings[toppings.length - 1];
+      console.log(lastItem);
+      // Console: Cheese
+
+      // Add it back to newToppings with spread
+      newToppings = [...newToppings, lastItem];
+      console.log(newToppings);
+      // Cheese is back
+      // Console: ['Mushrooms ', 'Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
   ```
 
 - Can be used to make a copy of an array and insert items to the copy like so.
