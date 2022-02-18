@@ -40,14 +40,6 @@
 
       const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
 
-      const feedback = [
-        { comment: 'Love the burgs', rating: 4 },
-        { comment: 'Horrible Service', rating: 2 },
-        { comment: 'Smoothies are great, liked the burger too', rating: 5 },
-        { comment: 'Ambiance needs work', rating: 3 },
-        { comment: 'I DONT LIKE BURGERS', rating: 1 },
-      ];
-
       /*
         Static Methods
       */
@@ -181,10 +173,29 @@
       // Make a copy of the toppings array with a spread
 
       const toppingSpread = [...toppings];
-      console.log('toppingSpread - ', toppingSpread);
+      // console.log('toppingSpread - ', toppingSpread);
       // take out items 3 to 5 of your new toppings array with splice()
+
+      const taken = toppingSpread.splice(3, 3);
+      // console.log('taken - ', taken);
+      // console.log('toppingSpread - ', toppingSpread);
+
       // find the index of Avocado with indexOf() / lastIndexOf()
+      const avoIndex = toppings.findIndex((item) => item === 'Avocado');
+      // console.log('avoIndex', avoIndex);
+
       // Check if hot sauce is in the toppings with includes()
+
+      const AnyEggs = toppings.includes('Eggs');
+      console.log(AnyEggs);
+      const canHazHot = toppings.includes('Hot Sauce');
+      console.log(canHazHot);
+
+      if (!canHazHot) {
+        toppings.push('Hot Sauce');
+        toppings.reverse();
+      }
+      console.log(toppings);
       // add it if it's not
       // flip those toppings around with reverse()
 
@@ -192,7 +203,21 @@
         Callback Methods
       */
 
+      const feedback = [
+        { comment: 'Love the Burgs', rating: 4 },
+        { comment: 'Horrible Service', rating: 2 },
+        { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+        { comment: 'Ambiance needs work', rating: 3 },
+        { comment: 'I DONT LIKE BURGERS', rating: 1 },
+      ];
+
       // find the first rating that talks about a burger with find()
+
+      const burgRating = feedback.find((item) =>
+        item.comment.toLowerCase().includes('burg'),
+      );
+
+      console.log('burgRating - ', burgRating);
       // find all ratings that are above 2 with filter()
       // find all ratings that talk about a burger with filter()
       // Remove the one star rating however you like!
