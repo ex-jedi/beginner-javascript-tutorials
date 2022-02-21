@@ -230,11 +230,11 @@
         };
       }
 
-      const findBurgRating = findByWord('burg');
-      console.log(feedback.find(findBurgRating));
+      const findBurgRating = feedback.find(findByWord('burg'));
+      console.log(findBurgRating);
 
-      const findBadRating = findByWord('horrible');
-      console.log(feedback.find(findBadRating));
+      const findBadRating = feedback.find(findByWord('horrible'));
+      console.log(findBadRating);
       // find all ratings that are above 2 with filter()
       // find all ratings that talk about a burger with filter()
       // Remove the one star rating however you like!

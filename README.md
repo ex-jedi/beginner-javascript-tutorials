@@ -1840,11 +1840,11 @@ switch (event.key) {
         };
       }
 
-      const findBurgRating = findByWord('burg');
-      console.log(feedback.find(findBurgRating));
+      const findBurgRating = feedback.find(findByWord('burg'));
+      console.log(findBurgRating);
       // Console: {comment: 'Love the Burgs', rating: 4}
 
-      const findBadRating = findByWord('horrible');
-      console.log(feedback.find(findBadRating));
+     const findBadRating = feedback.find(findByWord('horrible'));
+      console.log(findBadRating);
       // Console: {comment: 'Horrible Service', rating: 2}
     ```
