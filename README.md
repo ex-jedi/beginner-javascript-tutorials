@@ -1791,3 +1791,60 @@ switch (event.key) {
       console.log(canHazHot);
       // Console: false
     ```
+
+# Callback Array Methods
+
+- The `find()` method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+  - Takes a callback function which has 3 arguments.
+    - element. The current element in the array.
+    - index (Optional). The index (position) of the current element in the array.
+    - array (Optional). The array that find was called on.
+
+  ```javascript
+          const feedback = [
+        { comment: 'Love the Burgs', rating: 4 },
+        { comment: 'Horrible Service', rating: 2 },
+        { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+        { comment: 'Ambiance needs work', rating: 3 },
+        { comment: 'I DONT LIKE BURGERS', rating: 1 },
+      ];
+
+      const burgRating = feedback.find((item) =>
+        item.comment.toLowerCase().includes('burg'),
+      );
+
+      // Or...
+
+      function findBurgRating(feedbackItem) {
+        return feedbackItem.comment.toLowerCase().includes('burg');
+      }
+
+      // Or...
+
+      const findBurgRating = (feedbackitem) =>
+        feedbackitem.comment.toLowerCase().includes('burg');
+
+       const burgRating = feedback.find(findBurgRating);
+
+      console.log('burgRating - ', burgRating);
+      // Console: burgRating -  {comment: 'Love the Burgs', rating: 4}
+
+  ```
+
+  - Hugher order function (function that returns a function) version of above.
+
+    ```javascript
+        function findByWord(word) {
+        return function (commentObject) {
+          return commentObject.comment.toLowerCase().includes(word);
+        };
+      }
+
+      const findBurgRating = feedback.find(findByWord('burg'));
+      console.log(findBurgRating);
+      // Console: {comment: 'Love the Burgs', rating: 4}
+
+     const findBadRating = feedback.find(findByWord('horrible'));
+      console.log(findBadRating);
+      // Console: {comment: 'Horrible Service', rating: 2}
+    ```
