@@ -1832,6 +1832,7 @@ switch (event.key) {
   ```
 
   - Hugher order function (function that returns a function) version of above.
+    - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375678133>
 
     ```javascript
         function findByWord(word) {
@@ -1847,4 +1848,87 @@ switch (event.key) {
      const findBadRating = feedback.find(findByWord('horrible'));
       console.log(findBadRating);
       // Console: {comment: 'Horrible Service', rating: 2}
+    ```
+
+- The `filter()` method creates a new array with all elements that pass the test implemented by the provided function.
+  - Takes a callback function which has 3 arguments.
+    - element. The current element in the array.
+    - index (Optional). The index (position) of the current element in the array.
+    - array (Optional). The array that find was called on.
+
+    ```javascript
+
+      function findTwoRating(feedbackItem) {
+        return feedbackItem.rating > 2;
+      }
+
+      function findByRating(minRating) {
+        return function (feedbackItem) {
+          return feedbackItem.rating >= minRating;
+        };
+      }
+
+      const highRating = feedback.filter(findByRating(2));
+      console.table(highRating);
+      // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
+    ```
+
+- The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+  - Example plus extracting values from an Object...
+
+  ```javascript
+      const meats = {
+        beyond: 10,
+        beef: 5,
+        pork: 7,
+      };
+
+    const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
+    console.log(EnufMeat);
+    // Console: true
+  ```
+
+- The `every()`method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+
+  ```javascript
+      const allMeats = Object.values(meats).every((meat) => meat >= 3);
+      console.log(allMeats);
+      // Console: true
+  ```
+
+- The `sort()` method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values (alphabetically).
+  - Takes a compare callback function.
+
+    ```javascript
+      // Alphabetical sorting
+      const pizzaToppings = ['Pickles', 'Onions', 'Cheese', 'Avocado'];
+      console.log(pizzaToppings.sort());
+      ['Avocado', 'Cheese', 'Onions', 'Pickles']
+
+      // Numeric sorting
+      const numbers = [10, 100, 50, 76, 22, 17];
+      const sortedNumbers = numbers.sort(
+        (firstItem, secondItem) => firstItem - secondItem,
+      );
+      console.log(sortedNumbers);
+      // Console:  [10, 17, 22, 50, 76, 100]
+
+      // Sorting an Object
+
+      const prices = {
+        hotDog: 453,
+        burger: 765,
+        sausage: 634,
+        corn: 234,
+      };
+
+      // Put in order by price
+      const pricesSorted = Object.entries(prices).sort((a, b) => b[1] - a[1]);
+      console.table(pricesSorted);
+      // Console:
+      // (index)   0           1
+      // 0         'burger'    765
+      // 1         'sausage'   634
+      // 2         'hotDog'    453
+      // 3         'corn'      234
     ```

@@ -231,23 +231,83 @@
       }
 
       const findBurgRating = feedback.find(findByWord('burg'));
-      console.log(findBurgRating);
+      // console.log(findBurgRating);
 
       const findBadRating = feedback.find(findByWord('horrible'));
-      console.log(findBadRating);
+      // console.log(findBadRating);
       // find all ratings that are above 2 with filter()
+
+      // const aboveTwo = feedback.filter(
+      //   (feedbackItem) => feedbackItem.rating > 2,
+      // );
+
+      function findTwoRating(feedbackItem) {
+        return feedbackItem.rating > 2;
+      }
+
+      function findByRating(minRating) {
+        return function (feedbackItem) {
+          return feedbackItem.rating >= minRating;
+        };
+      }
+
+      const highRating = feedback.filter(findByRating(4));
+      // console.log(highRating);
       // find all ratings that talk about a burger with filter()
+
+      const hazBurg = feedback.filter(findByWord('burg'));
+      // console.log(hazBurg);
+
+      const betterThanOne = feedback.filter(findByRating(2));
+      // console.table(betterThanOne);
+
       // Remove the one star rating however you like!
 
       // check if there is at least 5 of one type of meat with some()
+
+      const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
+      // console.log(EnufMeat);
+
+      function meatCount(number, list) {
+        return Object.values(list).some((meat) => meat >= number);
+      }
+
+      // console.log(meatCount(400, meats));
+
       // make sure we have at least 3 of every meat with every()
+
+      const allMeats = Object.values(meats).every((meat) => meat >= 3);
+
+      // console.log(allMeats);
       // sort the toppings alphabetically with sort()
+
+      const numbers = [10, 100, 50, 76, 22, 17];
+
+      const sortedNumbers = numbers.sort(
+        (firstItem, secondItem) => firstItem - secondItem,
+      );
+
+      const pizzaToppings = ['Pickles', 'Onions', 'Cheese', 'Avocado'];
+
+      // console.log(pizzaToppings.sort());
       // sort the order totals from most expensive to least with .sort()
+
+      function orderSort(a, b) {
+        return b - a;
+      }
+
+      const mostExpesiveOrder = orderTotals.sort(orderSort);
+      // console.log(mostExpesiveOrder);
       // Sort the prices with sort()
 
       /*
         Looping Methods (next)
       */
+
+      console.log(prices);
+
+      const pricesSorted = Object.entries(prices).sort((a, b) => b[1] - a[1]);
+      console.table(pricesSorted);
     </script>
   </body>
 </html>
