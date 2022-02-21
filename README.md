@@ -2087,3 +2087,56 @@ switch (event.key) {
       console.log(orderTotalsWithTax);
       // Console: ['410.40', '1202.40', '627.60', '40.80', '760.80', '1024.80', '1972.80', '2666.40']
     ```
+
+  - Mapping array of objects
+
+      ```javascript
+        const people = [
+        {
+          birthday: 'April 22, 1993',
+          names: {
+            first: 'Keith',
+            last: 'Buckley',
+          },
+        },
+        {
+          birthday: 'January 3, 1975',
+          names: {
+            first: 'Larry',
+            last: 'Heep',
+          },
+        },
+        {
+          birthday: 'February 12, 1944',
+          names: {
+            first: 'Linda',
+            last: 'Bermeer',
+          },
+        },
+      ];
+
+      function personMapper(person) {
+        // Get birthday timestamp
+        const birthday = new Date(person.birthday).getTime();
+        // Get current time
+        const now = Date.now();
+        // Calculate age
+        const age = Math.floor((now - birthday) / 31536000000);
+        // Return their age and birthday in a object
+        return {
+          age,
+          name: `${person.names.first} ${person.names.last}`,
+          birthday: `${person.birthday}`,
+        };
+      }
+
+      const cleanedPeople = people.map(personMapper);
+
+      console.table(cleanedPeople);
+
+      // Console:
+      // (index)   age   name              birthday
+      // 0         28    'Keith Buckley'   'April 22, 1993'
+      // 1         47    'Larry Heep'      'January 3, 1975'
+      // 2         78    'Linda Bermeer'   'February 12, 1944'
+      ```

@@ -186,12 +186,31 @@
 
       const fullNames = firstNames.map(capitalize).map(addSurname);
 
-      console.log(fullNames);
+      // console.log(fullNames);
 
       const orderTotalsWithTax = orderTotals.map((total) =>
         (total * 1.2).toFixed(2),
       );
-      console.log(orderTotalsWithTax);
+      // console.log(orderTotalsWithTax);
+
+      function personMapper(person) {
+        // Get birthday timestamp
+        const birthday = new Date(person.birthday).getTime();
+        // Get current time
+        const now = Date.now();
+        // Calculate age
+        const age = Math.floor((now - birthday) / 31536000000);
+        // Return their age and birthday in a object
+        return {
+          age,
+          name: `${person.names.first} ${person.names.last}`,
+          birthday: `${person.birthday}`,
+        };
+      }
+
+      const cleanedPeople = people.map(personMapper);
+
+      console.table(cleanedPeople);
     </script>
   </body>
 </html>
