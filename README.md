@@ -1912,4 +1912,23 @@ switch (event.key) {
       );
       console.log(sortedNumbers);
       // Console:  [10, 17, 22, 50, 76, 100]
+
+      // Sorting an Object
+
+      const prices = {
+        hotDog: 453,
+        burger: 765,
+        sausage: 634,
+        corn: 234,
+      };
+
+      // Put in order by price
+      const pricesSorted = Object.entries(prices).sort((a, b) => b[1] - a[1]);
+      console.table(pricesSorted);
+      // Console:
+      // (index)   0           1
+      // 0         'burger'    765
+      // 1         'sausage'   634
+      // 2         'hotDog'    453
+      // 3         'corn'      234
     ```

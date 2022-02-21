@@ -289,7 +289,7 @@
 
       const pizzaToppings = ['Pickles', 'Onions', 'Cheese', 'Avocado'];
 
-      console.log(pizzaToppings.sort());
+      // console.log(pizzaToppings.sort());
       // sort the order totals from most expensive to least with .sort()
 
       function orderSort(a, b) {
@@ -297,12 +297,17 @@
       }
 
       const mostExpesiveOrder = orderTotals.sort(orderSort);
-      console.log(mostExpesiveOrder);
+      // console.log(mostExpesiveOrder);
       // Sort the prices with sort()
 
       /*
         Looping Methods (next)
       */
+
+      console.log(prices);
+
+      const pricesSorted = Object.entries(prices).sort((a, b) => b[1] - a[1]);
+      console.table(pricesSorted);
     </script>
   </body>
 </html>
