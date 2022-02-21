@@ -252,15 +252,22 @@
       }
 
       const highRating = feedback.filter(findByRating(4));
-      console.log(highRating);
+      // console.log(highRating);
       // find all ratings that talk about a burger with filter()
 
       const hazBurg = feedback.filter(findByWord('burg'));
-      console.log(hazBurg);
+      // console.log(hazBurg);
+
+      const betterThanOne = feedback.filter(findByRating(2));
+      // console.table(betterThanOne);
 
       // Remove the one star rating however you like!
 
       // check if there is at least 5 of one type of meat with some()
+
+      const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
+      console.log(EnufMeat);
+
       // make sure we have at least 3 of every meat with every()
       // sort the toppings alphabetically with sort()
       // sort the order totals from most expensive to least with .sort()
