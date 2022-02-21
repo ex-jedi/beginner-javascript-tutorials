@@ -1973,6 +1973,8 @@ switch (event.key) {
           ? `Next Topping is ${nextTopping}`
           : `No more toppings`,
         );
+
+        console.log(`--- 🍕---`);
       }
 
       toppings.forEach(logTopping);
@@ -1981,7 +1983,10 @@ switch (event.key) {
       // This is the first topping
       // Topping -  Mushrooms
       // Next Topping is Tomatoes
+      // --- 🍕---
       // Previous topping is Mushrooms
       // Topping -  Tomatoes
+      // Next Topping is Eggs
+      // --- 🍕---
       // etc...
   ```
