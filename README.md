@@ -1939,6 +1939,7 @@ switch (event.key) {
 
 - The `forEach()` method executes a provided function once for each array element.
 - Takes a callback function with the three arguments, the element, the index and the array.
+- Doesn't return anything.
 - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375687421>
 
   ```javascript
