@@ -169,7 +169,7 @@
       // Make a copy of the toppings array with slice()
 
       const toppingsSlice = toppings.slice();
-      console.log('toppingsSlice - ', toppingsSlice);
+      // console.log('toppingsSlice - ', toppingsSlice);
       // Make a copy of the toppings array with a spread
 
       const toppingSpread = [...toppings];
@@ -187,15 +187,15 @@
       // Check if hot sauce is in the toppings with includes()
 
       const AnyEggs = toppings.includes('Eggs');
-      console.log(AnyEggs);
+      // console.log(AnyEggs);
       const canHazHot = toppings.includes('Hot Sauce');
-      console.log(canHazHot);
+      // console.log(canHazHot);
 
       if (!canHazHot) {
         toppings.push('Hot Sauce');
         toppings.reverse();
       }
-      console.log(toppings);
+      // console.log(toppings);
       // add it if it's not
       // flip those toppings around with reverse()
 
@@ -217,7 +217,7 @@
         item.comment.toLowerCase().includes('burg'),
       );
 
-      console.log('burgRating - ', burgRating);
+      // console.log('burgRating - ', burgRating);
       // find all ratings that are above 2 with filter()
       // find all ratings that talk about a burger with filter()
       // Remove the one star rating however you like!
