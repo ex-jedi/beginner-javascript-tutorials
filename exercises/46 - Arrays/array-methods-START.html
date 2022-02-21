@@ -266,16 +266,30 @@
       // check if there is at least 5 of one type of meat with some()
 
       const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
-      console.log(EnufMeat);
+      // console.log(EnufMeat);
 
       function meatCount(number, list) {
         return Object.values(list).some((meat) => meat >= number);
       }
 
-      console.log(meatCount(400, meats));
+      // console.log(meatCount(400, meats));
 
       // make sure we have at least 3 of every meat with every()
+
+      const allMeats = Object.values(meats).every((meat) => meat >= 3);
+
+      // console.log(allMeats);
       // sort the toppings alphabetically with sort()
+
+      const numbers = [10, 100, 50, 76, 22, 17];
+
+      const sortedNumbers = numbers.sort(
+        (firstItem, secondItem) => firstItem - secondItem,
+      );
+
+      const pizzaToppings = ['Pickles', 'Onions', 'Cheese', 'Avocado'];
+
+      console.log(pizzaToppings.sort());
       // sort the order totals from most expensive to least with .sort()
       // Sort the prices with sort()
 

@@ -1887,3 +1887,29 @@ switch (event.key) {
     console.log(EnufMeat);
     // Console: true
   ```
+
+- The `every()`method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+
+  ```javascript
+      const allMeats = Object.values(meats).every((meat) => meat >= 3);
+      console.log(allMeats);
+      // Console: true
+  ```
+
+- The `sort()` method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values (alphabetically).
+  - Takes a compare callback function.
+
+    ```javascript
+      // Alphabetical sorting
+      const pizzaToppings = ['Pickles', 'Onions', 'Cheese', 'Avocado'];
+      console.log(pizzaToppings.sort());
+      ['Avocado', 'Cheese', 'Onions', 'Pickles']
+
+      // Numeric sorting
+      const numbers = [10, 100, 50, 76, 22, 17];
+      const sortedNumbers = numbers.sort(
+        (firstItem, secondItem) => firstItem - secondItem,
+      );
+      console.log(sortedNumbers);
+      // Console:  [10, 17, 22, 50, 76, 100]
+    ```
