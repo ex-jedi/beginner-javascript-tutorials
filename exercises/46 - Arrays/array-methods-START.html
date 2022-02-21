@@ -213,9 +213,14 @@
 
       // find the first rating that talks about a burger with find()
 
-      const burgRating = feedback.find((item) =>
-        item.comment.toLowerCase().includes('burg'),
-      );
+      function findBurgRating(feedbackItem) {
+        return feedbackItem.comment.toLowerCase().includes('burg');
+      }
+
+      // const findBurgRating = (feedbackitem) =>
+      //   feedbackitem.comment.toLowerCase().includes('burg');
+
+      const burgRating = feedback.find(findBurgRating);
 
       console.log('burgRating - ', burgRating);
       // find all ratings that are above 2 with filter()

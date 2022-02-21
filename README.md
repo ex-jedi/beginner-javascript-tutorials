@@ -1813,6 +1813,19 @@ switch (event.key) {
         item.comment.toLowerCase().includes('burg'),
       );
 
+      // Or...
+
+      function findBurgRating(feedbackItem) {
+        return feedbackItem.comment.toLowerCase().includes('burg');
+      }
+
+      // Or...
+
+      const findBurgRating = (feedbackitem) =>
+        feedbackitem.comment.toLowerCase().includes('burg');
+
+       const burgRating = feedback.find(findBurgRating);
+
       console.log('burgRating - ', burgRating);
       // Console: burgRating -  {comment: 'Love the Burgs', rating: 4}
   ```
