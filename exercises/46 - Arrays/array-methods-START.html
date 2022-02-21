@@ -268,6 +268,12 @@
       const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
       console.log(EnufMeat);
 
+      function meatCount(number, list) {
+        return Object.values(list).some((meat) => meat >= number);
+      }
+
+      console.log(meatCount(400, meats));
+
       // make sure we have at least 3 of every meat with every()
       // sort the toppings alphabetically with sort()
       // sort the order totals from most expensive to least with .sort()

@@ -1872,3 +1872,18 @@ switch (event.key) {
       console.table(highRating);
       // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
     ```
+
+- The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
+  - Example plus extracting values from an Object...
+
+  ```javascript
+      const meats = {
+        beyond: 10,
+        beef: 5,
+        pork: 7,
+      };
+
+    const EnufMeat = Object.values(meats).some((meat) => meat >= 5);
+    console.log(EnufMeat);
+    // Console: true
+  ```
