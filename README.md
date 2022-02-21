@@ -2025,6 +2025,7 @@ switch (event.key) {
 - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
   - Takes callback with three arguments.
   - Resulting array is the same length as the one it is run on.
+  - Doesn't alter the array it's run on.
   - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375690567>
 
     ```javascript
@@ -2072,4 +2073,17 @@ switch (event.key) {
 
         console.log(fullNames);
         // Console:  ['Mark Phoenix', 'Kate Phoenix']
+    ```
+
+  - Using `map` on numbers...
+
+    ```javascript
+        const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+        const orderTotalsWithTax = orderTotals.map((total) =>
+        (total * 1.2).toFixed(2),
+      );
+
+      console.log(orderTotalsWithTax);
+      // Console: ['410.40', '1202.40', '627.60', '40.80', '760.80', '1024.80', '1972.80', '2666.40']
     ```
