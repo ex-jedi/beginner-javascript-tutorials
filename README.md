@@ -111,22 +111,22 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
     - that is done by writing JavaScript that interfaces with the DOM (the things that are on the page, the elements on the page).
 
-# Selecting elements
+## Selecting elements
 
     - querySelector can be used on any element. <https://wesbos.com/javascript/04-the-dom/selecting-elements/#searching-inside-already-selected-elements>
 
-# Adding Text
+## Adding Text
 
 - textContent shows hidden nodes and elements. innerText is aware of styling and shows only actual text. <https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#textcontent-and-innertext>
 
 - insertAdjacentText, best way to add text to elements. <<https://wesbos.com/javascript/04-the-dom/element-properties-and-methods/#insertadjacenttext-and-insertadjacentelemen>
 
-# Data Attributes
+## Data Attributes
 
 - Data attributes are accessed with `.dataset`.
   <https://wesbos.com/javascript/04-the-dom/built-in-and-custom-data-attributes/#data-attributes>
 
-# Creating & Adding HTML
+## Creating & Adding HTML
 
 - Create HTML with `document.createElement()`.
   <https://wesbos.com/javascript/04-the-dom/creating-html>
@@ -140,7 +140,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 - Add elements in specific places with `insertAdjacentElement()`. <https://wesbos.com/javascript/04-the-dom/creating-html/#insertadjacentelement-method>
 - <https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML>
 
-# Creating HTML with Strings
+## Creating HTML with Strings
 
 - Backticks can be used to create HTML with strings. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss>
 
@@ -204,7 +204,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
   - Above is a pretty harmless examples, but it can leave sites open to serious attacks. <https://wesbos.com/javascript/04-the-dom/html-from-strings-and-xss/#xss-cross-site-scripting>
 
-# Traversing the DOM
+## Traversing the DOM
 
 - Traversing the DOM to find parents, children, sibling etc. nodes and elements. <<https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#properties-to-work-with-nodes-and-eleme>
 
@@ -231,7 +231,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 - Best to double check as it's not obvious from the names which ones include or ignore nodes
 
-# Removing Elements
+## Removing Elements
 
 - Use `el.remove()`. <https://wesbos.com/javascript/04-the-dom/traversing-and-removing-nodes/#removing-elements>
 
@@ -245,9 +245,9 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   console.log(para); // Logs <p>Soon I will be gone!</p>
   ```
 
-## Events
+# Events
 
-# Event Listeners
+## Event Listeners
 
 - <https://wesbos.com/javascript/05-events/event-listener>
 - You can attach event listeners to all elements, as well as the document and the window.
@@ -308,7 +308,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   buyButtons.forEach((button) => button.addEventListener('click', buyItem));
   ```
 
-# Targets, Bubbling, Propogation and Capture
+## Targets, Bubbling, Propagation and Capture
 
 - <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture>
 - Access event object by adding it as the paramiter of event listener callback function.
@@ -322,7 +322,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
     }
   ```
 
-# Target
+## Target
 
 - Access target by adding `.target` to `event`.
 
@@ -368,7 +368,7 @@ function handleBuyButtonClick(event) {
   }
   ```
 
-# Propagation
+## Propagation
 
 - <https://wesbos.com/javascript/05-events/targets-bubbling-propagation-and-capture#this-keyword>
 
@@ -401,7 +401,7 @@ window.addEventListener('click', (e) => {
 });
 ```
 
-# Prevent Default and Form Events
+## Prevent Default and Form Events
 
 - <https://wesbos.com/javascript/05-events/prevent-default-and-form-events>
 - Some elements have a default behaviour, like links for instance. The default action can be stopped with `preventDefault`.
@@ -502,9 +502,9 @@ window.addEventListener('click', (e) => {
       photo.addEventListener('keyup', handlePhotoClick);
     ```
 
-## Logic and Flow Control
+# Logic and Flow Control
 
-# If Statements
+## If Statements
 
 -If 10 is greater than 2, log "Yep" to the console.
 
@@ -571,7 +571,7 @@ window.addEventListener('click', (e) => {
   if(isTrue) doSomething();
   ```
 
-# Operators
+## Operators
 
 - === equals (same as).
   - Don't use == as 1t doesn't compare types.
@@ -583,7 +583,7 @@ window.addEventListener('click', (e) => {
 - || or
 - && and
 
-# Truthy and Falsy
+## Truthy and Falsy
 
 - Truthy
   - 1 // truthy
@@ -615,7 +615,7 @@ window.addEventListener('click', (e) => {
   } // Logs It's me
   ```
 
-# Coercion
+## Coercion
 
 - A bang  (`!`) in front of a boolian flips it.
 - A double bang  (`!!`) before a value coerces it into a boolian.
@@ -630,7 +630,7 @@ val = !!val // val === true
 
 ```
 
-# Ternary
+## Ternary
 
 - Like a shorthand if statement.
 
@@ -679,7 +679,7 @@ val = !!val // val === true
       isAdmin ? showAdminBar() : null;
   ```
 
-# Short Circuiting - The AND AND Trick
+## Short Circuiting - The AND AND Trick
 
 - JavaScript will abort a condition when one of them is false
 - This can be used... or abused to run checks
@@ -726,7 +726,7 @@ val = !!val // val === true
 
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
 
-# Switch Statement
+## Switch Statement
 
 ```javascript
 switch (event.key) {
@@ -751,9 +751,9 @@ switch (event.key) {
 - Needs a break after each cases.
 - Needs a default case which will run if the condition doesn't match any of the cases.
 
-## Intervals and Timers
+# Intervals and Timers
 
-# Timers
+## Timers
 
 - `setTimeout()` is used for timers.
 - Takes two things.
@@ -793,7 +793,7 @@ switch (event.key) {
 - JavaScript queues up the timer to be run after 1000 milliseconds, it will go to the next line of code and come back to timer when it's time.
   - That's why the function is called a callback as JavaScript will come back and call it at a later point in time.
 
-# Intervals
+## Intervals
 
 - Intervals accomplished with `setInterval()`
 - Like `setTimeout()` it also takes a callback function and a time in milliseconds for the interval.
@@ -816,7 +816,7 @@ switch (event.key) {
       setImmediateInterval(sayHI, 500);
   ```
 
-# Clearing timers and intervals
+## Clearing timers and intervals
 
 - To clear a timer or interval you have to save the reference to it.
   - Clear timers with `clearTimeout()`.
@@ -852,7 +852,7 @@ switch (event.key) {
     }, 3000);
   ```
 
-## Objects
+# Objects
 
 - Group together keys (properties) and values of related data or collections of functionality.
 - Order of properties is objects doesn't matter. If you need the order to matter, use an array or Map data structure.
@@ -932,7 +932,7 @@ switch (event.key) {
       // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
 
-# Const
+## Const
 
 - Doesn't mean the values of an object can't be changed. Means the binding to the object cannot be changed.
 
@@ -961,7 +961,7 @@ switch (event.key) {
       // Console: {name: 'Mark', age: 50, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
 
-# Acessing properties
+## Acessing properties
 
 - Using dot notation, most common
 
@@ -1031,7 +1031,7 @@ switch (event.key) {
       // Console: undefined
     ```
 
-# Methods
+## Methods
 
 - An object property that is a function
 
@@ -1053,7 +1053,7 @@ switch (event.key) {
 
 - Arrow functions can be used for methods, but that means you don't have access to `this` on the object. `this` will refer to the `window` object.
 
-# Reference vs Value
+## Reference vs Value
 
 - Created Objects with the same properties and values are not the same object.
 
@@ -1232,7 +1232,7 @@ switch (event.key) {
 
 - Make a copy of an object with one of the aforementioned methods if you need to use it but don't want to alter it.
 
-## Maps
+# Maps
 
 - Create a map with `new map()`.
 
@@ -1308,7 +1308,7 @@ switch (event.key) {
 - Can't put functions in a map.
 - JSON doesn't handle maps.
 
-## Arrays
+# Arrays
 
 - A list of items where the order matters.
 - Each thing in an array is an item.
@@ -1361,7 +1361,7 @@ switch (event.key) {
     console.log(names[names.length - 1]);
   ```
 
-# Mutation
+## Mutation
 
 - Some array methods will alter the original array, even if you attempt to make a new array.
   - `.reverse()` is a mutation method. It alters the array it's run on. This will cause bugs if forgotten!
@@ -1394,6 +1394,8 @@ switch (event.key) {
       // Console: [9, 8, 7, 6, 5, 4, 3, 2, 1]
   ```
 
+## Push
+
 - Add items to the end of an array with `push()`.
   - `push()` is a mutation method!
 
@@ -1411,6 +1413,8 @@ switch (event.key) {
       const newNames = [...names, 'Pete'];
     ```
 
+## Unshift
+
 - Add items to the front of the array with `unshift()`.
   - `unshift()` mutates the original array.
 
@@ -1426,7 +1430,9 @@ switch (event.key) {
       const newNames = ['meg', ...names];
   ```
 
-- **`splice()`** mutates an array by removing or replacing existing elements and/or adding new elements in place.
+## Splice
+
+- `splice()` mutates an array by removing or replacing existing elements and/or adding new elements in place.
   - Has a start, a optional delete count and the option to insert new elements from the start.
 
   ```javascript
@@ -1436,8 +1442,10 @@ switch (event.key) {
     splice(start, deleteCount, item1, item2, itemN)
   ```
 
-- **`slice()`** which returns a 'slice' of an array based on index values passed in
-- Is **NOT A MUTATION METHOD**. It returns a shallow copy of a portion of an array into a new one. It will not alter the array it's run on.
+## **Slice**
+
+- The **`slice()`** method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+- Is **NOT A MUTATION METHOD**.
 
 ```javascript
   slice()
@@ -1527,6 +1535,8 @@ switch (event.key) {
     // Console: ['bianchi', 'miele', 'panasonic', 'miyata']
     // Copies original array and adds removes benotto
   ```
+
+## **Find Index**
 
 - Removing items with **`findIndex()`**
   - Simple example...
@@ -1632,9 +1642,9 @@ switch (event.key) {
       // Console: true
     ```
 
-## Object Static Methods
+# Object Static Methods
 
-# Entries
+## Entries
 
 - Object.entries() method returns an array of an object's [key, value] pairs.
 
@@ -1659,7 +1669,7 @@ switch (event.key) {
     });
   ```
 
-# Keys
+## Keys
 
 - Object.keys() returns a new array that contains the keys for each index in the array.
 
@@ -1675,9 +1685,11 @@ switch (event.key) {
     // Console: [10, 5, 7]
   ```
 
-## Array Instance Methods
+# Array Instance Methods
 
-# Join
+- <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375674172>
+
+## Join
 
 - The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
 
@@ -1692,7 +1704,7 @@ switch (event.key) {
     // Console: egg and wonder and brioche
   ```
 
-# Split
+## Split
 
 - The `split()` method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
   - The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.
@@ -1709,7 +1721,7 @@ switch (event.key) {
       // Console: ['h', 'o', 't', ' ', 'd', 'o', 'g', 's', ',', 'h', 'a', 'm', 'b', 'u', 'r', 'g', 'e', 'r', 's', ',', 's', 'a', 'u', 's', 'a', 'g', 'e', 's', ',', 'c', 'o', 'r', 'n']
     ```
 
-# Pop
+## Pop
 
 - The `pop()` method removes the last element from an array (mutating it) and returns that element.
 
@@ -1737,7 +1749,7 @@ switch (event.key) {
       // Console: Cheese
     ```
 
-# Push
+## Push
 
 - The push() method adds one or more elements to the end of an array (mutating it) and returns the new length of the array.
 
@@ -1751,7 +1763,7 @@ switch (event.key) {
       // Console: 11 (length of the mutated array)
   ```
 
-# Shift
+## Shift
 
 - The `shift()` method removes the first element from an array and returns the removed element.
 
@@ -1768,7 +1780,7 @@ switch (event.key) {
       // Console: ['Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
   ```
 
-# Unshift
+## Unshift
 
 - The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
@@ -1782,7 +1794,7 @@ switch (event.key) {
       // Console: 11 (length of the mutated array)
   ```
 
-# Includes
+## Includes
 
 - The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
   - When comparing strings and characters, includes() is **case-sensitive**.
@@ -1810,9 +1822,9 @@ switch (event.key) {
       // Console: false
     ```
 
-## Callback Array Methods
+# Callback Array Methods
 
-# Find
+## Find
 
 - The `find()` method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
   - Takes a callback function which has 3 arguments.
@@ -1870,7 +1882,7 @@ switch (event.key) {
       // Console: {comment: 'Horrible Service', rating: 2}
     ```
 
-# Filter
+## Filter
 
 - The `filter()` method creates a new array with all elements that pass the test implemented by the provided function.
   - Takes a callback function which has 3 arguments.
@@ -1895,7 +1907,7 @@ switch (event.key) {
       // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
     ```
 
-# Some
+## Some
 
 - The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
   - Example plus extracting values from an Object...
@@ -1912,7 +1924,7 @@ switch (event.key) {
     // Console: true
   ```
 
-# Evry
+## Every
 
 - The `every()` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
@@ -1922,7 +1934,7 @@ switch (event.key) {
       // Console: true
   ```
 
-# Sort
+## Sort
 
 - The `sort()` method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values (alphabetically).
   - Takes a compare callback function.
@@ -1961,9 +1973,9 @@ switch (event.key) {
       // 3         'corn'      234
     ```
 
-## Looping And Iterating
+# Looping And Iterating
 
-# For Each
+## For Each
 
 - The `forEach()` method executes a provided function once for each array element.
 - Takes a callback function with the three arguments, the element, the index and the array.
@@ -2020,7 +2032,7 @@ switch (event.key) {
       // etc...
   ```
 
-# Map
+## Map
 
 - The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
   - Takes callback with three arguments.
