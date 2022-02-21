@@ -1932,3 +1932,56 @@ switch (event.key) {
       // 2         'hotDog'    453
       // 3         'corn'      234
     ```
+
+## Looping And Iterating
+
+# For Each
+
+- The `forEach()` method executes a provided function once for each array element.
+- Takes a callback function with the three arguments, the element, the index and the array.
+- <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375687421>
+
+  ```javascript
+      const toppings = [
+        'Mushrooms ',
+        'Tomatoes',
+        'Eggs',
+        'Chili',
+        'Lettuce',
+        'Avocado',
+        'Chiles',
+        'Bacon',
+        'Pickles',
+        'Onions',
+        'Cheese',
+      ];
+
+      function logTopping(topping, index, array) {
+        const prevTopping = array[index - 1];
+        const nextTopping = array[index + 1];
+
+        console.log(
+          prevTopping
+            ? `Previous topping is ${prevTopping}`
+            : `This is the first topping`,
+        );
+
+        console.log('Topping - ', topping);
+
+        console.log(
+          nextTopping
+          ? `Next Topping is ${nextTopping}`
+          : `No more toppings`,
+        );
+      }
+
+      toppings.forEach(logTopping);
+
+      // Console:
+      // This is the first topping
+      // Topping -  Mushrooms
+      // Next Topping is Tomatoes
+      // Previous topping is Mushrooms
+      // Topping -  Tomatoes
+      // etc...
+  ```
