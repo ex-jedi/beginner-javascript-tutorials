@@ -291,6 +291,13 @@
 
       console.log(pizzaToppings.sort());
       // sort the order totals from most expensive to least with .sort()
+
+      function orderSort(a, b) {
+        return b - a;
+      }
+
+      const mostExpesiveOrder = orderTotals.sort(orderSort);
+      console.log(mostExpesiveOrder);
       // Sort the prices with sort()
 
       /*
