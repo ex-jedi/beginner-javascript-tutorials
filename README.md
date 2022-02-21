@@ -1632,7 +1632,9 @@ switch (event.key) {
       // Console: true
     ```
 
-# Object Static Methods
+## Object Static Methods
+
+# Entries
 
 - Object.entries() method returns an array of an object's [key, value] pairs.
 
@@ -1657,6 +1659,8 @@ switch (event.key) {
     });
   ```
 
+# Keys
+
 - Object.keys() returns a new array that contains the keys for each index in the array.
 
     ```javascript
@@ -1671,7 +1675,9 @@ switch (event.key) {
     // Console: [10, 5, 7]
   ```
 
-# Array Instance Methods
+## Array Instance Methods
+
+# Join
 
 - The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string.
 
@@ -1685,6 +1691,8 @@ switch (event.key) {
     console.log(bunsStringTwo);
     // Console: egg and wonder and brioche
   ```
+
+# Split
 
 - The `split()` method divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
   - The division is done by searching for a pattern; where the pattern is provided as the first parameter in the method's call.
@@ -1700,6 +1708,8 @@ switch (event.key) {
       console.log(foodArrayTwo);
       // Console: ['h', 'o', 't', ' ', 'd', 'o', 'g', 's', ',', 'h', 'a', 'm', 'b', 'u', 'r', 'g', 'e', 'r', 's', ',', 's', 'a', 'u', 's', 'a', 'g', 'e', 's', ',', 'c', 'o', 'r', 'n']
     ```
+
+# Pop
 
 - The `pop()` method removes the last element from an array (mutating it) and returns that element.
 
@@ -1727,6 +1737,8 @@ switch (event.key) {
       // Console: Cheese
     ```
 
+# Push
+
 - The push() method adds one or more elements to the end of an array (mutating it) and returns the new length of the array.
 
   ```javascript
@@ -1738,6 +1750,8 @@ switch (event.key) {
       console.log(topPush);
       // Console: 11 (length of the mutated array)
   ```
+
+# Shift
 
 - The `shift()` method removes the first element from an array and returns the removed element.
 
@@ -1754,6 +1768,8 @@ switch (event.key) {
       // Console: ['Tomatoes', 'Eggs', 'Chili', 'Lettuce', 'Avocado', 'Chiles', 'Bacon', 'Pickles', 'Onions', 'Cheese']
   ```
 
+# Unshift
+
 - The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
   ```javascript
@@ -1766,7 +1782,9 @@ switch (event.key) {
       // Console: 11 (length of the mutated array)
   ```
 
-- The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+# Includes
+
+- The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
   - When comparing strings and characters, includes() is **case-sensitive**.
 
     ```javascript
@@ -1792,7 +1810,9 @@ switch (event.key) {
       // Console: false
     ```
 
-# Callback Array Methods
+## Callback Array Methods
+
+# Find
 
 - The `find()` method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
   - Takes a callback function which has 3 arguments.
@@ -1831,7 +1851,7 @@ switch (event.key) {
 
   ```
 
-  - Hugher order function (function that returns a function) version of above.
+  - Higher order function (function that returns a function) version of above.
     - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375678133>
 
     ```javascript
@@ -1849,6 +1869,8 @@ switch (event.key) {
       console.log(findBadRating);
       // Console: {comment: 'Horrible Service', rating: 2}
     ```
+
+# Filter
 
 - The `filter()` method creates a new array with all elements that pass the test implemented by the provided function.
   - Takes a callback function which has 3 arguments.
@@ -1873,6 +1895,8 @@ switch (event.key) {
       // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
     ```
 
+# Some
+
 - The `some()` method tests whether at least one element in the array passes the test implemented by the provided function. It returns true if, in the array, it finds an element for which the provided function returns true; otherwise it returns false. It doesn't modify the array.
   - Example plus extracting values from an Object...
 
@@ -1888,13 +1912,17 @@ switch (event.key) {
     // Console: true
   ```
 
-- The `every()`method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+# Evry
+
+- The `every()` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
   ```javascript
       const allMeats = Object.values(meats).every((meat) => meat >= 3);
       console.log(allMeats);
       // Console: true
   ```
+
+# Sort
 
 - The `sort()` method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values (alphabetically).
   - Takes a compare callback function.
@@ -1991,3 +2019,57 @@ switch (event.key) {
       // --- 🍕---
       // etc...
   ```
+
+# Map
+
+- The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+  - Takes callback with three arguments.
+  - Resulting array is the same length as the one it is run on.
+  - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375690567>
+
+    ```javascript
+      const firstNames = ['Mark', 'Kate'];
+
+      const fullNames = ['Mark', 'Kate'].map((name) => `${name} Phoenix`);
+
+      // Or...
+
+      function addSurname(firstName) {
+        return `${firstName} Phoenix`;
+      }
+
+      const fullNames = firstNames.map(addSurname);
+
+      // Or higher order function...
+
+      function addSurname(lastName) {
+        return function (firstName) {
+          return `${firstName} ${lastName}`;
+        };
+      }
+
+      const fullNames = firstNames.map(addSurname('Phoenix'));
+
+      console.log(fullNames);
+    ```
+
+  - Maps can be chained
+
+    ```javascript
+        const firstNames = ['mark', 'kate'];
+
+      function addSurname(firstName) {
+        return `${firstName} Phoenix`;
+      }
+
+      function capitalize(word) {
+        return `${word[0].toUpperCase()}${word.slice(1)}`;
+      }
+
+       const fullNames = firstNames
+       .map(capitalize)
+       .map(addSurname);
+
+        console.log(fullNames);
+        // Console:  ['Mark Phoenix', 'Kate Phoenix']
+    ```
