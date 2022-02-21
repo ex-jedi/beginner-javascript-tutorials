@@ -1832,6 +1832,7 @@ switch (event.key) {
   ```
 
   - Hugher order function (function that returns a function) version of above.
+    - <https://courses.wesbos.com/account/access/5e4818abd9cc836465201439/view/375678133>
 
     ```javascript
         function findByWord(word) {
@@ -1847,4 +1848,27 @@ switch (event.key) {
      const findBadRating = feedback.find(findByWord('horrible'));
       console.log(findBadRating);
       // Console: {comment: 'Horrible Service', rating: 2}
+    ```
+
+- The `filter()` method creates a new array with all elements that pass the test implemented by the provided function.
+  - Takes a callback function which has 3 arguments.
+    - element. The current element in the array.
+    - index (Optional). The index (position) of the current element in the array.
+    - array (Optional). The array that find was called on.
+
+    ```javascript
+
+      function findTwoRating(feedbackItem) {
+        return feedbackItem.rating > 2;
+      }
+
+      function findByRating(minRating) {
+        return function (feedbackItem) {
+          return feedbackItem.rating >= minRating;
+        };
+      }
+
+      const highRating = feedback.filter(findByRating(2));
+      console.table(highRating);
+      // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
     ```

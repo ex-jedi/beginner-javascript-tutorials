@@ -231,12 +231,33 @@
       }
 
       const findBurgRating = feedback.find(findByWord('burg'));
-      console.log(findBurgRating);
+      // console.log(findBurgRating);
 
       const findBadRating = feedback.find(findByWord('horrible'));
-      console.log(findBadRating);
+      // console.log(findBadRating);
       // find all ratings that are above 2 with filter()
+
+      // const aboveTwo = feedback.filter(
+      //   (feedbackItem) => feedbackItem.rating > 2,
+      // );
+
+      function findTwoRating(feedbackItem) {
+        return feedbackItem.rating > 2;
+      }
+
+      function findByRating(minRating) {
+        return function (feedbackItem) {
+          return feedbackItem.rating >= minRating;
+        };
+      }
+
+      const highRating = feedback.filter(findByRating(4));
+      console.log(highRating);
       // find all ratings that talk about a burger with filter()
+
+      const hazBurg = feedback.filter(findByWord('burg'));
+      console.log(hazBurg);
+
       // Remove the one star rating however you like!
 
       // check if there is at least 5 of one type of meat with some()
