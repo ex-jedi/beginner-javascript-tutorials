@@ -1828,4 +1828,23 @@ switch (event.key) {
 
       console.log('burgRating - ', burgRating);
       // Console: burgRating -  {comment: 'Love the Burgs', rating: 4}
+
   ```
+
+  - Hugher order function (function that returns a function) version of above.
+
+    ```javascript
+        function findByWord(word) {
+        return function (commentObject) {
+          return commentObject.comment.toLowerCase().includes(word);
+        };
+      }
+
+      const findBurgRating = findByWord('burg');
+      console.log(feedback.find(findBurgRating));
+      // Console: {comment: 'Love the Burgs', rating: 4}
+
+      const findBadRating = findByWord('horrible');
+      console.log(feedback.find(findBadRating));
+      // Console: {comment: 'Horrible Service', rating: 2}
+    ```
