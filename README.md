@@ -1896,6 +1896,8 @@ switch (event.key) {
         return feedbackItem.rating > 2;
       }
 
+      // Higher order function version...
+
       function findByRating(minRating) {
         return function (feedbackItem) {
           return feedbackItem.rating >= minRating;
@@ -1904,6 +1906,7 @@ switch (event.key) {
 
       const highRating = feedback.filter(findByRating(2));
       console.table(highRating);
+
       // Console: [{comment: 'Love the Burgs', rating: 4}, {comment: 'Smoothies are great, liked the burger too', rating: 5}]
     ```
 
