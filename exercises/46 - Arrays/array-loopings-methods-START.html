@@ -210,7 +210,11 @@
 
       const cleanedPeople = people.map(personMapper);
 
-      console.table(cleanedPeople);
+      // console.table(cleanedPeople);
+
+      const overForty = cleanedPeople.filter((person) => person.age > 40);
+
+      console.log(overForty);
     </script>
   </body>
 </html>
