@@ -214,7 +214,19 @@
 
       const overForty = cleanedPeople.filter((person) => person.age > 40);
 
-      console.log(overForty);
+      // if (overForty.length) {
+      //   console.log("Over 40's here");
+      // }
+
+      function findById(id) {
+        return function isStudent(person) {
+          return person.id === id;
+        };
+      }
+
+      const student = students.find(findById('565a'));
+
+      console.log(student);
     </script>
   </body>
 </html>
