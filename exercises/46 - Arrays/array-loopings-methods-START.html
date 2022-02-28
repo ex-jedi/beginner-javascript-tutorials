@@ -120,15 +120,15 @@
         { comment: 'I DONT LIKE BURGERS', rating: 1 },
       ];
 
-      const inventory = [
-        { type: 'shirt', price: 4000 },
-        { type: 'pants', price: 4532 },
-        { type: 'socks', price: 234 },
-        { type: 'shirt', price: 2343 },
-        { type: 'pants', price: 2343 },
-        { type: 'socks', price: 542 },
-        { type: 'pants', price: 123 },
-      ];
+      // const inventory = [
+      //   { type: 'shirt', price: 4000 },
+      //   { type: 'pants', price: 4532 },
+      //   { type: 'socks', price: 234 },
+      //   { type: 'shirt', price: 2343 },
+      //   { type: 'pants', price: 2343 },
+      //   { type: 'socks', price: 542 },
+      //   { type: 'pants', price: 123 },
+      // ];
       /*
         Looping Methods
       */
@@ -226,7 +226,59 @@
 
       const student = students.find(findById('565a'));
 
-      console.log(student);
+      // console.log(student);
+      // console.log('HI');
+
+      // * Reduce!
+      // console.log(orderTotals);
+
+      // Simple addition
+      function tallyNumbers(tally, currentTotal) {
+        console.log(`The current tally is ${tally}`);
+        console.log(`The current total is ${currentTotal}`);
+        console.log(`--🍕--`);
+        return tally + currentTotal;
+      }
+
+      // function orderSum(previousValue, currentValue) {
+      //   return previousValue + currentValue;
+      // }
+
+      // console.log(orderTotals);
+      // const totalSum = orderTotals.reduce(tallyNumbers);
+
+      // console.log(totalSum);
+
+      // Counting  items in an array of objects
+
+      const inventory = [
+        { type: 'shirt', price: 4000 },
+        { type: 'pants', price: 4532 },
+        { type: 'socks', price: 234 },
+        { type: 'shirt', price: 2343 },
+        { type: 'pants', price: 2343 },
+        { type: 'socks', price: 542 },
+        { type: 'pants', price: 123 },
+      ];
+
+      function inventoryReducer(totals, item) {
+        console.log(`Looping over ${item.type}`);
+        console.log(totals);
+
+        totals[item.type] ? (totals[item.type] += 1) : (totals[item.type] = 1);
+        return totals;
+      }
+
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+
+      console.log(inventoryCounts);
+
+      const totalInventoryPrice = inventory.reduce(
+        (acc, item) => acc + item.price,
+        0,
+      );
+
+      console.log(totalInventoryPrice);
     </script>
   </body>
 </html>

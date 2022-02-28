@@ -2155,3 +2155,24 @@ switch (event.key) {
       // 1         47    'Larry Heep'      'January 3, 1975'
       // 2         78    'Linda Bermeer'   'February 12, 1944'
       ```
+
+## Reduce
+
+- The **`reduce()`** method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+- The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+- Doesn't mutate the array it's called on.
+
+  - Simple example, adding an array of numbers.
+
+  ```javascript
+      const orderTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+      function orderSum(previousValue, currentValue) {
+        return previousValue + currentValue;
+      }
+
+      const totalSum = orderTotals.reduce(orderSum);
+
+      console.log(totalSum)
+      // Console: 7255
+  ```
