@@ -11,8 +11,7 @@
     <script>
       // Grab all the text from a web page
       // Count how many times each letter and number occurs
-      // ********** Map Fiter Reduce Excercise **********
-      // Count every letter and number!
+      // ********** Map Filter Reduce Exercise **********
 
       const rawtext = `Skip to content
 
@@ -171,24 +170,39 @@
 
       // Filter for alpha numeric only
       function filterText(elem) {
-        const letterNumber = /[0-9a-zA-Z]/;
-        return elem.match(letterNumber);
+        return elem.match(/[0-9a-zA-Z]/);
       }
-      const textArray = rawtext.toLowerCase().split('').filter(filterText);
-      console.log(textArray);
-      // const alphaNumericArray = rawTextArray.filter(filterText);
-      // console.log('alphaNumericArray', alphaNumericArray);
 
+      // Make lower case
+
+      function makeLowerCase(char) {
+        return char.toLowerCase();
+      }
+
+      // Count characters and put into object
       function characterCounter(acc, char) {
-        // console.log(`Char  = ${char}`);
-        // console.log(`Acc  = ${acc}`);
-        // console.log(`---`);
         acc[char] ? (acc[char] += 1) : (acc[char] = 1);
         return acc;
       }
 
-      const characterCount = textArray.reduce(characterCounter, {});
+      const characterCount = rawtext.split('').filter(filterText).map(makeLowerCase).reduce(characterCounter, {});
+
       console.log(characterCount);
+
+      function sortByFrequency(a, b) {
+        return b[1] - a[1];
+      }
+
+      const listByFrequency = Object.entries(characterCount).sort(sortByFrequency);
+      console.log(listByFrequency);
+
+      // const mostFrequent = characterCount.sort(sortByFrequency);
+
+      // const alphaNumericArray = rawTextArray.filter(filterText);
+      // console.log('alphaNumericArray', alphaNumericArray);
+
+      // const characterCount = textArray.reduce(characterCounter, {});
+      // console.log(characterCount);
     </script>
   </body>
 </html>
