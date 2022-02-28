@@ -185,7 +185,11 @@
         return acc;
       }
 
-      const characterCount = rawtext.split('').filter(filterText).map(makeLowerCase).reduce(characterCounter, {});
+      const characterCount = rawtext
+        .split('')
+        .filter(filterText)
+        .map(makeLowerCase)
+        .reduce(characterCounter, {});
 
       console.log(characterCount);
 
@@ -193,7 +197,8 @@
         return b[1] - a[1];
       }
 
-      const listByFrequency = Object.entries(characterCount).sort(sortByFrequency);
+      const listByFrequency =
+        Object.entries(characterCount).sort(sortByFrequency);
       console.log(listByFrequency);
 
       // const mostFrequent = characterCount.sort(sortByFrequency);
