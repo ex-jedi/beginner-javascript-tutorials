@@ -130,8 +130,8 @@
       //   { type: 'pants', price: 123 },
       // ];
       /*
-        Looping Methods
-      */
+              Looping Methods
+            */
 
       // function logTopping(topping, index, array) {
       //   const prevTopping = array[index - 1];
@@ -233,52 +233,56 @@
       // console.log(orderTotals);
 
       // Simple addition
-      function tallyNumbers(tally, currentTotal) {
-        console.log(`The current tally is ${tally}`);
-        console.log(`The current total is ${currentTotal}`);
-        console.log(`--🍕--`);
-        return tally + currentTotal;
-      }
+      // function tallyNumbers(tally, currentTotal) {
+      //   console.log(`The current tally is ${tally}`);
+      //   console.log(`The current total is ${currentTotal}`);
+      //   console.log(`--🍕--`);
+      //   return tally + currentTotal;
+      // }
 
       // function orderSum(previousValue, currentValue) {
       //   return previousValue + currentValue;
       // }
 
       // console.log(orderTotals);
-      // const totalSum = orderTotals.reduce(tallyNumbers);
+
+      // const orderTwoTotals = [342, 1002, 523, 34, 634, 854, 1644, 2222];
+
+      // const totalSum = orderTwoTotals.reduce(tallyNumbers);
 
       // console.log(totalSum);
 
       // Counting  items in an array of objects
 
-      const inventory = [
-        { type: 'shirt', price: 4000 },
-        { type: 'pants', price: 4532 },
-        { type: 'socks', price: 234 },
-        { type: 'shirt', price: 2343 },
-        { type: 'pants', price: 2343 },
-        { type: 'socks', price: 542 },
-        { type: 'pants', price: 123 },
-      ];
+      //   const inventory = [
+      //     { type: 'shirt', price: 4000 },
+      //     { type: 'pants', price: 4532 },
+      //     { type: 'socks', price: 234 },
+      //     { type: 'shirt', price: 2343 },
+      //     { type: 'pants', price: 2343 },
+      //     { type: 'socks', price: 542 },
+      //     { type: 'pants', price: 123 },
+      //   ];
 
-      function inventoryReducer(totals, item) {
-        console.log(`Looping over ${item.type}`);
-        console.log(totals);
+      //   function inventoryReducer(totals, item) {
+      //     console.log(`Looping over ${item.type}`);
+      //     console.log(totals);
 
-        totals[item.type] ? (totals[item.type] += 1) : (totals[item.type] = 1);
-        return totals;
-      }
+      //     totals[item.type] ? (totals[item.type] += 1) : (totals[item.type] = 1);
+      //     return totals;
+      //   }
 
-      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+      //   const inventoryCounts = inventory.reduce(inventoryReducer, {});
 
-      console.log(inventoryCounts);
+      //   console.log(inventoryCounts);
 
-      const totalInventoryPrice = inventory.reduce(
-        (acc, item) => acc + item.price,
-        0,
-      );
+      //   const totalInventoryPrice = inventory.reduce(
+      //     (acc, item) => acc + item.price,
+      //     0,
+      //   );
 
-      console.log(totalInventoryPrice);
+      //   console.log(totalInventoryPrice);
+      //
     </script>
   </body>
 </html>
