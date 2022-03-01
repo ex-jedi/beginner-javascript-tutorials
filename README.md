@@ -2176,3 +2176,94 @@ switch (event.key) {
       console.log(totalSum)
       // Console: 7255
   ```
+
+  - Looping over an object and reducing the results into an object.
+
+    ```javascript
+      const inventory = [
+        { type: 'shirt', price: 4000 },
+        { type: 'pants', price: 4532 },
+        { type: 'socks', price: 234 },
+        { type: 'shirt', price: 2343 },
+        { type: 'pants', price: 2343 },
+        { type: 'socks', price: 542 },
+        { type: 'pants', price: 123 },
+      ];
+
+      // Reducer  function
+      function inventoryReducer(totals, item) {
+        // Check if the property already exists in the object
+        totals[item.type]
+        // If it does increment it by one
+        ? (totals[item.type] += 1)
+        // Otherwise this is the first time it occurs, so set it to 1
+        : (totals[item.type] = 1);
+        // Return totals so the next iteration has access to it
+        return totals;
+      }
+
+      // Run reduce with the reducer function callback and an empty object as the initial value
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+
+      console.log(inventoryCounts);
+      // Console: {shirt: 2, pants: 3, socks: 2}
+    ```
+
+## For
+
+- The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.
+
+  ```javascript
+      const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
+
+      for (let i = 0; i < numbers.length; i++) {
+        console.log(numbers[i]);
+      }
+
+      // Console: 2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6
+  ```
+
+## For in & For of
+
+- The for...in statement iterates a specified variable over all the enumerable properties of an object. For each distinct property, JavaScript executes the specified statements.
+- The for...of statement creates a loop Iterating over iterable objects (including Array, Map, Set, arguments object and so on), invoking a custom iteration hook with statements to be executed for the value of each distinct property.
+- The following example shows the difference between a for...of loop and a for...in loop. While for...in iterates over property names, for...of iterates over property values:
+- For in loop will access an object's prototype properties.
+
+  ```javascript
+      const arr = [3, 5, 7];
+      arr.foo = 'hello';
+
+      // For in
+      for (let i in arr) {
+      console.log(i); // logs "0", "1", "2", "foo"
+      }
+
+      // For of
+      for (let i of arr) {
+      console.log(i); // logs 3, 5, 7
+      }
+  ```
+
+  - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#for...of_statement>
+
+## While & Do While
+
+- While takes a condition and runs as long as it evaluates to true.
+- Do while is the same except that it will run once then check the condition.
+- Not used often as there are betters ways to loop.
+
+  ```javascript
+
+      // While
+      // These examples will cause an infinite loop as the condition is always true. This will cause the browser to crash.
+      const cool = true;
+      while (cool === true) {
+        console.log('Cool');
+      }
+
+      // Do while
+      do {
+        console.log('Cool');
+      } while (cool === true);
+  ```
