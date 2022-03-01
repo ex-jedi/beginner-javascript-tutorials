@@ -25,9 +25,10 @@
       const button1 = document.querySelector('.one');
       const button2 = document.querySelector('.two');
 
-      function whichButton() {
-        console.log('this =', this);
-      }
+      // function whichButton() {
+      //   console.log('this =', this);
+      // }
+      const whichButton = () => console.log(this);
 
       button1.addEventListener('click', whichButton);
       button2.addEventListener('click', whichButton);

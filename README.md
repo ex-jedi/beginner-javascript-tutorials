@@ -2276,6 +2276,13 @@ switch (event.key) {
 
 ## This Keyword
 
+- Initially bound to the window object
+
+    ```javascript
+      console.log(this);
+      // Console: Window {window: Window, self: Window, document: ...}
+    ```
+
 - The this keyword in JavaScript refers to the instance of an object that a function is bound to.
 - Often it's what's left of the dot when calling a method.
 
@@ -2298,3 +2305,17 @@ switch (event.key) {
       button2.addEventListener('click', whichButton);
       // Console: this = <button class="two">Button 2</button>
   ```
+
+  - This is Function scoped.
+    - Arrow functions don't change the this.
+
+      ```javascript
+      // As above but changed to arrow function
+        const whichButton = () => console.log(this);
+
+        button1.addEventListener('click', whichButton);
+        // Console: Window {window: Window, self: Window, document: ...}
+
+        button2.addEventListener('click', whichButton);
+        // Console: Window {window: Window, self: Window, document: ...}
+      ```
