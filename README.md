@@ -2275,3 +2275,26 @@ switch (event.key) {
 - Creates a new instance object from a constructor function
 
 ## This Keyword
+
+- The this keyword in JavaScript refers to the instance of an object that a function is bound to.
+- Often it's what's left of the dot when calling a method.
+
+  ```html
+    <button class="one">Button 1</button>
+    <button class="two">Button 2</button>
+  ```
+
+  ```javascript
+      const button1 = document.querySelector('.one');
+      const button2 = document.querySelector('.two');
+
+      function whichButton() {
+        console.log('this -', this);
+      }
+
+      button1.addEventListener('click', whichButton);
+      // Console: this = <button class=​"one">​Button 1​</button>​
+
+      button2.addEventListener('click', whichButton);
+      // Console: this = <button class="two">Button 2</button>
+  ```

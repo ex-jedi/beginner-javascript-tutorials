@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>New, This, Prototypes and Classes</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>New, This, Prototypes and Classes</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <button class="one">Button 1</button>
+    <button class="two">Button 2</button>
 
-<body>
+    <script>
+      // const myDate = new Date('January 29 1974');
+      // console.dir(myDate);
+      // console.dir(myDate.getFullYear());
 
-</body>
+      // function Pizza() {
+      //   console.log('Making a Pizza');
+      // }
 
+      // const pepperoniPizza = new Pizza();
+      // console.log(pepperoniPizza);
+      const button1 = document.querySelector('.one');
+      const button2 = document.querySelector('.two');
+
+      function whichButton() {
+        console.log('this =', this);
+      }
+
+      button1.addEventListener('click', whichButton);
+      button2.addEventListener('click', whichButton);
+    </script>
+  </body>
 </html>
