@@ -188,9 +188,7 @@
 
       // console.log(fullNames);
 
-      const orderTotalsWithTax = orderTotals.map((total) =>
-        (total * 1.2).toFixed(2),
-      );
+      const orderTotalsWithTax = orderTotals.map((total) => (total * 1.2).toFixed(2));
       // console.log(orderTotalsWithTax);
 
       function personMapper(person) {
@@ -252,7 +250,7 @@
 
       // console.log(totalSum);
 
-      // Counting  items in an array of objects
+      // Counting items in an array of objects
 
       const inventory = [
         { type: 'shirt', price: 4000 },
@@ -264,23 +262,23 @@
         { type: 'pants', price: 123 },
       ];
 
+      // Reducer  function
       function inventoryReducer(totals, item) {
-        console.log(totals);
-
+        // Check if the property exists in the object
+        // If it does increment it by one
+        // If it doesn't initialise it to 1
         totals[item.type] ? (totals[item.type] += 1) : (totals[item.type] = 1);
         return totals;
       }
 
+      // Run reduce with the reducer function callback and an empty object as the initial value
       const inventoryCounts = inventory.reduce(inventoryReducer, {});
 
       console.log(inventoryCounts);
 
-      const totalInventoryPrice = inventory.reduce(
-        (acc, item) => acc + item.price,
-        0,
-      );
+      // const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
 
-      console.log(totalInventoryPrice);
+      // console.log(totalInventoryPrice);
     </script>
   </body>
 </html>
