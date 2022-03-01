@@ -2267,3 +2267,11 @@ switch (event.key) {
         console.log('Cool');
       } while (cool === true);
   ```
+
+# Prototypes and Inheritance
+
+## New Keyword
+
+- Creates a new instance object from a constructor function
+
+## This Keyword
