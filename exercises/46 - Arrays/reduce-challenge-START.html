@@ -191,14 +191,16 @@
         .map(makeLowerCase)
         .reduce(characterCounter, {});
 
+      const wut = 50;
+      console.log(characterCount);
+
       console.log(characterCount);
 
       function sortByFrequency(a, b) {
         return b[1] - a[1];
       }
 
-      const listByFrequency =
-        Object.entries(characterCount).sort(sortByFrequency);
+      const listByFrequency = Object.entries(characterCount).sort(sortByFrequency);
       console.log(listByFrequency);
 
       // const mostFrequent = characterCount.sort(sortByFrequency);

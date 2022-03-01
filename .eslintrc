@@ -2,7 +2,6 @@
   "extends": ["wesbos"],
   "rules": {
     "no-console": 2,
-    "allowTernary": 0,
-    "allowShortCircuit": 0
+    "no-ternary": "warn"
   }
 }
