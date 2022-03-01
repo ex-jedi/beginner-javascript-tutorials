@@ -66,14 +66,14 @@ function Gallery(gallery) {
   }
 
   // These are our Event Listeners!
-  images.forEach(image =>
-    image.addEventListener('click', e => showImage(e.currentTarget))
+  images.forEach((image) =>
+    image.addEventListener('click', (e) => showImage(e.currentTarget))
   );
 
   // loop over each image
-  images.forEach(image => {
+  images.forEach((image) => {
     // attach an event listener for each image
-    image.addEventListener('keyup', e => {
+    image.addEventListener('keyup', (e) => {
       // when that is keyup'd, check if it was enter
       if (e.key === 'Enter') {
         // if it was, show that image
@@ -89,3 +89,4 @@ function Gallery(gallery) {
 
 const gallery1 = Gallery(document.querySelector('.gallery1'));
 const gallery2 = Gallery(document.querySelector('.gallery2'));
+console.log('hi');

@@ -13,7 +13,7 @@ These are the starter files and solutions to the [Beginner JavaScript](https://B
 Please feel free to add your blog post, videos, notes, or anything else related to the course :)
 
 - [Soumya Ranjan Mohanty](https://github.com/geekysrm)'s [Github repo](https://github.com/geekysrm/javascript-notes) with notes and lessons learnt, along with [full notes here](https://notes.soumya.dev/javascript).
-- [Linda has documented all her excercises on Codepen](https://twitter.com/lindakatcodes/status/1331702581220020225)
+- [Linda has documented all her exercises on Codepen](https://twitter.com/lindakatcodes/status/1331702581220020225)
 - [Cesar Gomez](https://github.com/CsarGomez) have a [GitHub repo](https://github.com/CsarGomez/beginnersJavascriptNotes) with notes for all the modules completed including exercises in [CopePen](https://codepen.io/collection/XjJQYz) other modules will be uploaded a soon as i finished each one
 
 ## My Notes
@@ -617,8 +617,8 @@ window.addEventListener('click', (e) => {
 
 ## Coercion
 
-- A bang  (`!`) in front of a boolian flips it.
-- A double bang  (`!!`) before a value coerces it into a boolian.
+- A bang  (`!`) in front of a boolean flips it.
+- A double bang  (`!!`) before a value coerces it into a boolean.
   - Coercion is usually not used very often.
 
 ```javascript
