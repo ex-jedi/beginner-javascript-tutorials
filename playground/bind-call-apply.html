@@ -8,6 +8,11 @@
   </head>
 
   <body>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus omnis laborum quae nihil
+      exercitationem nesciunt aspernatur commodi cupiditate sequi veniam repudiandae eos odio, quos
+      soluta impedit, illo voluptate provident esse!
+    </p>
     <script>
       const person = {
         name: 'Mark',
@@ -20,6 +25,27 @@
       const kate = { name: 'Kate' };
 
       const sayHI = person.sayHi.bind(kate);
+
+      // Query selector example
+      // const $ = document.querySelector;
+      // const lookFor = document.querySelector.bind(document);
+
+      // const paragraph = lookFor('.paragraph');
+      // console.log(lookFor('.paragraph'));
+
+      const bill = {
+        total: 1000,
+        calculate(taxRate) {
+          console.log('this =', this);
+          return this.total + this.total * taxRate;
+        },
+      };
+
+      const total = bill.calculate(0.25);
+      console.log(total);
+
+      const calc = bill.calculate.bind({ total: 500 }, 0.25);
+      console.log(calc());
     </script>
   </body>
 </html>
