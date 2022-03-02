@@ -2417,6 +2417,32 @@ switch (event.key) {
 
 - Use bind if you want to return a function to call later on.
 - Use call if you want to call the function right away.
+- Call can be used to chain constructors
+
+  ```javascript
+      function Product(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+
+      function Food(name, price) {
+        // Calls the name and price properties from the Product constructor and binds them here
+        Product.call(this, name, price);
+        this.category = 'food';
+      }
+
+      function Toy(name, price) {
+        // Calls the name and price properties from the Product constructor and binds them here
+        Product.call(this, name, price);
+        this.category = 'toy';
+
+      const cheese = new Food('feta', 5);
+      console.log(cheese.name);
+      // Console: feta
+      const fun = new Toy('robot', 40);
+      console.log(fun.price);
+      // Console: 40
+  ```
 
 ## Apply
 
