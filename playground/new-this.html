@@ -21,8 +21,26 @@
         // Save toppings passed into this instance of pizza
         this.toppings = toppings;
         this.customer = customer;
+        this.slices = 10;
+        // this.eat = function () {
+        //   if (this.slices > 0) {
+        //     this.slices -= 1;
+        //     console.log(`Chomp! you now have ${this.slices} slices left`);
+        //   } else {
+        //     console.log('No More Slices!');
+        //   }
+        // };
         this.id = `${Math.floor(Math.random() * 16777215).toString(16)}`;
       }
+
+      Pizza.prototype.eat = function () {
+        if (this.slices > 0) {
+          this.slices -= 1;
+          console.log(`Chomp! you now have ${this.slices} slices left`);
+        } else {
+          console.log('No More Slices!');
+        }
+      };
 
       const pepperoniPizza = new Pizza('Dug', ['cheese', 'pepperoni']);
       const hamPizza = new Pizza('Tim', ['cheese', 'ham']);
@@ -44,6 +62,8 @@
 
       // button1.addEventListener('click', whichButton);
       // button2.addEventListener('click', whichButton);
+      const names = ['Mark', 'Kate', 'Dog'];
+      const numbers = [1, 2, 3, 4, 5];
     </script>
   </body>
 </html>
