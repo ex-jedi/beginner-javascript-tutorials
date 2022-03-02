@@ -8,17 +8,42 @@
   </head>
 
   <body>
-    <script>
-      const myDate = new Date('January 29 1974');
-      console.dir(myDate);
-      console.dir(myDate.getFullYear());
+    <button class="one">Button 1</button>
+    <button class="two">Button 2</button>
 
-      function Pizza() {
+    <script>
+      // const myDate = new Date('January 29 1974');
+      // console.dir(myDate);
+      // console.dir(myDate.getFullYear());
+
+      function Pizza(customer, toppings = []) {
         console.log('Making a Pizza');
+        // Save toppings passed into this instance of pizza
+        this.toppings = toppings;
+        this.customer = customer;
+        this.id = `${Math.floor(Math.random() * 16777215).toString(16)}`;
       }
 
-      const pepperoniPizza = new Pizza();
+      const pepperoniPizza = new Pizza('Dug', ['cheese', 'pepperoni']);
+      const hamPizza = new Pizza('Tim', ['cheese', 'ham']);
       console.log(pepperoniPizza);
+      console.log(hamPizza);
+
+      // const button1 = document.querySelector('.one');
+      // const button2 = document.querySelector('.two');
+
+      // function whichButton() {
+      //   console.log('outside', this);
+
+      //   setTimeout(() => {
+      //     console.log('inside', this);
+      //     this.textContent = 'Wut';
+      //   }, 1000);
+      // }
+      // // const whichButton = () => console.log(this);
+
+      // button1.addEventListener('click', whichButton);
+      // button2.addEventListener('click', whichButton);
     </script>
   </body>
 </html>

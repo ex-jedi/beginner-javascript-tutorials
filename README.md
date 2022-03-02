@@ -13,7 +13,7 @@ These are the starter files and solutions to the [Beginner JavaScript](https://B
 Please feel free to add your blog post, videos, notes, or anything else related to the course :)
 
 - [Soumya Ranjan Mohanty](https://github.com/geekysrm)'s [Github repo](https://github.com/geekysrm/javascript-notes) with notes and lessons learnt, along with [full notes here](https://notes.soumya.dev/javascript).
-- [Linda has documented all her excercises on Codepen](https://twitter.com/lindakatcodes/status/1331702581220020225)
+- [Linda has documented all her exercises on Codepen](https://twitter.com/lindakatcodes/status/1331702581220020225)
 - [Cesar Gomez](https://github.com/CsarGomez) have a [GitHub repo](https://github.com/CsarGomez/beginnersJavascriptNotes) with notes for all the modules completed including exercises in [CopePen](https://codepen.io/collection/XjJQYz) other modules will be uploaded a soon as i finished each one
 
 ## My Notes
@@ -617,8 +617,8 @@ window.addEventListener('click', (e) => {
 
 ## Coercion
 
-- A bang  (`!`) in front of a boolian flips it.
-- A double bang  (`!!`) before a value coerces it into a boolian.
+- A bang  (`!`) in front of a boolean flips it.
+- A double bang  (`!!`) before a value coerces it into a boolean.
   - Coercion is usually not used very often.
 
 ```javascript
@@ -2267,3 +2267,55 @@ switch (event.key) {
         console.log('Cool');
       } while (cool === true);
   ```
+
+# Prototypes and Inheritance
+
+## New Keyword
+
+- Creates a new instance object from a constructor function
+
+## This Keyword
+
+- Initially bound to the window object
+
+    ```javascript
+      console.log(this);
+      // Console: Window {window: Window, self: Window, document: ...}
+    ```
+
+- The this keyword in JavaScript refers to the instance of an object that a function is bound to.
+- Often it's what's left of the dot when calling a method.
+
+  ```html
+    <button class="one">Button 1</button>
+    <button class="two">Button 2</button>
+  ```
+
+  ```javascript
+      const button1 = document.querySelector('.one');
+      const button2 = document.querySelector('.two');
+
+      function whichButton() {
+        console.log('this -', this);
+      }
+
+      button1.addEventListener('click', whichButton);
+      // Console: this = <button class=​"one">​Button 1​</button>​
+
+      button2.addEventListener('click', whichButton);
+      // Console: this = <button class="two">Button 2</button>
+  ```
+
+  - This is Function scoped.
+    - Arrow functions don't change the this.
+
+      ```javascript
+      // As above but changed to arrow function
+        const whichButton = () => console.log(this);
+
+        button1.addEventListener('click', whichButton);
+        // Console: Window {window: Window, self: Window, document: ...}
+
+        button2.addEventListener('click', whichButton);
+        // Console: Window {window: Window, self: Window, document: ...}
+      ```
