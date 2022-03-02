@@ -11,10 +11,15 @@
     <script>
       const person = {
         name: 'Mark',
-        sayhi() {
-          console.log(`Hi ${this.name}`);
+        sayHi() {
+          console.log('this =', this);
+          return `Hi ${this.name}`;
         },
       };
+
+      const kate = { name: 'Kate' };
+
+      const sayHI = person.sayHi.bind(kate);
     </script>
   </body>
 </html>
