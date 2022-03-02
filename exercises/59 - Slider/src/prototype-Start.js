@@ -2,20 +2,20 @@ function Slider(slider) {
   if (!(slider instanceof Element)) {
     throw new Error('No slider passed in');
   }
-
+  console.log(slider);
   // select the elements needed for the slider
   this.slides = slider.querySelector('.slides');
   this.slider = slider;
-  const prevButton = slider.querySelector('.goToPrev');
-  const nextButton = slider.querySelector('.goToNext');
+  this.prevButton = slider.querySelector('.goToPrev');
+  this.nextButton = slider.querySelector('.goToNext');
 
   // when this slider is created, run the start slider function
   this.startSlider();
   this.applyClasses();
 
   // Event listeners
-  prevButton.addEventListener('click', () => this.move('back'));
-  nextButton.addEventListener('click', () => this.move());
+  this.prevButton.addEventListener('click', () => this.move('back'));
+  this.nextButton.addEventListener('click', () => this.move());
 }
 
 Slider.prototype.startSlider = function () {
@@ -24,6 +24,7 @@ Slider.prototype.startSlider = function () {
   this.prev =
     this.current.previousElementSibling || this.slides.lastElementChild;
   this.next = this.current.nextElementSibling || this.slides.firstElementChild;
+  // console.log({ current, prev, next });
 };
 
 Slider.prototype.applyClasses = function () {
@@ -34,10 +35,11 @@ Slider.prototype.applyClasses = function () {
 
 Slider.prototype.move = function (direction) {
   // first strip all the classes off the current slides
-  const classesToRemove = ['prev', 'current', 'next'];
-  this.prev.classList.remove(...classesToRemove);
-  this.current.classList.remove(...classesToRemove);
-  this.next.classList.remove(...classesToRemove);
+  console.log(this);
+  this.classesToRemove = ['prev', 'current', 'next'];
+  this.prev.classList.remove(...this.classesToRemove);
+  this.current.classList.remove(...this.classesToRemove);
+  this.next.classList.remove(...this.classesToRemove);
   if (direction === 'back') {
     // make an new array of the new values, and destructure them over and into the prev, current and next variables
     [this.prev, this.current, this.next] = [
@@ -60,16 +62,3 @@ Slider.prototype.move = function (direction) {
 
 const mySlider = new Slider(document.querySelector('.slider'));
 const dogSlider = new Slider(document.querySelector('.dog-slider'));
-
-console.log(mySlider, dogSlider);
-
-window.dogSlider = dogSlider;
-
-window.addEventListener('keyup', (e) => {
-  if (e.key === 'ArrowRight') {
-    dogSlider.move();
-  }
-  if (e.key === 'ArrowLeft') {
-    dogSlider.move('back');
-  }
-});
