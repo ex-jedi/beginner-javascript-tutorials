@@ -2321,6 +2321,9 @@ switch (event.key) {
       ```
 
 - **`This` is determined by where a function is called not where it is defined.**
+
+## Bind
+
 - `bind` can be used to change what `this` is bound to.
 
   ```javascript
@@ -2354,6 +2357,49 @@ switch (event.key) {
     sayHi();
     // Console: this = {name: 'Kate'}
     // 'Hi Kate'
+  ```
+
+  - Below doesn't work as when `lookFor` is called there's nothing to the left of the querySelector method so to speak.
+
+    ```javascript
+      const lookFor = document.querySelector;
+      console.log(lookFor('.paragraph'));
+      // Console: Uncaught TypeError: Illegal invocation
+    ```
+
+  - By using bind we tell the `lookFor` function that it's bound to `document` as the this value when it's called
+
+    ```javascript
+      const lookFor = document.querySelector.bind(document);
+      console.log(lookFor('.paragraph'));
+      // Console: <p class="paragraph">...</p>
+    ```
+
+- Bind can take arguments that line up with parameters in the original function.
+
+  ```javascript
+      const bill = {
+        total: 1000,
+        calculate(taxRate) {
+          console.log('this =', this);
+          return this.total + this.total * taxRate;
+        },
+      };
+
+    const total = bill.calculate(0.25);
+    console.log(total);
+    // Console: this = {total: 1000, calculate: ƒ}
+    // 1250
+
+    // Doesn't work like this as this is the window object (nothing to the left of the dot when it's called)
+    const calc = bill.calculate;
+    console.log(calc(0.25));
+
+    // But works when bound. And can accept arguments. First argument is whatever you can this to be bound to. Subsequent arguments are whatever you've specified in the function definition, in this case `taxRate`. Can then just be run as the arguments are preloaded with `bind`.
+
+    const calc = bill.calculate.bind({ total: 500 }, 0.25);
+    // Console: this = {total: 500}
+    // 625
   ```
 
 ## Prototype Inheritance
