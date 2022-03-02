@@ -39,13 +39,28 @@
           console.log('this =', this);
           return this.total + this.total * taxRate;
         },
+        describe(meal, drink, tax) {
+          return `Your meal of ${meal} and ${drink} was £${this.calculate(tax)}`;
+        },
       };
 
-      const total = bill.calculate(0.25);
-      console.log(total);
+      // const total = bill.calculate(0.25);
+      // console.log(total);
 
-      const calc = bill.calculate.bind({ total: 500 }, 0.25);
-      console.log(calc());
+      // const calc = bill.calculate.bind({ total: 500 }, 0.25);
+      // console.log(calc());
+
+      // const calcTwo = bill.calculate.call({ total: 1000 }, 0.25);
+      // console.log(calcTwo);
+
+      const mealOne = bill.describe('pizza', 'beer', 0.15);
+      // console.log(mealOne);
+
+      const mealTwo = bill.describe.call(bill, 'Spaghetti', 'Wine', 0.13);
+      console.log(mealTwo);
+
+      const mealThree = bill.describe.apply(bill, ['Kebab', 'Cider', 0.13]);
+      console.log(mealThree);
     </script>
   </body>
 </html>
