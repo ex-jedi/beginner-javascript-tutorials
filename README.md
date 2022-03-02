@@ -2319,3 +2319,102 @@ switch (event.key) {
         button2.addEventListener('click', whichButton);
         // Console: Window {window: Window, self: Window, document: ...}
       ```
+
+## Prototype Inheritance
+
+- The Pizza constrictor function makes instances of the pizza object. Properties and methods are assigned to the object with the this keyword.
+
+  ```javascript
+      function Pizza(customer, toppings = []) {
+        this.toppings = toppings;
+        this.customer = customer;
+        this.slices = 10;
+        this.size = 'Large';
+        this.eat = function () {
+          if (this.slices > 0) {
+            this.slices -= 1;
+            console.log(`Chomp! you now have ${this.slices} slices left`);
+          } else {
+            console.log('No More Slices!');
+          }
+        };
+      }
+
+
+    const pepperoniPizza = new Pizza('Dug', ['cheese', 'pepperoni']);
+    console.log(pepperoniPizza);
+    // Console: Pizza {toppings: Array(2), customer: 'Dug', slices: 10, size: 'Large', eat: ƒ}
+
+    const hamPizza = new Pizza('Tim', ['cheese', 'ham']);
+    console.log(hamPizza);
+    // Console: Pizza {toppings: Array(2), customer: 'Tim', slices: 10, size: 'Large', eat: ƒ}
+  ```
+
+  - In the above example a new `eat` function is made every time a new instance of Pizza is made.
+
+    ```javascript
+    hamPizza.eat === pepperoniPizza.eat
+    // false as they're not the same function.
+    ```
+
+  - Methods can be added to the Pizza prototype and will be inhereted by each instance. In this case it means that only one eat function is created which is inherited by all instances of Pizza
+
+    ```javascript
+      function Pizza(customer, toppings = []) {
+        this.toppings = toppings;
+        this.customer = customer;
+        this.slices = 10;
+        this.size = 'Large';
+      }
+
+      Pizza.prototype.eat = function () {
+        if (this.slices > 0) {
+          this.slices -= 1;
+          console.log(`Chomp! you now have ${this.slices} slices left`);
+        } else {
+          console.log('No More Slices!');
+        }
+      };
+
+    hamPizza.eat === pepperoniPizza.eat
+    // true this time as they are the same function.
+    ```
+
+  - Properties can be added to each instance. As they occur earlier omn the lookup they will in a way overwrite the same property if it exists on the prototype or in the constructor.
+
+    ```javascript
+    // Size in the constructor
+      function Pizza(customer, toppings = []) {
+        this.toppings = toppings;
+        this.customer = customer;
+        this.slices = 10;
+        this.size = 'Large';
+      }
+
+      hamPizza.size = 'Medium';
+      console.log(hamPizza);
+      // Console: Pizza {toppings: Array(2), customer: 'Tim', slices: 10, size: 'Medium', eat: ƒ}
+
+      // Or size in the prototype...
+      function Pizza(customer, toppings = []) {
+        this.toppings = toppings;
+        this.customer = customer;
+        this.slices = 10;
+      }
+
+      Pizza.protype.size = 'Large';
+      hamPizza.size = 'Medium';
+
+      console.log(hamPizza.size);
+      // Console: Medium
+
+      console.log(pepperoniPizza.size);
+      // Console: Large
+
+    ```
+
+## Pollyfills
+
+- It's possible to overwrite the built in methods and properties of objects, like `Array` for instance, but this shouldn't be done.
+- Pollyfills can be added this way.
+  - A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
