@@ -16,16 +16,48 @@
       // console.dir(myDate);
       // console.dir(myDate.getFullYear());
 
+      // function Pizza(customer, toppings = []) {
+      //   this.toppings = toppings;
+      //   this.customer = customer;
+      //   this.slices = 10;
+      //   this.size = 'Large';
+      //   this.eat = function () {
+      //     if (this.slices > 0) {
+      //       this.slices -= 1;
+      //       console.log(`Chomp! you now have ${this.slices} slices left`);
+      //     } else {
+      //       console.log('No More Slices!');
+      //     }
+      //   };
+      // }
       function Pizza(customer, toppings = []) {
-        console.log('Making a Pizza');
-        // Save toppings passed into this instance of pizza
         this.toppings = toppings;
         this.customer = customer;
-        this.id = `${Math.floor(Math.random() * 16777215).toString(16)}`;
+        this.slices = 10;
+        this.size = 'Large';
       }
+
+      Pizza.prototype.eat = function () {
+        if (this.slices > 0) {
+          this.slices -= 1;
+          console.log(`Chomp! you now have ${this.slices} slices left`);
+        } else {
+          console.log('No More Slices!');
+        }
+      };
+
+      // Pizza.prototype.size = 'Large';
+
+      // Pizza.prototype.describe = function () {
+      //   console.log(
+      //     `Hi ${this.customer}. Your ${this.size} ${this.toppings.join(', ')}
+      //     pizza has ${this.slices} slices left. Enjoy!`,
+      //   );
+      // };
 
       const pepperoniPizza = new Pizza('Dug', ['cheese', 'pepperoni']);
       const hamPizza = new Pizza('Tim', ['cheese', 'ham']);
+      hamPizza.size = 'Medium';
       console.log(pepperoniPizza);
       console.log(hamPizza);
 
@@ -44,6 +76,8 @@
 
       // button1.addEventListener('click', whichButton);
       // button2.addEventListener('click', whichButton);
+      const names = ['Mark', 'Kate', 'Dog'];
+      const numbers = [1, 2, 3, 4, 5];
     </script>
   </body>
 </html>
