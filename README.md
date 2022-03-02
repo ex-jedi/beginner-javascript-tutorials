@@ -2395,11 +2395,82 @@ switch (event.key) {
     const calc = bill.calculate;
     console.log(calc(0.25));
 
-    // But works when bound. And can accept arguments. First argument is whatever you can this to be bound to. Subsequent arguments are whatever you've specified in the function definition, in this case `taxRate`. Can then just be run as the arguments are preloaded with `bind`.
+    // But works when bound, and can accept arguments. First argument is whatever you can this to be bound to. Subsequent arguments are whatever you've specified in the function definition, in this case `taxRate`. Can then just be run as the arguments are preloaded with `bind`.
 
     const calc = bill.calculate.bind({ total: 500 }, 0.25);
     // Console: this = {total: 500}
     // 625
+  ```
+
+- Bind returns a function that you need to run yourself. But..
+
+## Call
+
+- Call works in the same way but it also calls the function for you.
+
+  ```javascript
+    const calcTwo = bill.calculate.call({ total: 1000 }, 0.25);
+    console.log(calcTwo);
+    // Console: this = {total: 1000}
+    // 1250
+  ```
+
+- Use bind if you want to return a function to call later on.
+- Use call if you want to call the function right away.
+- Call can be used to chain constructors
+
+  ```javascript
+      function Product(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+
+      function Food(name, price) {
+        // Calls the name and price properties from the Product constructor and binds them here
+        Product.call(this, name, price);
+        this.category = 'food';
+      }
+
+      function Toy(name, price) {
+        // Calls the name and price properties from the Product constructor and binds them here
+        Product.call(this, name, price);
+        this.category = 'toy';
+
+      const cheese = new Food('feta', 5);
+      console.log(cheese.name);
+      // Console: feta
+      const fun = new Toy('robot', 40);
+      console.log(fun.price);
+      // Console: 40
+  ```
+
+## Apply
+
+- Apply works in the same way as call but takes an array for arguments.
+
+  ```javascript
+      const bill = {
+        total: 1000,
+        calculate(taxRate) {
+          console.log('this =', this);
+          return this.total + this.total * taxRate;
+        },
+        describe(meal, drink, tax) {
+          return `Your meal of ${meal} and ${drink} was £${this.calculate(tax)}`;
+        },
+      };
+
+      //Using call...
+      const mealTwo = bill.describe.call(bill, 'Spaghetti', 'Wine', 0.13);
+      console.log(mealTwo);
+      // Console: this = {total: 1000, calculate: ƒ, describe: ƒ}
+      // Your meal of Spaghetti and Wine was £1130
+
+      // Using apply
+      const mealThree = bill.describe.apply(bill, ['Kebab', 'Cider', 0.13]);
+      console.log(mealThree);
+      // this = {total: 1000, calculate: ƒ, describe: ƒ}
+      // Your meal of Kebab and Cider was £1130
   ```
 
 ## Prototype Inheritance
