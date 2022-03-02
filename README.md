@@ -2320,6 +2320,42 @@ switch (event.key) {
         // Console: Window {window: Window, self: Window, document: ...}
       ```
 
+- **`This` is determined by where a function is called not where it is defined.**
+- `bind` can be used to change what `this` is bound to.
+
+  ```javascript
+    const person = {
+        name: 'Mark',
+        sayHi() {
+          console.log(this);
+          return `Hi ${this.name}`;
+        },
+      };
+
+      person.sayHI()
+      // Console: this = {name: 'Mark', sayHi: ƒ}
+      // 'Hi Mark'
+
+      const sayHI = person.sayHi.bind(person);
+      sayHi();
+      // Console: this = Window {window: Window, self: Window...,}
+      //'Hi '
+
+      // Using bind to bind this to the person object...
+
+      const sayHI = person.sayHi.bind(person);
+      sayHi();
+      // Console: this = {name: 'Mark', sayHi: ƒ}
+      // 'Hi Mark'
+
+    // Using bind to bind this to a different object...
+
+    const sayHI = person.sayHi.bind(kate);
+    sayHi();
+    // Console: this = {name: 'Kate'}
+    // 'Hi Kate'
+  ```
+
 ## Prototype Inheritance
 
 - The Pizza constrictor function makes instances of the pizza object. Properties and methods are assigned to the object with the this keyword.

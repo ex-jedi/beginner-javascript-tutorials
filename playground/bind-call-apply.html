@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Bind Call and Apply!</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Bind Call and Apply!</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      const person = {
+        name: 'Mark',
+        sayHi() {
+          console.log('this =', this);
+          return `Hi ${this.name}`;
+        },
+      };
 
-<body>
+      const kate = { name: 'Kate' };
 
-</body>
-
+      const sayHI = person.sayHi.bind(kate);
+    </script>
+  </body>
 </html>
