@@ -2738,3 +2738,34 @@ switch (event.key) {
       //          { "status": "rejected", "reason": "No! No pineapple 🍍"}]
 
   ```
+
+# Async Await
+
+- async await allows us to  put the keyword await in front of a promise based function, it will sort of temporarily pause that function from running until that promise is resolved.
+- the `await` keyword can only be used in functions that are marked as async with the `async` keyword
+
+  ```javascript
+      // Function Declaration
+      async function fd() {}
+
+      // arrow function
+      const arrowFn = async () => {}
+
+      // Callback functions
+      window.addEventListener('click', async function() {})
+
+      // Methods
+      const person = {
+        // Method longhand
+        sayHi: async function() {
+        },
+
+        // Method shorthand
+        async sayHello() {
+        },
+
+        // function property
+        sayHey: async () => {
+        }
+      }
+  ```
