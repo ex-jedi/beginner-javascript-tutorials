@@ -2571,3 +2571,13 @@ switch (event.key) {
 - It's possible to overwrite the built in methods and properties of objects, like `Array` for instance, but this shouldn't be done.
 - Pollyfills can be added this way.
   - A polyfill is a piece of code (usually JavaScript on the Web) used to provide modern functionality on older browsers that do not natively support it.
+
+# Event Loop
+
+- JavaScript is a single threaded language, meaning that only one thing can be run at a time. Some other languages are multi-threaded, which means they can run multiple processes at once.
+- JavaScript is non-blocking (asynchronous).
+- While the single-threaded languages simplify writing code because you don’t have to worry about the concurrency issues, this also means you can’t perform long operations such as network access without blocking the main thread.
+- Imagine requesting some data from an API. Depending upon the situation the server might take some time to process the request while blocking the main thread making the web page unresponsive.
+- Using asynchronous JavaScript (such as callbacks, promises, and async/await), you can perform long network requests without blocking the main thread.
+  - <https://www.youtube.com/watch?v=8aGhZQkoFbQ>
+  - <http://latentflip.com/loupe/>

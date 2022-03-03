@@ -6,14 +6,40 @@
     <title>Event Loop</title>
     <link rel="stylesheet" href="../base.css" />
   </head>
-
+  <style>
+    .go {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 500px;
+      background-color: blueviolet;
+      font-weight: bold;
+      color: #fff;
+      margin: 50px;
+      border: 3px solid #fff;
+    }
+  </style>
   <body>
+    <div class="go">Click Me</div>
     <script>
-      console.log('Starting');
-      setTimeout(() => {
-        console.log('Running');
-      }, 2000);
-      console.log('Ending');
+      const go = document.querySelector('.go');
+      // 1. Change the text to GO when clicked.
+      go.addEventListener('click', (e) => {
+        const el = e.currentTarget;
+        console.log(el);
+      });
+      // 2. Make it a circle after 2 seconds
+      // 3. Make it red after 0.5s
+      // 4. make it square after 0.25s
+      // 5. make it purple
+      // 6. fade out after 0.5s
+      // console.log('Starting');
+      // setTimeout(() => {
+      //   console.log('Running');
+      // }, 2000);
+      // console.log('Ending');
     </script>
   </body>
 </html>
