@@ -2581,3 +2581,5 @@ switch (event.key) {
 - Using asynchronous JavaScript (such as callbacks, promises, and async/await), you can perform long network requests without blocking the main thread.
   - <https://www.youtube.com/watch?v=8aGhZQkoFbQ>
   - <http://latentflip.com/loupe/>
+
+# Promises
