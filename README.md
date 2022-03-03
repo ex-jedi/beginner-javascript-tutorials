@@ -2737,8 +2737,4 @@ switch (event.key) {
       // Console: [{"status": "fulfilled", "value": "Here is your Pizza with toppings ham"},
       //          { "status": "rejected", "reason": "No! No pineapple 🍍"}]
 
-}]
-
-}
-
   ```
