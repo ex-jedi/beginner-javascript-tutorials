@@ -11,18 +11,27 @@
     <script>
       function makePizza(toppings) {
         const pizzaPromise = new Promise((resolve, reject) => {
-          // When your are ready resolve this promise
-          resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          // Wait one second for the pizza to cook
+          setTimeout(() => {
+            // When your are ready resolve this promise
+            resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          }, 1000);
           // If something goes wrong reject it
         });
 
         return pizzaPromise;
       }
 
-      const pepperoniPromise = makePizza(['pepperoni']);
+      const pepperoniPromise = makePizza(['pepperoni', 'mozzarella']);
       const canadianPromise = makePizza(['pepperoni', 'mushrooms', 'onions']);
+
+      // console.log(pepperoniPromise, canadianPromise);
+
       console.log(pepperoniPromise);
-      console.log(canadianPromise);
+      const pizzaMeal = pepperoniPromise.then((pizza) => {
+        console.log('Got it');
+        console.log(pizza);
+      });
     </script>
   </body>
 </html>

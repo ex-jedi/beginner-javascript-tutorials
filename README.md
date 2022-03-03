@@ -2585,3 +2585,20 @@ switch (event.key) {
 # Promises
 
 - Promises are an IOU (I Owe You) for something that will happen in the future.
+- Promises take two arguments, `resolve` and `reject`.
+
+  ```javascript
+      function makePizza(toppings) {
+      const pizzaPromise = new Promise((resolve, reject) => {
+        // When your are ready resolve this promise
+        resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+        // If something goes wrong reject it
+      });
+
+      return pizzaPromise;
+    }
+
+    const pepperoniPromise = makePizza(['pepperoni', 'mozzarella']);
+    console.log(pepperoniPromise);
+    // Console: Promise {<fulfilled>: 'Here is your Pizza with toppings pepperoni mozzarella'}
+  ```
