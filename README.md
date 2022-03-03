@@ -2583,3 +2583,5 @@ switch (event.key) {
   - <http://latentflip.com/loupe/>
 
 # Promises
+
+- Promises are an IOU (I Owe You) for something that will happen in the future.

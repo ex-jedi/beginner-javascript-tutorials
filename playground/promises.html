@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Promises</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Promises</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      function makePizza(toppings) {
+        const pizzaPromise = new Promise((resolve, reject) => {
+          // When your are ready resolve this promise
+          resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          // If something goes wrong reject it
+        });
 
-<body>
-  <script>
+        return pizzaPromise;
+      }
 
-  </script>
-</body>
-
+      const pepperoniPromise = makePizza(['pepperoni']);
+      const canadianPromise = makePizza(['pepperoni', 'mushrooms', 'onions']);
+      console.log(pepperoniPromise);
+      console.log(canadianPromise);
+    </script>
+  </body>
 </html>
