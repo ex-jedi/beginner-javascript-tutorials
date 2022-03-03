@@ -9,29 +9,52 @@
 
   <body>
     <script>
-      function makePizza(toppings) {
-        const pizzaPromise = new Promise((resolve, reject) => {
-          // Wait one second for the pizza to cook
+      function makePizza(toppings = []) {
+        return new Promise((resolve, reject) => {
+          // Wait 200 ms for each topping
+          const bakeTime = 500 + toppings.length * 200;
           setTimeout(() => {
             // When your are ready resolve this promise
             resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
-          }, 1000);
+          }, bakeTime);
           // If something goes wrong reject it
         });
-
-        return pizzaPromise;
       }
 
-      const pepperoniPromise = makePizza(['pepperoni', 'mozzarella']);
-      const canadianPromise = makePizza(['pepperoni', 'mushrooms', 'onions']);
-
-      // console.log(pepperoniPromise, canadianPromise);
-
-      console.log(pepperoniPromise);
-      const pizzaMeal = pepperoniPromise.then((pizza) => {
-        console.log('Got it');
-        console.log(pizza);
-      });
+      makePizza(['pepperoni', 'mozzarella', 'olives'])
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza(['cheese']);
+        })
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza(['chicken', 'peppers', 'onions', 'sweetcorn']);
+        })
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza([
+            'chicken',
+            'peppers',
+            'onions',
+            'sweetcorn',
+            'chicken',
+            'peppers',
+            'onions',
+            'sweetcorn',
+            'chicken',
+            'peppers',
+            'onions',
+            'sweetcorn',
+          ]);
+        })
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza();
+        })
+        .then((pizza) => {
+          console.log('Last pizza!');
+          console.log(pizza);
+        });
     </script>
   </body>
 </html>
