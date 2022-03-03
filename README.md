@@ -2581,3 +2581,96 @@ switch (event.key) {
 - Using asynchronous JavaScript (such as callbacks, promises, and async/await), you can perform long network requests without blocking the main thread.
   - <https://www.youtube.com/watch?v=8aGhZQkoFbQ>
   - <http://latentflip.com/loupe/>
+
+# Promises
+
+- Promises are an IOU (I Owe You) for something that will happen in the future.
+- Promises take two arguments, `resolve` and `reject`.
+
+  ```javascript
+      function makePizza(toppings = []) {
+        return new Promise((resolve, reject) => {
+          // Wait 200 ms for each topping
+          const bakeTime = 500 + toppings.length * 200;
+          setTimeout(() => {
+            // When your are ready resolve this promise
+            resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          }, bakeTime);
+        });
+      }
+
+    const pepperoniPromise = makePizza(['pepperoni', 'mozzarella']);
+    console.log(pepperoniPromise);
+    // Console: Promise {<fulfilled>: 'Here is your Pizza with toppings pepperoni mozzarella'}
+  ```
+
+## Then
+
+- Access results with the `then()` method, which takes in a callback.
+
+  ```javascript
+         pepperoniPromise.then((pizza) => {
+        console.log('Ahh I got it!');
+        console.log(pizza);
+      });
+      // Console: Ahh I got it!
+      // Here is your Pizza with toppings pepperoni
+  ```
+
+- `then()` can be chained.
+
+  ```javascript
+          makePizza(['pepperoni', 'mozzarella', 'olives'])
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza(['cheese']);
+        })
+
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza();
+        })
+        .then((pizza) => {
+          console.log('Last pizza!');
+          console.log(pizza);
+        });
+        // Console: Here is your Pizza with toppings pepperoni mozzarella olives
+        // Here is your Pizza with toppings cheese
+        //  Last pizza!
+        //  Here is your Pizza with toppings
+  ```
+
+## All
+
+- Promises can be run concurrently with `all()`.
+
+  ```javascript
+      const pizzaPromise1 = makePizza(['chicken', 'peppers', 'onions', 'sweetcorn']);
+      const pizzaPromise2 = makePizza(['ham', 'cheese']);
+      const pizzaPromise3 = makePizza(['olives', 'peppers']);
+
+      const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+      dinnerPromise.then((pizzas) => {
+        const [pizza1, pizza2, pizza3] = pizzas;
+        console.log(pizza1, pizza2, pizza3);
+      });
+      // Console: Here is your Pizza with toppings chicken peppers onions sweetcorn Here is your Pizza with toppings ham cheese Here is your Pizza with toppings olives peppers
+  ```
+
+## Race
+
+- Get the first of multiple promise
+
+  ```javascript
+      //  Get first one
+      const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+      firstPizzaPromise.then((pizzas) => {
+      console.log('First pizza is...');
+      console.log(pizzas);
+      });
+
+    // Console:  First pizza is...
+    // Here is your Pizza with toppings ham cheese
+  ```

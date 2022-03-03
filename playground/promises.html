@@ -1,17 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Promises</title>
+    <link rel="stylesheet" href="../base.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Promises</title>
-  <link rel="stylesheet" href="../base.css">
-</head>
+  <body>
+    <script>
+      function makePizza(toppings = []) {
+        return new Promise((resolve, reject) => {
+          // Wait 200 ms for each topping
+          const bakeTime = 500 + toppings.length * 200;
+          setTimeout(() => {
+            // When your are ready resolve this promise
+            resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          }, bakeTime);
+        });
+      }
 
-<body>
-  <script>
+      // const pepperoniPromise = makePizza(['pepperoni']);
+      // pepperoniPromise.then((pizza) => {
+      //   console.log('Ahh I got it!');
+      //   console.log(pizza);
+      // });
+      // Running sequentially
+      // makePizza(['pepperoni', 'mozzarella', 'olives'])
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza(['cheese']);
+      //   })
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza(['chicken', 'peppers', 'onions', 'sweetcorn']);
+      //   })
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza([
+      //       'chicken',
+      //       'peppers',
+      //       'onions',
+      //       'sweetcorn',
+      //       'chicken',
+      //       'peppers',
+      //       'onions',
+      //       'sweetcorn',
+      //       'chicken',
+      //       'peppers',
+      //       'onions',
+      //       'sweetcorn',
+      //     ]);
+      //   })
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza();
+      //   })
+      //   .then((pizza) => {
+      //     console.log('Last pizza!');
+      //     console.log(pizza);
+      //   });
+      //  Running sequentially
+      // makePizza(['pepperoni', 'mozzarella', 'olives'])
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza(['cheese']);
+      //   })
+      //   .then((pizza) => {
+      //     console.log(pizza);
+      //     return makePizza();
+      //   })
+      //   .then((pizza) => {
+      //     console.log('Last pizza!');
+      //     console.log(pizza);
+      //   });
 
-  </script>
-</body>
+      // Run concurrently
+      const pizzaPromise1 = makePizza(['chicken', 'peppers', 'onions', 'sweetcorn']);
+      const pizzaPromise2 = makePizza(['ham', 'cheese']);
+      const pizzaPromise3 = makePizza(['olives', 'peppers']);
 
+      // const dinnerPromise = Promise.all([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+      // dinnerPromise.then((pizzas) => {
+      //   const [pizza1, pizza2, pizza3] = pizzas;
+      //   console.log(pizza1, pizza2, pizza3);
+      // });
+
+      //  Get first one
+      const firstPizzaPromise = Promise.race([pizzaPromise1, pizzaPromise2, pizzaPromise3]);
+
+      firstPizzaPromise.then((pizzas) => {
+        console.log('First pizza is...');
+        console.log(pizzas);
+      });
+    </script>
+  </body>
 </html>
