@@ -14,11 +14,24 @@
       align-items: center;
       width: 500px;
       height: 500px;
-      background-color: blueviolet;
+      background-color: rgb(23, 119, 23);
       font-weight: bold;
       color: #fff;
       margin: 50px;
-      border: 3px solid #fff;
+      border: 5px solid #fff;
+      transition: all 0.3s;
+    }
+
+    .circle {
+      border-radius: 50%;
+    }
+
+    .red {
+      background-color: #f00;
+    }
+
+    .purple {
+      background-color: purple;
     }
   </style>
   <body>
@@ -28,13 +41,28 @@
       // 1. Change the text to GO when clicked.
       go.addEventListener('click', (e) => {
         const el = e.currentTarget;
-        console.log(el);
+        el.innerText = 'Go!';
+        // 2. Make it a circle after 2 seconds
+        setTimeout(() => {
+          el.classList.add('circle');
+          // 3. Make it red after 0.5s
+          setTimeout(() => {
+            el.classList.add('red');
+            // 4. make it square after 0.25s
+            setTimeout(() => {
+              el.classList.remove('circle');
+              // 5. make it purple
+              setTimeout(() => {
+                el.classList.add('purple');
+                // 6. fade out after 0.5s
+                setTimeout(() => {
+                  el.style.opacity = 0;
+                }, 500);
+              }, 300);
+            }, 250);
+          }, 500);
+        }, 2000);
       });
-      // 2. Make it a circle after 2 seconds
-      // 3. Make it red after 0.5s
-      // 4. make it square after 0.25s
-      // 5. make it purple
-      // 6. fade out after 0.5s
       // console.log('Starting');
       // setTimeout(() => {
       //   console.log('Running');
