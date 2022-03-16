@@ -2339,7 +2339,7 @@ switch (event.key) {
       // Console: this = {name: 'Mark', sayHi: ƒ}
       // 'Hi Mark'
 
-      const sayHI = person.sayHi.bind(person);
+      const sayHI = person.sayHi;
       sayHi();
       // Console: this = Window {window: Window, self: Window...,}
       //'Hi '
