@@ -8,6 +8,15 @@
   </head>
 
   <body>
-    <script></script>
+    <script>
+      function makePizza() {
+        const pizzaPromise = new Promise((resolve, reject) => {
+          // Resolve if it works
+          // Reject if it fails
+          resolve(`🍕Yumsk 🍕`);
+        });
+        return pizzaPromise;
+      }
+    </script>
   </body>
 </html>
