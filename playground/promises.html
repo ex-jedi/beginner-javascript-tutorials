@@ -90,6 +90,17 @@
       console.log(pizza2);
       console.log(pizza3);
     });
+
+    // Get first item from promise
+    const firstPizzaPromise = Promise.race([
+      pizzaPromise1,
+      pizzaPromise2,
+      pizzaPromise3,
+    ]);
+
+    firstPizzaPromise.then((first) => {
+      console.log(first);
+    });
   </script>
 </body>
 
