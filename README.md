@@ -2674,3 +2674,5 @@ switch (event.key) {
     // Console:  First pizza is...
     // Here is your Pizza with toppings ham cheese
   ```
+
+## Error Handling
