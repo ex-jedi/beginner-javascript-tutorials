@@ -10,20 +10,17 @@
   <body>
     <script>
       function makePizza(toppings) {
-        const pizzaPromise = new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
           // Resolve if it works
           setTimeout(() => {
             resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
           }, 1000);
           // Reject if it fails
         });
-        return pizzaPromise;
       }
 
-      const pepperoniPromise = makePizza(['pepperoni', 'cheese']);
-      const canadianPromise = makePizza(['ham', 'cheese', 'mushrooms']);
-      pepperoniPromise.then((pizza) => {
-        console.log('Pizza Here!');
+      makePizza(['pepperoni', 'cheese']).then((pizza) => {
+        console.log('Pizza Time!');
         console.log(pizza);
       });
     </script>
