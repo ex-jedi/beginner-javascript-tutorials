@@ -12,8 +12,10 @@
       function makePizza(toppings) {
         const pizzaPromise = new Promise((resolve, reject) => {
           // Resolve if it works
+          setTimeout(() => {
+            resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
+          }, 1000);
           // Reject if it fails
-          resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
         });
         return pizzaPromise;
       }
