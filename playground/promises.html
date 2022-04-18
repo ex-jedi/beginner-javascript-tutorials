@@ -9,17 +9,21 @@
 
   <body>
     <script>
-      function makePizza() {
+      function makePizza(toppings) {
         const pizzaPromise = new Promise((resolve, reject) => {
           // Resolve if it works
           // Reject if it fails
-          resolve(`🍕Yumsk 🍕`);
+          resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
         });
         return pizzaPromise;
       }
 
-      const pizza = makePizza();
-      console.log(pizza);
+      const pepperoniPromise = makePizza(['pepperoni', 'cheese']);
+      const canadianPromise = makePizza(['ham', 'cheese', 'mushrooms']);
+      pepperoniPromise.then((pizza) => {
+        console.log('Pizza Here!');
+        console.log(pizza);
+      });
     </script>
   </body>
 </html>
