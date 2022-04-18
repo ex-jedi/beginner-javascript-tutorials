@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Promises</title>
-    <link rel="stylesheet" href="../base.css" />
-  </head>
 
-  <body>
-    <script>
-      function makePizza(toppings) {
-        return new Promise((resolve, reject) => {
-          // Resolve if it works
-          setTimeout(() => {
-            resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
-          }, 1000);
-          // Reject if it fails
-        });
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Promises</title>
+  <link rel="stylesheet" href="../base.css" />
+</head>
 
-      makePizza(['pepperoni', 'cheese']).then((pizza) => {
-        console.log('Pizza Time!');
+<body>
+  <script>
+    function makePizza(toppings) {
+      return new Promise((resolve, reject) => {
+        // Resolve if it works
+        setTimeout(() => {
+          resolve(`🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`);
+        }, 1000);
+        // Reject if it fails
+      });
+    }
+
+    makePizza(['pepperoni', 'cheese']).then((pizza) => {
+      console.log('Pizza Time!');
+      console.log(pizza);
+      return makePizza(['mozzarella', 'Tomato']).then((pizza) => {
         console.log(pizza);
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
