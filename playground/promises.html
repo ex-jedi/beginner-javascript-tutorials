@@ -23,34 +23,72 @@
       });
     }
 
-    makePizza(['pepperoni']).then((pizza) => {
-      console.log(pizza);
-      return makePizza([
-        'mozzarella',
-        'tomato',
-        'olives',
-        'parma ham',
-        'mozzarella',
-        'tomato',
-        'olives',
-        'parma ham',
-        'mozzarella',
-        'tomato',
-        'olives',
-        'parma ham',
-        'mozzarella',
-        'tomato',
-        'olives',
-        'parma ham',
-      ]).then((pizza) => {
-        console.log(pizza);
-        return makePizza(['pineapple', 'ham']).then((pizza) => {
-          console.log(pizza);
-          return makePizza().then((pizza) => {
-            console.log(pizza);
-          });
-        });
-      });
+    // Run promises sequentially
+    // makePizza(['pepperoni']).then((pizza) => {
+    //   console.log(pizza);
+    //   return makePizza([
+    //     'mozzarella',
+    //     'tomato',
+    //     'olives',
+    //     'parma ham',
+    //     'mozzarella',
+    //     'tomato',
+    //     'olives',
+    //     'parma ham',
+    //     'mozzarella',
+    //     'tomato',
+    //     'olives',
+    //     'parma ham',
+    //     'mozzarella',
+    //     'tomato',
+    //     'olives',
+    //     'parma ham',
+    //   ]).then((pizza) => {
+    //     console.log(pizza);
+    //     return makePizza(['pineapple', 'ham']).then((pizza) => {
+    //       console.log(pizza);
+    //       return makePizza().then((pizza) => {
+    //         console.log(pizza);
+    //       });
+    //     });
+    //   });
+    // });
+
+    // Run promises concurrently
+    const pizzaPromise1 = makePizza(['ham']);
+    const pizzaPromise2 = makePizza([
+      'mozzarella',
+      'tomato',
+      'olives',
+      'parma ham',
+      'mozzarella',
+      'tomato',
+      'olives',
+      'parma ham',
+      'mozzarella',
+      'tomato',
+      'olives',
+      'parma ham',
+      'mozzarella',
+      'tomato',
+      'olives',
+      'parma ham',
+    ]);
+    const pizzaPromise3 = makePizza(['pineapple', 'ham', 'mozzarella']);
+
+    // Combine them into one big promise
+
+    const dinnerPromise = Promise.all([
+      pizzaPromise1,
+      pizzaPromise2,
+      pizzaPromise3,
+    ]);
+
+    // Getting results with destructuring
+    dinnerPromise.then(([pizza1, pizza2, pizza3]) => {
+      console.log(pizza1);
+      console.log(pizza2);
+      console.log(pizza3);
     });
   </script>
 </body>
