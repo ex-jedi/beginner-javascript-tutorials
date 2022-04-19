@@ -2339,7 +2339,7 @@ switch (event.key) {
       // Console: this = {name: 'Mark', sayHi: ƒ}
       // 'Hi Mark'
 
-      const sayHI = person.sayHi.bind(person);
+      const sayHI = person.sayHi;
       sayHi();
       // Console: this = Window {window: Window, self: Window...,}
       //'Hi '
@@ -2737,4 +2737,68 @@ switch (event.key) {
       // Console: [{"status": "fulfilled", "value": "Here is your Pizza with toppings ham"},
       //          { "status": "rejected", "reason": "No! No pineapple 🍍"}]
 
+  ```
+
+# Async Await
+
+- async await allows us to  put the keyword await in front of a promise based function, it will sort of temporarily pause that function from running until that promise is resolved.
+- the `await` keyword can only be used in functions that are marked as async with the `async` keyword
+
+  ```javascript
+      // Function Declaration
+      async function fd() {}
+
+      // arrow function
+      const arrowFn = async () => {}
+
+      // Callback functions
+      window.addEventListener('click', async function() {})
+
+      // Methods
+      const person = {
+        // Method longhand
+        sayHi: async function() {
+        },
+
+        // Method shorthand
+        async sayHello() {
+        },
+
+        // function property
+        sayHey: async () => {
+        }
+      }
+  ```
+
+- Can be used to resolve promises
+
+  ```javascript
+          function makePizza(toppings = []) {
+        return new Promise((resolve, reject) => {
+          // reject if people try with pineapple
+          if (toppings.includes('pineapple')) {
+            reject('Seriously? Get out 🍍');
+          }
+          const amountOfTimeToBake = 500 + toppings.length * 200;
+          // wait 1 second for the pizza to cook:
+          setTimeout(() => {
+            // when you are ready, you can resolve this promise
+            resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
+          }, amountOfTimeToBake);
+          // if something went wrong, we can reject this promise;
+        });
+      }
+
+      async function makeDinner() {
+        const pizzaPromise1 = makePizza(['pepperoni']);
+        const pizzaPromise2 = makePizza(['ham']);
+        // As below will return an away you can destructure it
+        const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);
+        console.log(pep);
+        console.log(ham);
+      }
+
+      makeDinner();
+      // Console: Here is your pizza 🍕 with the toppings pepperoni
+      // Here is your pizza 🍕 with the toppings ham
   ```
