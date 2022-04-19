@@ -26,14 +26,15 @@
       });
     }
 
+    // Error handling function
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
     const pizza1 = makePizza(['ham']);
     const pizza2 = makePizza(['pineapple']);
-    pizza2
-      .then((result) => console.log(result))
-      .catch((err) => {
-        console.log('Ruh Roh!');
-        console.log(err);
-      });
+    pizza2.then((result) => console.log(result)).catch(handleError);
 
     const dinnerPromise2 = Promise.allSettled([pizza1, pizza2]);
     dinnerPromise2.then((results) => {
@@ -41,29 +42,31 @@
       console.log(pizza2);
     });
 
-    // function handleError(error) {
-    //   console.log('Ruh Roh!');
-    //   console.log(error);
-    // }
+    // Promise chain stops when a promise rejects
+    makePizza(['ham', 'cheese'])
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['olives', 'mozzarella']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['ham', 'pineapple']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['ham', 'olives']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+      })
+      .catch(handleError);
 
-    // makePizza(['ham', 'cheese'])
-    //   .then((pizza) => {
-    //     console.log(pizza);
-    //     return makePizza(['olives', 'mozzarella']);
-    //   })
-    //   .then((pizza) => {
-    //     console.log(pizza);
-    //     return makePizza(['ham', 'pineapple']);
-    //   })
-    //   .then((pizza) => {
-    //     console.log(pizza);
-    //   })
-    //   .catch(handleError);
     // const pepperoniPromise = makePizza(['pepperoni']);
     // pepperoniPromise.then((pizza) => {
     //   console.log('Ahh I got it!');
     //   console.log(pizza);
     // });
+
     // Running sequentially
     // makePizza(['pepperoni', 'mozzarella', 'olives'])
     //   .then((pizza) => {
