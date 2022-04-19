@@ -2743,6 +2743,7 @@ switch (event.key) {
 
 - async await allows us to  put the keyword await in front of a promise based function, it will sort of temporarily pause that function from running until that promise is resolved.
 - the `await` keyword can only be used in functions that are marked as async with the `async` keyword
+- The promise generating function remains the same, this just applies only to calling them.
 
   ```javascript
       // Function Declaration
