@@ -1,8 +1,24 @@
 {
-  "extends": ["wesbos"],
+  "extends": [
+    "wesbos"
+  ],
   "rules": {
     "no-console": 1,
-    "no-ternary": "warn",
-    "no-unused-expressions": "warn"
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "overrides": [
+          {
+            "files": "*.scss",
+            "options": {
+              "singleQuote": true
+            }
+          }
+        ]
+      }
+    ]
   }
 }
