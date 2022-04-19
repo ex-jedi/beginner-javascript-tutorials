@@ -10,79 +10,62 @@
 
 <body>
   <script>
+    // Some changes made
     function makePizza(toppings = []) {
-      const bakeTime = 500 + toppings.length * 200;
       return new Promise((resolve, reject) => {
-        // Resolve if it works
+        // Reject if Hawaiian
+        if (toppings.includes('pineapple')) {
+          reject(`No! No pineapple 🍍`);
+        }
+        // Wait 200 ms for each topping
+        const bakeTime = 500 + toppings.length * 200;
         setTimeout(() => {
-          resolve(
-            `🍕 Here's your pizza with the toppings ${toppings.join(' & ')} 🍕`
-          );
+          // When your are ready resolve this promise
+          resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
         }, bakeTime);
-        // Reject if it fails
       });
     }
 
-    // Run promises sequentially
-    // makePizza(['pepperoni']).then((pizza) => {
-    //   console.log(pizza);
-    //   return makePizza([
-    //     'mozzarella',
-    //     'tomato',
-    //     'olives',
-    //     'parma ham',
-    //     'mozzarella',
-    //     'tomato',
-    //     'olives',
-    //     'parma ham',
-    //     'mozzarella',
-    //     'tomato',
-    //     'olives',
-    //     'parma ham',
-    //     'mozzarella',
-    //     'tomato',
-    //     'olives',
-    //     'parma ham',
-    //   ]).then((pizza) => {
-    //     console.log(pizza);
-    //     return makePizza(['pineapple', 'ham']).then((pizza) => {
-    //       console.log(pizza);
-    //       return makePizza().then((pizza) => {
-    //         console.log(pizza);
-    //       });
-    //     });
-    //   });
-    // });
+    // Error handling function
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
 
-    // Run promises concurrently
-    const pizzaPromise1 = makePizza(['ham']);
-    const pizzaPromise2 = makePizza([
-      'mozzarella',
-      'tomato',
-      'olives',
-      'parma ham',
-      'mozzarella',
-      'tomato',
-      'olives',
-      'parma ham',
-      'mozzarella',
-      'tomato',
-      'olives',
-      'parma ham',
-      'mozzarella',
-      'tomato',
-      'olives',
-      'parma ham',
-    ]);
-    const pizzaPromise3 = makePizza(['pineapple', 'ham', 'mozzarella']);
+    const pizza1 = makePizza(['ham']);
+    const pizza2 = makePizza(['pineapple']);
+    const pizza3 = makePizza(['mozzarella', 'olives']);
+    pizza2.then((result) => console.log(result)).catch(handleError);
 
     // Combine them into one big promise
+    const dinnerPromise2 = Promise.allSettled([pizza1, pizza2, pizza3]);
+    dinnerPromise2.then((results) => {
+      console.log(results);
+    });
 
     const dinnerPromise = Promise.all([
       pizzaPromise1,
       pizzaPromise2,
       pizzaPromise3,
     ]);
+    // Promise chain stops when a promise rejects
+    makePizza(['ham', 'cheese'])
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['olives', 'mozzarella']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['ham', 'pineapple']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+        return makePizza(['ham', 'olives']);
+      })
+      .then((pizza) => {
+        console.log(pizza);
+      })
+      .catch(handleError);
 
     // Getting results with destructuring
     dinnerPromise.then(([pizza1, pizza2, pizza3]) => {

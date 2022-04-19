@@ -2676,3 +2676,65 @@ switch (event.key) {
   ```
 
 ## Error Handling
+
+- `catch()` is used to handle errors.
+  - Below will reject if a topping is pinapple.
+
+  ```javascript
+          function makePizza(toppings = []) {
+        return new Promise((resolve, reject) => {
+          // Reject if Hawaiian
+          if (toppings.includes('pineapple')) {
+            reject(`No! No pineapple 🍍`);
+          }
+          // Wait 200 ms for each topping
+          const bakeTime = 500 + toppings.length * 200;
+          setTimeout(() => {
+            // When your are ready resolve this promise
+            resolve(`Here is your Pizza with toppings ${toppings.join(' ')}`);
+          }, bakeTime);
+        });
+      }
+
+      function handleError(error){
+        console.log('Ruh Roh!');
+        console.log(error);
+      }
+
+      makePizza(['ham', 'cheese'])
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza(['olives', 'mozzarella']);
+        })
+        .then((pizza) => {
+          console.log(pizza);
+          return makePizza(['ham', 'pineapple']);
+        })
+        .then((pizza) => {
+          console.log(pizza);
+        })
+        .catch(handleError);
+
+        // Console: Here is your Pizza with toppings ham cheese
+        // Here is your Pizza with toppings olives mozzarella
+        // Ruh Roh!
+        // No! No pineapple 🍍
+  ```
+
+- Only one catch statement is needed, at the end of a promise chain.
+- A promise chain will stop when an error occurs. Other ways to work with promises are available if this is a problem.
+- `allSettled()` returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describes the outcome of each promise.
+
+  ```javascript
+      const pizza1 = makePizza(['ham']);
+      const pizza2 = makePizza(['pineapple']);
+
+      const dinnerPromise2 = Promise.allSettled([pizza1, pizza2]);
+      dinnerPromise2.then((results) => {
+        console.log(results);
+      });
+
+      // Console: [{"status": "fulfilled", "value": "Here is your Pizza with toppings ham"},
+      //          { "status": "rejected", "reason": "No! No pineapple 🍍"}]
+
+  ```
