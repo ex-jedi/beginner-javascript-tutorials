@@ -28,10 +28,17 @@
 
     const pizza1 = makePizza(['ham']);
     const pizza2 = makePizza(['pineapple']);
+    pizza2
+      .then((result) => console.log(result))
+      .catch((err) => {
+        console.log('Ruh Roh!');
+        console.log(err);
+      });
 
     const dinnerPromise2 = Promise.allSettled([pizza1, pizza2]);
     dinnerPromise2.then((results) => {
-      console.log(results);
+      console.log(pizza1);
+      console.log(pizza2);
     });
 
     // function handleError(error) {
