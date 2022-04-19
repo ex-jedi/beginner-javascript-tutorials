@@ -37,17 +37,11 @@
     const pizza3 = makePizza(['mozzarella', 'olives']);
     pizza2.then((result) => console.log(result)).catch(handleError);
 
-    // Combine them into one big promise
     const dinnerPromise2 = Promise.allSettled([pizza1, pizza2, pizza3]);
     dinnerPromise2.then((results) => {
       console.log(results);
     });
 
-    const dinnerPromise = Promise.all([
-      pizzaPromise1,
-      pizzaPromise2,
-      pizzaPromise3,
-    ]);
     // Promise chain stops when a promise rejects
     makePizza(['ham', 'cheese'])
       .then((pizza) => {
@@ -67,23 +61,20 @@
       })
       .catch(handleError);
 
-    // Getting results with destructuring
-    dinnerPromise.then(([pizza1, pizza2, pizza3]) => {
-      console.log(pizza1);
-      console.log(pizza2);
-      console.log(pizza3);
+    // Combine them into one big promise
+    const dinnerPromise = Promise.all([pizza1, pizza3]);
+    dinnerPromise.then((pizzas) => {
+      console.log('Dinner Time!');
+      console.log(pizzas);
     });
 
     // Get first item from promise
-    const firstPizzaPromise = Promise.race([
-      pizzaPromise1,
-      pizzaPromise2,
-      pizzaPromise3,
-    ]);
+    // const firstPizzaPromise = Promise.race([pizza1, pizza3]);
 
-    firstPizzaPromise.then((first) => {
-      console.log(first);
-    });
+    // firstPizzaPromise.then((first) => {
+    //   console.log('Your first pizza is ready');
+    //   console.log(first);
+    // });
   </script>
 </body>
 
