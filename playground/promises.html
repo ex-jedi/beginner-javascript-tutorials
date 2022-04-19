@@ -34,12 +34,12 @@
 
     const pizza1 = makePizza(['ham']);
     const pizza2 = makePizza(['pineapple']);
+    const pizza3 = makePizza(['mozzarella', 'olives']);
     pizza2.then((result) => console.log(result)).catch(handleError);
 
-    const dinnerPromise2 = Promise.allSettled([pizza1, pizza2]);
+    const dinnerPromise2 = Promise.allSettled([pizza1, pizza2, pizza3]);
     dinnerPromise2.then((results) => {
-      console.log(pizza1);
-      console.log(pizza2);
+      console.log(results);
     });
 
     // Promise chain stops when a promise rejects
