@@ -41,8 +41,29 @@
         console.log(err);
       }
     }
-
     go();
+
+    // // Mix and match
+
+    // function handleError(err) {
+    //   console.log('Ruh Roh!!');
+    //   console.log(err);
+    // }
+
+    // // // Can handle the error in the function definition...
+    // // async function goAgain() {
+    // //   const pizza = await makePizza(['pineapple']).catch(handleError);
+    // // }
+
+    // // goAgain();
+
+    // // ... or when the function is called
+    // // This will also catch other errors
+    // async function goAgainAgain() {
+    //   const pizza = await makePizza(['pineapple']).catch(handleError);
+    // }
+
+    // goAgainAgain().catch(handleError);
   </script>
 </body>
 
