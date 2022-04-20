@@ -2771,7 +2771,7 @@ switch (event.key) {
       }
   ```
 
-- Can be used to resolve promises
+- Can be used to resolve promises.
 
   ```javascript
       function makePizza(toppings = []) {
@@ -2806,7 +2806,7 @@ switch (event.key) {
 
 ## Error Handling
 
-- Try Catch
+- Try Catch.
 
   ```javascript
       function makePizza(toppings = []) {
@@ -2836,6 +2836,42 @@ switch (event.key) {
     }
     go();
 
+    // Console: Ruh Roh!!
+    //  Seriously? 🍍 Get out!
+  ```
+
+- Mix and match.
+  - Use both `async` `await` and regular promise syntax.
+  - The error can be handled in the function definition.
+
+  ```javascript
+
+    function handleError(err) {
+      console.log('Ruh Roh!!');
+      console.log(err);
+    }
+
+    // Error handling in function definition
+    async function goAgain() {
+      const pizza = await makePizza(['pineapple']).catch(handleError);
+    }
+
+    goAgain();
+
+    // Console: Ruh Roh!!
+    //  Seriously? 🍍 Get out!
+  ```
+
+  - or when the function is called. This will also catch other errors.
+
+  ```javascript
+
+    // ... or when the function is called. This will also catch other errors.
+    async function goAgainAgain() {
+      const pizza = await makePizza(['pineapple']).catch(handleError);
+    }
+
+    goAgainAgain().catch(handleError);
     // Console: Ruh Roh!!
     //  Seriously? 🍍 Get out!
   ```
