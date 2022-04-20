@@ -2743,6 +2743,7 @@ switch (event.key) {
 
 - async await allows us to  put the keyword await in front of a promise based function, it will sort of temporarily pause that function from running until that promise is resolved.
 - the `await` keyword can only be used in functions that are marked as async with the `async` keyword
+- The promise generating function remains the same, this just applies only to calling them.
 
   ```javascript
       // Function Declaration
@@ -2773,7 +2774,7 @@ switch (event.key) {
 - Can be used to resolve promises
 
   ```javascript
-          function makePizza(toppings = []) {
+      function makePizza(toppings = []) {
         return new Promise((resolve, reject) => {
           // reject if people try with pineapple
           if (toppings.includes('pineapple')) {
@@ -2792,7 +2793,7 @@ switch (event.key) {
       async function makeDinner() {
         const pizzaPromise1 = makePizza(['pepperoni']);
         const pizzaPromise2 = makePizza(['ham']);
-        // As below will return an away you can destructure it
+        // As below will return an array you can destructure it
         const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);
         console.log(pep);
         console.log(ham);
