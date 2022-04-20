@@ -2803,3 +2803,5 @@ switch (event.key) {
       // Console: Here is your pizza 🍕 with the toppings pepperoni
       // Here is your pizza 🍕 with the toppings ham
   ```
+
+## Error Handling
