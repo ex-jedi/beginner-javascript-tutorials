@@ -65,7 +65,7 @@
     }
 
     async function makeDinner() {
-      const pizzaPromise1 = makePizza(['pepperoni']);
+      const pizzaPromise1 = await makePizza(['pepperoni']);
       console.log(pizzaPromise1);
       // const pizzaPromise2 = makePizza(['ham']);
       // const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);

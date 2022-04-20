@@ -2793,7 +2793,7 @@ switch (event.key) {
       async function makeDinner() {
         const pizzaPromise1 = makePizza(['pepperoni']);
         const pizzaPromise2 = makePizza(['ham']);
-        // As below will return an away you can destructure it
+        // As below will return an array you can destructure it
         const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);
         console.log(pep);
         console.log(ham);
