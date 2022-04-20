@@ -2774,7 +2774,7 @@ switch (event.key) {
 - Can be used to resolve promises
 
   ```javascript
-          function makePizza(toppings = []) {
+      function makePizza(toppings = []) {
         return new Promise((resolve, reject) => {
           // reject if people try with pineapple
           if (toppings.includes('pineapple')) {

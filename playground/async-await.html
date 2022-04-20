@@ -10,82 +10,70 @@
 
 <body>
   <script>
-    function wait(ms = 0) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, ms);
+    // function wait(ms = 0) {
+    //   return new Promise((resolve) => {
+    //     setTimeout(resolve, ms);
+    //   });
+    // }
+
+    // async function go() {
+    //   console.log('Starting');
+    //   await wait(2000);
+    //   console.log('Running');
+    //   await wait(4000);
+    //   console.log('Finishing');
+    // }
+
+    // go();
+
+    // // Function Declaration
+    // async function fd() { }
+
+    // // arrow function
+    // const arrowFn = async () => { };
+
+    // // Callback functions
+    // window.addEventListener('click', async () => { });
+
+    // // Methods
+    // const person = {
+    //   // Method longhand
+    //   // eslint-disable-next-line object-shorthand
+    //   sayHi: async function () { },
+
+    //   // Method shorthand
+    //   async sayHello() { },
+
+    //   // function property
+    //   sayHey: async () => { },
+    // };
+
+    function makePizza(toppings = []) {
+      return new Promise((resolve, reject) => {
+        // reject if people try with pineapple
+        if (toppings.includes('pineapple')) {
+          reject('Seriously? Get out 🍍');
+        }
+        const amountOfTimeToBake = 500 + toppings.length * 200;
+        // wait 1 second for the pizza to cook:
+        setTimeout(() => {
+          // when you are ready, you can resolve this promise
+          resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
+        }, amountOfTimeToBake);
+        // if something went wrong, we can reject this promise;
       });
     }
 
-    async function go() {
-      console.log('Starting');
-      await wait(2000);
-      console.log('Running');
-      await wait(4000);
-      console.log('Finishing');
+    async function makeDinner() {
+      const pizzaPromise1 = makePizza(['pepperoni']);
+      console.log(pizzaPromise1);
+      // const pizzaPromise2 = makePizza(['ham']);
+      // const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);
+      // console.log(pep);
+      // console.log(ham);
     }
 
-    go();
-
-    // Function Declaration
-    async function fd() { }
-
-    // arrow function
-    const arrowFn = async () => { };
-
-    // Callback functions
-    window.addEventListener('click', async () => { });
-
-    // Methods
-    const person = {
-      // Method longhand
-      async sayHi() { },
-
-      // Method shorthand
-      async sayHello() { },
-
-      // function property
-      sayHey: async () => { },
-    };
-
-// function wait(ms = 0) {
-//   return new Promise((resolve) => {
-//     setTimeout(resolve, ms);
-//   });
-// }
-
-// async function go() {
-//   console.log('Start');
-//   await wait(2000);
-//   console.log('End');
-// }
-
-// // go();
-
-// function makePizza(toppings = []) {
-//   return new Promise((resolve, reject) => {
-//     // reject if people try with pineapple
-//     if (toppings.includes('pineapple')) {
-//       reject('Seriously? Get out 🍍');
-//     }
-//     const amountOfTimeToBake = 500 + toppings.length * 200;
-//     // wait 1 second for the pizza to cook:
-//     setTimeout(() => {
-//       // when you are ready, you can resolve this promise
-//       resolve(`Here is your pizza 🍕 with the toppings ${toppings.join(' ')}`);
-//     }, amountOfTimeToBake);
-//     // if something went wrong, we can reject this promise;
-//   });
-// }
-
-// async function makeDinner() {
-//   const pizzaPromise1 = makePizza(['pepperoni']);
-//   const pizzaPromise2 = makePizza(['ham']);
-//   const [pep, ham] = await Promise.all([pizzaPromise1, pizzaPromise2]);
-//   console.log(pep);
-//   console.log(ham);
-// }
-
-// makeDinner();
+    makeDinner();
   </script>
 </body>
 
