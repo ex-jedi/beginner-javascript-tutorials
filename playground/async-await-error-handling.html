@@ -51,18 +51,30 @@
     }
 
     // // Can handle the error in the function definition...
-    async function goAgain() {
-      const pizza = await makePizza(['pineapple']).catch(handleError);
-    }
+    // async function goAgain() {
+    //   const pizza = await makePizza(['pineapple']).catch(handleError);
+    // }
 
-    goAgain();
+    // goAgain();
 
     // ... or when the function is called. This will also catch other errors.
     async function goAgainAgain() {
-      const pizza = await makePizza(['pineapple']).catch(handleError);
+      const pizza = await makePizza(['pineapple']);
+      return pizza;
     }
 
-    goAgainAgain().catch(handleError);
+    // goAgainAgain().catch(handleError);
+
+    // Higher order function
+    function makeSafe(fn, errorHandler) {
+      return function () {
+        fn().catch(errorHandler);
+      };
+    }
+
+    const safe = makeSafe(goAgainAgain, handleError);
+
+    safe();
   </script>
 </body>
 
