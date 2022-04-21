@@ -38,7 +38,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 ## Variables
 
-- `const` and `let` variables are block scoped
+- `const` and `let` variables are block scoped.
 - `var` variables are not block scoped, they are function scoped.
 - `const` and `let` variables are not available on the `window` object but `var` variables are. For example...
 
@@ -77,7 +77,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 ## The Navigator Object
 
-- The navigator is sort of just a higher level thing than the window.
+- The navigator is at a higher level than the window.
 - It gives information not just about the browser, but the device itself, the device that it is on.
 - Including things like web cam and audio access, battery level, GPS coordinates.
 - Things that are device specific will live on the navigator.
@@ -86,8 +86,8 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
 - The window object is everything about the currently opened window. That includes:
 
-  - the browser bar
-  - the tabs
+  - the browser bar.
+  - the tabs.
   - the scroll bar etc.
 
 - The window is where global variables are stored, as well as helpful properties like `window.location`.
@@ -172,7 +172,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   myHTML.classList.add('hello'); // Doesn't work as it's not really an element.
   ```
 
-- You have to pull it out then do stuff with it.
+- You have to select it then pull it out to do stuff with it.
 
   ```javascript
   const itemImage = document.querySelector('.wrapper img');
@@ -196,7 +196,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 
   - Cross Site scripting is when a third party injects a script tag through a security hole.
 
-  - Say the description above was a user input. They could add executabe code to the page
+  - Say the description above was a user input. They could add executabe code to the page like so.
 
   ```javascript
   const desc = `A Pic of Something <img onload="alert('Hacked!')" src="https://picsum.photos/50">`;
@@ -219,7 +219,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   el.parentElement;
   ```
 
-- These will ignore nodes
+- These will ignore nodes.
 
   ```javascript
   el.firstElementChild;
@@ -229,7 +229,7 @@ Please feel free to add your blog post, videos, notes, or anything else related 
   el.children;
   ```
 
-- Best to double check as it's not obvious from the names which ones include or ignore nodes
+- Best to double check as it's not obvious from the names which ones include or ignore nodes.
 
 ## Removing Elements
 
@@ -254,8 +254,8 @@ Please feel free to add your blog post, videos, notes, or anything else related 
 - Takes three arguments. The event, a callback function and an optional options object.
 
   - `addEventListener(type, listener, options);`
-  - A callback function is just a function one that will then be called at a later point in time.
-    -The callback can be any type of function. Named, anonymous or arrow.
+  - A callback function is just a function which will be called at a later point in time.
+    -The callback can be any type of function, named, anonymous or arrow.
 
   ```html
   <button class="butts">Click Me!</button>
@@ -514,7 +514,7 @@ window.addEventListener('click', (e) => {
   }
   ```
 
-- The entire if statement is `if (10 > 2) { console.log('Yep); }`
+- The entire if statement is `if (10 > 2) { console.log('Yep); }`.
 
 - The code within the parenthesis following the if statement, `(10 > 2)`, is  the condition.
 
@@ -532,7 +532,7 @@ window.addEventListener('click', (e) => {
 
   - Although all 3 conditions above 👆 are true, the 2nd and 3rd blocks will never run because the first condition evaluates to true and runs.
 
-- An `else{}` at the end of the if statement will run if nothing is matched
+- An `else{}` at the end of the if statement will run if nothing is matched.
 
   ```javascript
   if (age > 70) {
@@ -561,7 +561,7 @@ window.addEventListener('click', (e) => {
   slugify('I am a meat popsicle', 1); // Returns 'i-am-a-meat-popsicle'
 ```
 
-- Simple if statement can be one liners
+- Simple if statement can be one liners.
 
   ```javascript
   function doSomething() {
@@ -585,24 +585,24 @@ window.addEventListener('click', (e) => {
 
 ## Truthy and Falsy
 
-- Truthy
-  - 1 // truthy
-  - -10 // truthy
-  - full string // truthy
-  - a string of "0" // truthy
-  - empty array // truthy
+- Truthy.
+  - 1 // truthy.
+  - -10 // truthy.
+  - full string // truthy.
+  - a string of "0" // truthy.
+  - empty array // truthy.
     - Check if array is empty with `.length`.
-  - empty object // truthy
-    - Check if object is empty with `.keys` .
+  - empty object // truthy.
+    - Check if object is empty with `.keys`.
 
-- Falsy
-  - 0 // falsy
-  - undefined variable // falsy
-  - null / Variable set to null // falsy
-  - NaN // falsy
-  - empty string // falsy
+- Falsy.
+  - 0 // falsy.
+  - undefined variable // falsy.
+  - null / Variable set to null // falsy.
+  - NaN // falsy.
+  - empty string // falsy.
 
-- Some methods return true of false
+- Some methods return true of false.
 
   ```javascript
   const sentence = 'Mark is cool!';
@@ -635,11 +635,11 @@ val = !!val // val === true
 - Like a shorthand if statement.
 
 - Ternarys have three things...
-  1. A condition
-  2. What to do if true
-  3. What to do if false
+  1. A condition.
+  2. What to do if true.
+  3. What to do if false.
 
-- Example
+- Example.
   - Simple if statement...
 
   ```javascript
@@ -668,7 +668,7 @@ val = !!val // val === true
       const sentence = `You have ${count} item${count === 1 ? '' : 's' } in your cart.`;
   ```
 
-- Can be used to run functions
+- Can be used to run functions.
 
   ```javascript
         function showAdminBar() {
@@ -681,8 +681,8 @@ val = !!val // val === true
 
 ## Short Circuiting - The AND AND Trick
 
-- JavaScript will abort a condition when one of them is false
-- This can be used... or abused to run checks
+- JavaScript will abort a condition when one of them is false.
+- This can be used... or abused to run checks.
 
   ```javascript
         function check1() {
@@ -706,7 +706,7 @@ val = !!val // val === true
       }
   ```
 
-- You could use this instead of the ternary further up
+- You could use this instead of the ternary further up.
   - So instead of...
 
   ```javascript
@@ -726,7 +726,7 @@ val = !!val // val === true
 
 - <https://wesbos.com/javascript/07-logic-and-flow-control/coercion-ternaries-and-conditional-abuse>
 
-## Switch Statement
+## Switch Statements
 
 ```javascript
 switch (event.key) {
@@ -758,7 +758,7 @@ switch (event.key) {
 - `setTimeout()` is used for timers.
 - Takes two things.
   - A callback function (named, anonymous or arrow).
-  - The number of milliseconds to wai.t
+  - The number of milliseconds to wait.
 
     ```javascript
           setTimeout(() => {
@@ -795,7 +795,7 @@ switch (event.key) {
 
 ## Intervals
 
-- Intervals accomplished with `setInterval()`
+- Intervals accomplished with `setInterval()`.
 - Like `setTimeout()` it also takes a callback function and a time in milliseconds for the interval.
 - Theres no built in way to run a function immediately and add an intereval.
   - Can be done like so...
@@ -904,7 +904,7 @@ switch (event.key) {
       };
   ```
 
-- Properties can be added to an object with dot notation
+- Properties can be added to an object with dot notation.
 
   ```javascript
     person.job = 'Web Developer';
@@ -912,7 +912,7 @@ switch (event.key) {
     // Console: {name: 'Mark', age: 100, cool-dude: true, clothing: {…}, job: 'Web Developer'}
   ```
 
-- Values can be changes with dot notation
+- Values can be changed with dot notation.
 
   ```javascript
       const age = 100;
@@ -963,13 +963,13 @@ switch (event.key) {
 
 ## Acessing properties
 
-- Using dot notation, most common
+- Using dot notation, most common.
 
     ```javascript
       console.log(person.age);
     ```
 
-  - Dot notation can be chained
+  - Dot notation can be chained.
 
       ```javascript
         console.log(person.clothing.shirts);
@@ -992,21 +992,21 @@ switch (event.key) {
 
   - Also used when a non-valid propert name is used. Ig it contains spaces or hyphens etc.
 
-- If a property doesn't exist a lookup will return undefined
+- If a property doesn't exist a lookup will return undefined.
 
     ```javascript
       console.log(person.clothing.jumpers);
       // Console: undefined
     ```
 
-- Looking up a property on a property that doesn't exist will throw an error
+- Looking up a property on a property that doesn't exist will throw an error.
 
   ```javascript
     console.log(person.clothing.jumpers.colour);
     // Console: Uncaught TypeError: Cannot read properties of undefined (reading 'colour') at objects.html:35:43
   ```
 
-  - Can use optional chaining
+  - Can use optional chaining.
     - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining>
 
       ```javascript
@@ -1022,7 +1022,7 @@ switch (event.key) {
     ```
 
 - Delete a property with `delete` keyword.
-  - Can check if it has worked as it will return `true` or `false` depending on whether it's successfull or not
+  - Can check if it has worked as it will return `true` or `false` depending on whether it's successfull or not.
 
     ```javascript
       console.log(delete person.clothing);
@@ -1033,7 +1033,7 @@ switch (event.key) {
 
 ## Methods
 
-- An object property that is a function
+- An object property that is a function.
 
     ```javascript
         const person = {
@@ -1172,8 +1172,8 @@ switch (event.key) {
       // Console: 10
   ```
 
-- Objects can be merged with the spread operator
-- You can also add properties onto the merged object literal
+- Objects can be merged with the spread operator.
+- You can also add properties onto the merged object literal.
 
   ```javascript
         const meatInventory = {
@@ -1337,7 +1337,7 @@ switch (event.key) {
       // Console: true
     ```
 
-- Use indexes to access array items
+- Use indexes to access array items.
 - Arrays indexes are zero based.
 - Access indexes with square brackets.
 
@@ -1355,7 +1355,7 @@ switch (event.key) {
       // Console: 2
   ```
 
-- To find the last item in an array use `array.length - 1`
+- To find the last item in an array use `array.length - 1`.
 
   ```javascript
     console.log(names[names.length - 1]);
@@ -1406,7 +1406,7 @@ switch (event.key) {
 
     ```
 
-  - Can make a copy of an array with spread and add new items to avoid mutating the original,
+  - Can make a copy of an array with spread and add new items to avoid mutating the original.
 
     ```javascript
       const names = ['Mark', 'Kate', 'Dug', 'Jon', 'Sam'];
@@ -1538,7 +1538,7 @@ switch (event.key) {
 
 ## **Find Index**
 
-- Removing items with **`findIndex()`**
+- Removing items with **`findIndex()`**.
   - Simple example...
 
   ```javascript
@@ -1599,7 +1599,7 @@ switch (event.key) {
 
 # Array Static Methods
 
-- 'Built in' methods on the array object constructor rather than on the array instance
+- 'Built in' methods on the array object constructor rather than on the array instance.
 - Methods called on object instances are called instance methods.
 - Array static methods are...
   - `Array.of()`. Creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments (not often used).
@@ -2069,7 +2069,7 @@ switch (event.key) {
       console.log(fullNames);
     ```
 
-  - Maps can be chained
+  - Maps can be chained.
 
     ```javascript
         const firstNames = ['mark', 'kate'];
@@ -2103,7 +2103,7 @@ switch (event.key) {
       // Console: ['410.40', '1202.40', '627.60', '40.80', '760.80', '1024.80', '1972.80', '2666.40']
     ```
 
-  - Mapping array of objects
+  - Mapping array of objects.
 
       ```javascript
         const people = [
@@ -2272,11 +2272,11 @@ switch (event.key) {
 
 ## New Keyword
 
-- Creates a new instance object from a constructor function
+- Creates a new instance object from a constructor function.
 
 ## This Keyword
 
-- Initially bound to the window object
+- Initially bound to the window object.
 
     ```javascript
       console.log(this);
@@ -2367,7 +2367,7 @@ switch (event.key) {
       // Console: Uncaught TypeError: Illegal invocation
     ```
 
-  - By using bind we tell the `lookFor` function that it's bound to `document` as the this value when it's called
+  - By using bind we tell the `lookFor` function that it's bound to `document` as the this value when it's called.
 
     ```javascript
       const lookFor = document.querySelector.bind(document);
@@ -2417,7 +2417,7 @@ switch (event.key) {
 
 - Use bind if you want to return a function to call later on.
 - Use call if you want to call the function right away.
-- Call can be used to chain constructors
+- Call can be used to chain constructors.
 
   ```javascript
       function Product(name, price) {
@@ -2510,7 +2510,7 @@ switch (event.key) {
     // false as they're not the same function.
     ```
 
-  - Methods can be added to the Pizza prototype and will be inhereted by each instance. In this case it means that only one eat function is created which is inherited by all instances of Pizza
+  - Methods can be added to the Pizza prototype and will be inhereted by each instance. In this case it means that only one eat function is created which is inherited by all instances of Pizza.
 
     ```javascript
       function Pizza(customer, toppings = []) {
@@ -2660,7 +2660,7 @@ switch (event.key) {
 
 ## Race
 
-- Get the first of multiple promise
+- Get the first of multiple promise.
 
   ```javascript
       //  Get first one
@@ -2742,7 +2742,7 @@ switch (event.key) {
 # Async Await
 
 - async await allows us to  put the keyword await in front of a promise based function, it will sort of temporarily pause that function from running until that promise is resolved.
-- the `await` keyword can only be used in functions that are marked as async with the `async` keyword
+- the `await` keyword can only be used in functions that are marked as async with the `async` keyword.
 - The promise generating function remains the same, this just applies only to calling them.
 
   ```javascript
