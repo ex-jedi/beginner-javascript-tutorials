@@ -2845,7 +2845,7 @@ switch (event.key) {
   - The error can be handled in the function definition.
 
   ```javascript
-
+    // Error handling function
     function handleError(err) {
       console.log('Ruh Roh!!');
       console.log(err);
@@ -2875,3 +2875,33 @@ switch (event.key) {
     // Console: Ruh Roh!!
     //  Seriously? 🍍 Get out!
   ```
+
+- Higher order function
+  - This approach might be considered a bit cleaner perhaps.
+
+    ```javascript
+      // Error handling function
+      function handleError(err) {
+        console.log('Ruh Roh!!');
+        console.log(err);
+      }
+
+      // Function without error handling in it
+      async function goAgainAgain() {
+        const pizza = await makePizza(['pineapple']);
+        return pizza;
+      }
+
+      // Higher order function takes in the function to run and error handler then returns a function that can be called when needed
+      function makeSafe(fn, errorHandler) {
+        return function () {
+          fn().catch(errorHandler);
+        };
+      }
+
+      const safe = makeSafe(goAgainAgain, handleError);
+
+      safe();
+      // Console: Ruh Roh!!
+      //  Seriously? 🍍 Get out!
+    ```
