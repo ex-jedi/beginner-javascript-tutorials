@@ -2975,15 +2975,41 @@ switch (event.key) {
     // Console: Promise {<pending>}
     ```
 
-- Accessing data with `.then()`.
+- Get the response with `.then()`.
+
+  ```javascript
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const gitPromise = fetch(endpoint);
+    gitPromise
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(handleError);
+
+    // Console: Response {type: 'cors', url: 'https://api.github.com/users/ex-jedi', redirected: false, status: 200, ok: true, …}
+  ```
+
+  - This doesn't give you the JSON data yet.
+
+## Retrieving API JSON Data
+
+- You can use fetch to retrieve any kind of data, so you have to indicate that you want JSON.
+
+- Getting response chaining `.then()` and `.json()`.
 
   ```javascript
       gitPromise
+        .then((data) => data.json())
         .then((data) => {
-        console.log(data);
+          console.log(data);
         })
         .catch(handleError);
-      // Console: Response {type: 'cors', url: 'https://api.github.com/users/ex-jedi', redirected: false, status: 200, ok: true, …}
+      // Console: {login: 'ex-jedi', id: 3149496, node_id: 'MDQ6VXNlcjMxNDk0OTY=', avatar_url: 'https://avatars.githubusercontent.com/u/3149496?v=4', gravatar_id: '', …}
   ```
 
 -
