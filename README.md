@@ -2909,8 +2909,10 @@ switch (event.key) {
 # Application Programming interface (API)
 
 - A set of features and rules that exist inside a software program (the application) enabling interaction with it through software.
-- Data from web sources is made available via a URL.
-- Data from a URL is in JSON (JavaScript Object Notation).
+- Data from web sources is made available via a URL, known as an **endpoint**.
+- Also referred to as **AJAX** (Asynchronous JavaSCript and XML)
+  - XML is very rarely used, the name is kind of an artifact.
+- Data from a URL is in **JSON** (JavaScript Object Notation).
 - JSON sent from a URL is sent as a string.
 
   ```javascript
@@ -2962,3 +2964,26 @@ switch (event.key) {
     typeof dataObj;
     // 'object'
   ```
+
+- The built in **Fetch** library is used to fetch data from an endpoint (passed in as a string).
+- Fetch returns a promise.
+
+    ```javascript
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const gitPromise = fetch(endpoint);
+    console.log(gitPromise);
+    // Console: Promise {<pending>}
+    ```
+
+- Accessing data with `.then()`.
+
+  ```javascript
+      gitPromise
+        .then((data) => {
+        console.log(data);
+        })
+        .catch(handleError);
+      // Console: Response {type: 'cors', url: 'https://api.github.com/users/ex-jedi', redirected: false, status: 200, ok: true, …}
+  ```
+
+-

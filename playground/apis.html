@@ -10,7 +10,18 @@
 
 <body>
   <script>
-    console.log('Hi');
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const gitPromise = fetch(endpoint);
+    gitPromise
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(handleError);
   </script>
 </body>
 
