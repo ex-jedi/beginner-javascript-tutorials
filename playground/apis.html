@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <p class="user"></p>
   <script>
     function handleError(err) {
       console.log('Ruh Roh!');
@@ -16,10 +17,12 @@
     }
 
     const endpoint = 'https://api.github.com/users/ex-jedi';
+    const userEl = document.querySelector('.user');
     const gitPromise = fetch(endpoint);
     gitPromise
+      .then((data) => data.json())
       .then((data) => {
-        console.log(data);
+        userEl.textContent = `${data.name} - ${data.blog}`;
       })
       .catch(handleError);
   </script>

@@ -3012,4 +3012,28 @@ switch (event.key) {
       // Console: {login: 'ex-jedi', id: 3149496, node_id: 'MDQ6VXNlcjMxNDk0OTY=', avatar_url: 'https://avatars.githubusercontent.com/u/3149496?v=4', gravatar_id: '', …}
   ```
 
+- You can then use the data. For instance, displaying a GitHub users name and blog.
+
+  ```html
+    <p class="user"></p>
+  ```
+
+  ```javascript
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const userEl = document.querySelector('.user');
+    const gitPromise = fetch(endpoint);
+    gitPromise
+      .then((data) => data.json())
+      .then((data) => {
+        userEl.textContent = `${data.name} - ${data.blog}`;
+      })
+      .catch(handleError);
+      // Displays: Mark Phoenix - https://relativepaths.uk/
+  ```
+
 -
