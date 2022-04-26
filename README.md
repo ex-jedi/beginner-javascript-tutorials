@@ -2905,3 +2905,52 @@ switch (event.key) {
       // Console: Ruh Roh!!
       //  Seriously? 🍍 Get out!
     ```
+
+# Application Programming interface (API)
+
+- A set of features and rules that exist inside a software program (the application) enabling interaction with it through software.
+- Data from web sources is made available via a URL.
+- Data from a URL is in JSON (JavaScript Object Notation).
+- JSON sent from a URL is sent as a string.
+
+  ```javascript
+  // My data from the GitHub Api - https://api.github.com/users/ex-jedi
+        const data = {
+      "login": "ex-jedi",
+      "id": 3149496,
+      "node_id": "MDQ6VXNlcjMxNDk0OTY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3149496?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ex-jedi",
+      "html_url": "https://github.com/ex-jedi",
+      "followers_url": "https://api.github.com/users/ex-jedi/followers",
+      "following_url": "https://api.github.com/users/ex-jedi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ex-jedi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ex-jedi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ex-jedi/subscriptions",
+      "organizations_url": "https://api.github.com/users/ex-jedi/orgs",
+      "repos_url": "https://api.github.com/users/ex-jedi/repos",
+      "events_url": "https://api.github.com/users/ex-jedi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ex-jedi/received_events",
+      "type": "User",
+      "site_admin": false,
+      "name": "Mark Phoenix",
+      "company": "Pixelsmiths",
+      "blog": "https://relativepaths.uk/",
+      "location": "Cheltenham, UK.",
+      "email": null,
+      "hireable": null,
+      "bio": "Web developer, co-founder of Pixelsmiths, co-host of the Relative Paths Podcast, Perch CMS fan and professional cat stroker.",
+      "twitter_username": null,
+      "public_repos": 40,
+      "public_gists": 1,
+      "followers": 3,
+      "following": 9,
+      "created_at": "2012-12-29T18:32:36Z",
+      "updated_at": "2022-04-12T11:58:20Z"
+    }
+
+    typeof data;
+    // 'string'
+
+  ```
