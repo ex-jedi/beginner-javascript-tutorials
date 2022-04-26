@@ -2915,7 +2915,7 @@ switch (event.key) {
 
   ```javascript
   // My data from the GitHub Api - https://api.github.com/users/ex-jedi
-        const data = {
+      const data = {
       "login": "ex-jedi",
       "id": 3149496,
       "node_id": "MDQ6VXNlcjMxNDk0OTY=",
@@ -2948,9 +2948,17 @@ switch (event.key) {
       "following": 9,
       "created_at": "2012-12-29T18:32:36Z",
       "updated_at": "2022-04-12T11:58:20Z"
-    }
+      }
 
     typeof data;
     // 'string'
 
+  ```
+
+- To access data use `JSON.parse()` to turn in back into an object.
+
+  ```javascript
+    const dataObj = JSON.parse(data);
+    typeof dataObj;
+    // 'object'
   ```
