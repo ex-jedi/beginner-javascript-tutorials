@@ -2914,6 +2914,7 @@ switch (event.key) {
   - XML is very rarely used, the name is kind of an artifact.
 - Data from a URL is in **JSON** (JavaScript Object Notation).
 - JSON sent from a URL is sent as a string.
+- GitHub has a list of public API's you can play with. <https://github.com/public-apis/public-apis>
 
   ```javascript
   // My data from the GitHub Api - https://api.github.com/users/ex-jedi
@@ -3037,10 +3038,12 @@ switch (event.key) {
       // Displays: Mark Phoenix - https://relativepaths.uk/
   ```
 
-- Getting response with **`anync` `await`**
+- Getting response with **`async` `await`**
   - Below is a bit more modular, allowing you to chose which GitHub users details to display.
+  - Errors are handled with `.catch()`. If there is one it'll display the error on the page.
 
   ```javascript
+
       const baseEndpoint = 'https://api.github.com';
       const usersEndpoint = `${baseEndpoint}/users`;
       const userEl = document.querySelector('.user');
@@ -3048,19 +3051,21 @@ switch (event.key) {
       function handleError(err) {
         console.log('Ruh Roh!');
         console.log(err);
+        // Displays error on page
+        userEl.textContent = `Sorry, something went wrong. ${err}`;
       }
 
       async function displayUser(username) {
         userEl.textContent = `... loading.`;
         const response = await fetch(`${usersEndpoint}/${username}`);
+        console.log(`${usersEndpoint}/${username}`);
         const data = await response.json();
 
+        // Displays user name and blog on the page
         userEl.textContent = `${data.name} - ${data.blog}`;
       }
 
-      displayUser('ex-jedi');
+      displayUser('ex-jedi').catch(handleError);
       // Console:  https://api.github.com/users/ex-jedi
       // Page displays: Mark Phoenix - https://relativepaths.uk/
   ```
-
--

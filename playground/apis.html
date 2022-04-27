@@ -18,6 +18,7 @@
     function handleError(err) {
       console.log('Ruh Roh!');
       console.log(err);
+      userEl.textContent = `Sorry, something went wrong. ${err}`;
     }
 
     async function displayUser(username) {
@@ -29,7 +30,7 @@
       userEl.textContent = `${data.name} - ${data.blog}`;
     }
 
-    displayUser('ex-jedi');
+    displayUser('ex-jedi').catch(handleError);
   </script>
 </body>
 
