@@ -3037,4 +3037,30 @@ switch (event.key) {
       // Displays: Mark Phoenix - https://relativepaths.uk/
   ```
 
+- Getting response with **`anync` `await`**
+  - Below is a bit more modular, allowing you to chose which GitHub users details to display.
+
+  ```javascript
+      const baseEndpoint = 'https://api.github.com';
+      const usersEndpoint = `${baseEndpoint}/users`;
+      const userEl = document.querySelector('.user');
+
+      function handleError(err) {
+        console.log('Ruh Roh!');
+        console.log(err);
+      }
+
+      async function displayUser(username) {
+        userEl.textContent = `... loading.`;
+        const response = await fetch(`${usersEndpoint}/${username}`);
+        const data = await response.json();
+
+        userEl.textContent = `${data.name} - ${data.blog}`;
+      }
+
+      displayUser('ex-jedi');
+      // Console:  https://api.github.com/users/ex-jedi
+      // Page displays: Mark Phoenix - https://relativepaths.uk/
+  ```
+
 -
