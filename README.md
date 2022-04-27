@@ -3027,6 +3027,7 @@ switch (event.key) {
     const endpoint = 'https://api.github.com/users/ex-jedi';
     const userEl = document.querySelector('.user');
     const gitPromise = fetch(endpoint);
+    userEl.textContent = `... loading.`; // Displays before API content is retrieved
     gitPromise
       .then((data) => data.json())
       .then((data) => {
