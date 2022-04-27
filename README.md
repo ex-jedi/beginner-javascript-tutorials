@@ -2905,3 +2905,167 @@ switch (event.key) {
       // Console: Ruh Roh!!
       //  Seriously? 🍍 Get out!
     ```
+
+# Application Programming interface (API)
+
+- A set of features and rules that exist inside a software program (the application) enabling interaction with it through software.
+- Data from web sources is made available via a URL, known as an **endpoint**.
+- Also referred to as **AJAX** (Asynchronous JavaSCript and XML)
+  - XML is very rarely used, the name is kind of an artifact.
+- Data from a URL is in **JSON** (JavaScript Object Notation).
+- JSON sent from a URL is sent as a string.
+- GitHub has a list of public API's you can play with. <https://github.com/public-apis/public-apis>
+
+  ```javascript
+  // My data from the GitHub Api - https://api.github.com/users/ex-jedi
+      const data = {
+      "login": "ex-jedi",
+      "id": 3149496,
+      "node_id": "MDQ6VXNlcjMxNDk0OTY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3149496?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ex-jedi",
+      "html_url": "https://github.com/ex-jedi",
+      "followers_url": "https://api.github.com/users/ex-jedi/followers",
+      "following_url": "https://api.github.com/users/ex-jedi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ex-jedi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ex-jedi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ex-jedi/subscriptions",
+      "organizations_url": "https://api.github.com/users/ex-jedi/orgs",
+      "repos_url": "https://api.github.com/users/ex-jedi/repos",
+      "events_url": "https://api.github.com/users/ex-jedi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ex-jedi/received_events",
+      "type": "User",
+      "site_admin": false,
+      "name": "Mark Phoenix",
+      "company": "Pixelsmiths",
+      "blog": "https://relativepaths.uk/",
+      "location": "Cheltenham, UK.",
+      "email": null,
+      "hireable": null,
+      "bio": "Web developer, co-founder of Pixelsmiths, co-host of the Relative Paths Podcast, Perch CMS fan and professional cat stroker.",
+      "twitter_username": null,
+      "public_repos": 40,
+      "public_gists": 1,
+      "followers": 3,
+      "following": 9,
+      "created_at": "2012-12-29T18:32:36Z",
+      "updated_at": "2022-04-12T11:58:20Z"
+      }
+
+    typeof data;
+    // 'string'
+
+  ```
+
+- To access data use `JSON.parse()` to turn in back into an object.
+
+  ```javascript
+    const dataObj = JSON.parse(data);
+    typeof dataObj;
+    // 'object'
+  ```
+
+- The built in **Fetch** library is used to fetch data from an endpoint (passed in as a string).
+- Fetch returns a promise.
+
+    ```javascript
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const gitPromise = fetch(endpoint);
+    console.log(gitPromise);
+    // Console: Promise {<pending>}
+    ```
+
+- Get the response with `.then()`.
+
+  ```javascript
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const gitPromise = fetch(endpoint);
+    gitPromise
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(handleError);
+
+    // Console: Response {type: 'cors', url: 'https://api.github.com/users/ex-jedi', redirected: false, status: 200, ok: true, …}
+  ```
+
+  - This doesn't give you the JSON data yet.
+
+## Retrieving API JSON Data
+
+- You can use fetch to retrieve any kind of data, so you have to indicate that you want JSON.
+
+- Getting response chaining `.then()` and `.json()`.
+
+  ```javascript
+      gitPromise
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch(handleError);
+      // Console: {login: 'ex-jedi', id: 3149496, node_id: 'MDQ6VXNlcjMxNDk0OTY=', avatar_url: 'https://avatars.githubusercontent.com/u/3149496?v=4', gravatar_id: '', …}
+  ```
+
+- You can then use the data. For instance, displaying a GitHub users name and blog.
+
+  ```html
+    <p class="user"></p>
+  ```
+
+  ```javascript
+    function handleError(err) {
+      console.log('Ruh Roh!');
+      console.log(err);
+    }
+
+    const endpoint = 'https://api.github.com/users/ex-jedi';
+    const userEl = document.querySelector('.user');
+    const gitPromise = fetch(endpoint);
+    userEl.textContent = `... loading.`; // Displays before API content is retrieved
+    gitPromise
+      .then((data) => data.json())
+      .then((data) => {
+        userEl.textContent = `${data.name} - ${data.blog}`;
+      })
+      .catch(handleError);
+      // Displays: Mark Phoenix - https://relativepaths.uk/
+  ```
+
+- Getting response with **`async` `await`**
+  - Below is a bit more modular, allowing you to chose which GitHub users details to display.
+  - Errors are handled with `.catch()`. If there is one it'll display the error on the page.
+
+  ```javascript
+
+      const baseEndpoint = 'https://api.github.com';
+      const usersEndpoint = `${baseEndpoint}/users`;
+      const userEl = document.querySelector('.user');
+
+      function handleError(err) {
+        console.log('Ruh Roh!');
+        console.log(err);
+        // Displays error on page
+        userEl.textContent = `Sorry, something went wrong. ${err}`;
+      }
+
+      async function displayUser(username) {
+        userEl.textContent = `... loading.`;
+        const response = await fetch(`${usersEndpoint}/${username}`);
+        console.log(`${usersEndpoint}/${username}`);
+        const data = await response.json();
+
+        // Displays user name and blog on the page
+        userEl.textContent = `${data.name} - ${data.blog}`;
+      }
+
+      displayUser('ex-jedi').catch(handleError);
+      // Console:  https://api.github.com/users/ex-jedi
+      // Page displays: Mark Phoenix - https://relativepaths.uk/
+  ```
