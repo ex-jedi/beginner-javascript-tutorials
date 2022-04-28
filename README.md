@@ -3070,8 +3070,27 @@ switch (event.key) {
       // Page displays: Mark Phoenix - https://relativepaths.uk/
   ```
 
-# Cross Origin Resource Sharing (CORS)
+## Cross Origin Resource Sharing (CORS)
 
-- By default you can't share data across origins
-- This is a security measure to prevent data from one site being pulled into another
+- By default you can't share data across origins.
+- This is a security measure to prevent data from one site being pulled into another.
 - A CORS policy is implemented on the server which determins how data can be accessed.
+- Some policies might refuse requests from a browser or a non specific server, so you might need to use a proxy as is the case in the course exercise.
+  - If you have sensitive data don't send it through an unknown proxy. It's okay for this exercise as it's just for fun!
+
+    ```javascript
+      const baseEndpoint = 'https://recipes.beginnerjavascript.com/api';
+      // Need to go to URL in a browser to request temporary access
+      const proxy = `https://cors-anywhere.herokuapp.com/`;
+
+
+      async function fetchRecipes(query) {
+        const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
+        const data = await res.json();
+        console.log(data);
+        return data;
+      }
+
+      fetchRecipes('pizza');
+      // Console: {results: Array(24)}
+    ```
