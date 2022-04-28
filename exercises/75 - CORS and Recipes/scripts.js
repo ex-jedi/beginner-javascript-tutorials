@@ -18,9 +18,12 @@ async function fetchRecipes(query) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(event.currentTarget.query.value);
+  const queryForm = event.currentTarget;
+  // Disable form
+  queryForm.submit.disabled = true;
+  // Submit search
+  fetchRecipes(queryForm.query.value).catch(handleError);
+  console.log(queryForm.query.value);
 }
 
 form.addEventListener('submit', handleSubmit);
-
-fetchRecipes('fish').catch(handleError);
