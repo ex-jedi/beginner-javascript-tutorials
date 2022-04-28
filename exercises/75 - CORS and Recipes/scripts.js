@@ -25,6 +25,7 @@ function displayRecipes(recipes) {
       </a>
     </h2>
     <p>${recipe.ingredients}</p>
+    <p>Rating: ${recipe.rating}</p>
     ${
       recipe.thumbnail &&
       `<img src="${recipe.thumbnail}" alt="${recipe.title}" />`
