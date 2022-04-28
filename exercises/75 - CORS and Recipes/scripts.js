@@ -4,6 +4,11 @@ const proxy = `https://cors-anywhere.herokuapp.com/`;
 const form = document.querySelector('form.search');
 const recipesGrid = document.querySelector('.recipes');
 
+function handleError(err) {
+  console.log('Ruh Roh!');
+  console.log(err);
+}
+
 async function fetchRecipes(query) {
   const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
   const data = await res.json();
@@ -11,4 +16,11 @@ async function fetchRecipes(query) {
   return data;
 }
 
-fetchRecipes('pizza');
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log(event.currentTarget.query.value);
+}
+
+form.addEventListener('submit', handleSubmit);
+
+fetchRecipes('fish').catch(handleError);
