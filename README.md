@@ -3069,3 +3069,9 @@ switch (event.key) {
       // Console:  https://api.github.com/users/ex-jedi
       // Page displays: Mark Phoenix - https://relativepaths.uk/
   ```
+
+# Cross Origin Resource Sharing (CORS)
+
+- By default you can't share data across origins
+- This is a security measure to prevent data from one site being pulled into another
+- A CORS policy is implemented on the server which determins how data can be accessed.
