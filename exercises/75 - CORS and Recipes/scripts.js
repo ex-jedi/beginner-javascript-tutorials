@@ -12,18 +12,23 @@ function handleError(err) {
 async function fetchRecipes(query) {
   const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
   const data = await res.json();
-  console.log(data);
   return data;
 }
 
-function handleSubmit(event) {
+function displayRecipes(recipes) {
+  console.log('Display recipes...');
+  console.log(recipes);
+}
+
+async function handleSubmit(event) {
   event.preventDefault();
   const queryForm = event.currentTarget;
   // Disable form
   queryForm.submit.disabled = true;
   // Submit search
-  fetchRecipes(queryForm.query.value).catch(handleError);
-  console.log(queryForm.query.value);
+  const recipes = await fetchRecipes(queryForm.query.value).catch(handleError);
+  displayRecipes(recipes.results);
+  queryForm.submit.disabled = false;
 }
 
 form.addEventListener('submit', handleSubmit);
