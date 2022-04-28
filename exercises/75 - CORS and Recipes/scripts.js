@@ -16,8 +16,24 @@ async function fetchRecipes(query) {
 }
 
 function displayRecipes(recipes) {
-  console.log('Display recipes...');
+  const html = recipes.map(
+    (recipe) => `
+    <div>
+    <h2>
+      <a href="${recipe.href}">
+        ${recipe.title}
+      </a>
+    </h2>
+    <p>${recipe.ingredients}</p>
+    ${
+      recipe.thumbnail &&
+      `<img src="${recipe.thumbnail}" alt="${recipe.title}" />`
+    }
+    </div>
+    `
+  );
   console.log(recipes);
+  recipesGrid.innerHTML = html.join('');
 }
 
 async function handleSubmit(event) {
