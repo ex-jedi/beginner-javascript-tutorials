@@ -18,7 +18,7 @@ async function fetchRecipes(query) {
 function displayRecipes(recipes) {
   const html = recipes.map(
     (recipe) => `
-    <div>
+    <div class='recipe'>
     <h2>
       <a href="${recipe.href}">
         ${recipe.title}
@@ -33,19 +33,23 @@ function displayRecipes(recipes) {
     </div>
     `
   );
-  console.log(recipes);
   recipesGrid.innerHTML = html.join('');
+}
+
+async function fetchAndDisplay(query) {
+  // Disable form
+  form.submit.disabled = true;
+  // Submit search
+  const recipes = await fetchRecipes(query).catch(handleError);
+  displayRecipes(recipes.results);
+  form.submit.disabled = false;
 }
 
 async function handleSubmit(event) {
   event.preventDefault();
-  const queryForm = event.currentTarget;
-  // Disable form
-  queryForm.submit.disabled = true;
-  // Submit search
-  const recipes = await fetchRecipes(queryForm.query.value).catch(handleError);
-  displayRecipes(recipes.results);
-  queryForm.submit.disabled = false;
+  const query = event.currentTarget.query.value;
+  fetchAndDisplay(query);
 }
 
 form.addEventListener('submit', handleSubmit);
+fetchAndDisplay('pizza');
