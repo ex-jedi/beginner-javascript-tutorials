@@ -18,7 +18,7 @@ async function fetchRecipes(query) {
 function displayRecipes(recipes) {
   const html = recipes.map(
     (recipe) => `
-    <div>
+    <div class='recipe'>
     <h2>
       <a href="${recipe.href}">
         ${recipe.title}
@@ -33,7 +33,7 @@ function displayRecipes(recipes) {
     </div>
     `
   );
-  console.log(html.join());
+  console.log(html.join(''));
   recipesGrid.innerHTML = html.join('');
 }
 
