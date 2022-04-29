@@ -15,7 +15,18 @@ async function fetchRecipes(query) {
   return data;
 }
 
-function displayRecipes(recipes) {
+function displayRecipes(recipes, query) {
+  // Display message if no results are found
+  if (!recipes.length) {
+    const noResults = `
+    <div className="recipes">
+      <p>We couldn't find any recipes for ${query}. Please try again.</p>
+    </div>
+    `;
+    recipesGrid.innerHTML = noResults;
+    return;
+  }
+  // Display results if recipes are found.
   const html = recipes.map(
     (recipe) => `
     <div class='recipe'>
@@ -41,7 +52,7 @@ async function fetchAndDisplay(query) {
   form.submit.disabled = true;
   // Submit search
   const recipes = await fetchRecipes(query).catch(handleError);
-  displayRecipes(recipes.results);
+  displayRecipes(recipes.results, query);
   form.submit.disabled = false;
 }
 
