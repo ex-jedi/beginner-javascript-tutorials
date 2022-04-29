@@ -33,7 +33,6 @@ function displayRecipes(recipes) {
     </div>
     `
   );
-  console.log(html.join(''));
   recipesGrid.innerHTML = html.join('');
 }
 
@@ -48,8 +47,8 @@ async function fetchAndDisplay(query) {
 
 async function handleSubmit(event) {
   event.preventDefault();
-  const queryForm = event.currentTarget;
-  fetchAndDisplay(queryForm);
+  const query = event.currentTarget.query.value;
+  fetchAndDisplay(query);
 }
 
 form.addEventListener('submit', handleSubmit);
