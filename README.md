@@ -3078,19 +3078,87 @@ switch (event.key) {
 - Some policies might refuse requests from a browser or a non specific server, so you might need to use a proxy as is the case in the course exercise.
   - If you have sensitive data don't send it through an unknown proxy. It's okay for this exercise as it's just for fun!
 
-    ```javascript
+- Completed code (not including styles) for fetching and displaying recipes from <https://recipes.beginnerjavascript.com/api>
+
+  ```html
+      <div class="wrapper">
+        <form class="search" autocomplete="off">
+          <fieldset>
+            <input type="text" name="query" value="pizza">
+            <button name="submit" type="submit">Submit</button>
+          </fieldset>
+        </form>
+        <div class="recipes"></div>
+      </div>
+  ```
+
+  ```javascript
       const baseEndpoint = 'https://recipes.beginnerjavascript.com/api';
+
       // Need to go to URL in a browser to request temporary access
       const proxy = `https://cors-anywhere.herokuapp.com/`;
+      const form = document.querySelector('form.search');
+      const recipesGrid = document.querySelector('.recipes');
 
+      function handleError(err) {
+        console.log('Ruh Roh!');
+        console.log(err);
+      }
 
       async function fetchRecipes(query) {
         const res = await fetch(`${proxy}${baseEndpoint}?q=${query}`);
         const data = await res.json();
-        console.log(data);
         return data;
       }
 
-      fetchRecipes('pizza');
-      // Console: {results: Array(24)}
-    ```
+      function displayRecipes(recipes, query) {
+        // Display message if no results are found
+        if (!recipes.length) {
+          const noResults = `
+          <div className="recipes">
+            <p>We couldn't find any recipes for ${query}. Please try again.</p>
+          </div>
+          `;
+          recipesGrid.innerHTML = noResults;
+          return;
+        }
+        // Display results if recipes are found.
+        const html = recipes.map(
+          (recipe) => `
+          <div class='recipe'>
+          <h2>
+            <a href="${recipe.href}">
+              ${recipe.title}
+            </a>
+          </h2>
+          <p>${recipe.ingredients}</p>
+          <p>Rating: ${recipe.rating}</p>
+          ${
+            recipe.thumbnail &&
+            `<img src="${recipe.thumbnail}" alt="${recipe.title}" />`
+          }
+          </div>
+          `
+        );
+        recipesGrid.innerHTML = html.join('');
+      }
+
+      async function fetchAndDisplay(query) {
+        // Disable form
+        form.submit.disabled = true;
+        // Submit search
+        const recipes = await fetchRecipes(query).catch(handleError);
+        displayRecipes(recipes.results, query);
+        form.submit.disabled = false;
+      }
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const query = event.currentTarget.query.value;
+        fetchAndDisplay(query);
+      }
+
+      form.addEventListener('submit', handleSubmit);
+      fetchAndDisplay('pizza');
+
+  ```
