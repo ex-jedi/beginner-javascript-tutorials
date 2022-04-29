@@ -33,7 +33,7 @@ function displayRecipes(recipes) {
     </div>
     `
   );
-  console.log(recipes);
+  console.log(html.join());
   recipesGrid.innerHTML = html.join('');
 }
 
