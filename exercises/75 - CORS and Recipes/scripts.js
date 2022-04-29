@@ -16,6 +16,16 @@ async function fetchRecipes(query) {
 }
 
 function displayRecipes(recipes) {
+  if (!recipes.length) {
+    console.log('Nothing');
+    const noResults = `
+    <div className="recipes">
+      <h2>We couldn't find any recipes for that. Please try again. </h2>
+    </div>
+    `;
+    recipesGrid.innerHTML = noResults;
+    return;
+  }
   const html = recipes.map(
     (recipe) => `
     <div class='recipe'>
