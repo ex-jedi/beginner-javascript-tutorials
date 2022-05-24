@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Bind Call and Apply!</title>
-    <link rel="stylesheet" href="../base.css" />
-  </head>
 
-  <body>
-    <p class="paragraph">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus omnis laborum quae nihil
-      exercitationem nesciunt aspernatur commodi cupiditate sequi veniam repudiandae eos odio, quos
-      soluta impedit, illo voluptate provident esse!
-    </p>
-    <script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Bind Call and Apply!</title>
+  <link rel="stylesheet" href="../base.css" />
+</head>
+
+<body>
+  <!-- <p class="paragraph">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus omnis laborum quae nihil
+    exercitationem nesciunt aspernatur commodi cupiditate sequi veniam repudiandae eos odio, quos
+    soluta impedit, illo voluptate provident esse!
+  </p> -->
+  <script>
+
+    const person = {
+      name: 'Mark Phoenix',
+      sayHi() {
+        console.log(this);
+        console.log(`Hey ${this.name}`);
+      }
+    }
+
+    const greeting = person.sayHi.bind(person);
       // const person = {
       //   name: 'Mark',
       //   sayHi() {
@@ -33,16 +44,16 @@
       // // const paragraph = lookFor('.paragraph');
       // console.log($);
 
-      const bill = {
-        total: 1000,
-        calculate(taxRate) {
-          console.log('this =', this);
-          return this.total + this.total * taxRate;
-        },
-        describe(meal, drink, tax) {
-          return `Your meal of ${meal} and ${drink} was £${this.calculate(tax)}`;
-        },
-      };
+      // const bill = {
+      //   total: 1000,
+      //   calculate(taxRate) {
+      //     console.log('this =', this);
+      //     return this.total + this.total * taxRate;
+      //   },
+      //   describe(meal, drink, tax) {
+      //     return `Your meal of ${meal} and ${drink} was £${this.calculate(tax)}`;
+      //   },
+      // };
 
       // const total = bill.calculate(0.25);
       // console.log(total);
@@ -63,28 +74,29 @@
       //   console.log(mealThree);
       //
 
-      function Product(name, price) {
-        this.name = name;
-        this.price = price;
-      }
+      // function Product(name, price) {
+      //   this.name = name;
+      //   this.price = price;
+      // }
 
-      function Food(name, price) {
-        console.log('Food this =', this);
-        Product.call(this, name, price);
-        this.category = 'food';
-      }
+      // function Food(name, price) {
+      //   console.log('Food this =', this);
+      //   Product.call(this, name, price);
+      //   this.category = 'food';
+      // }
 
-      function Toy(name, price) {
-        console.log('Toy this =', this);
-        Product.call(this, name, price);
-        this.category = 'toy';
-      }
+      // function Toy(name, price) {
+      //   console.log('Toy this =', this);
+      //   Product.call(this, name, price);
+      //   this.category = 'toy';
+      // }
 
-      const cheese = new Food('feta', 5);
-      console.log(cheese.name);
-      const fun = new Toy('robot', 40);
-      console.log(fun.price);
-      console.log('wut');
-    </script>
-  </body>
+      // const cheese = new Food('feta', 5);
+      // console.log(cheese.name);
+      // const fun = new Toy('robot', 40);
+      // console.log(fun.price);
+      // console.log('wut');
+  </script>
+</body>
+
 </html>
